@@ -1253,6 +1253,25 @@
               </div>
             </div>
 
+            <!-- DESCRIPTION BOX 1: A* + Step Controls explainer -->
+            <div class="bg-blue-950/25 border border-blue-800/50 rounded-xl p-3 space-y-1.5">
+              <div class="flex items-center gap-2">
+                <span class="text-base">🧠</span>
+                <span class="text-xs font-bold text-blue-300 uppercase tracking-wide">How A* Finds the Shortest Path</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                A* never guesses — it <strong class="text-white">guarantees</strong> the optimal (shortest) solution by scoring every candidate move with
+                <span class="math-pill font-mono font-bold text-emerald-300">$f(n) = g(n) + h_2(n)$</span>.
+                The bar below shows these live values as you step through the solution.
+                <strong class="text-blue-300">$g$</strong> = moves already made &nbsp;·&nbsp;
+                <strong class="text-amber-300">$h_2$</strong> = Manhattan distance still to go &nbsp;·&nbsp;
+                <strong class="text-emerald-300">$f$</strong> = total priority (lowest wins).
+              </p>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                🎮 <strong>Try it:</strong> Scramble the board, click <span class="text-emerald-400 font-bold">⚡ Solve with A*</span>, then use the step controls to walk through every single decision, one tile slide at a time.
+              </p>
+            </div>
+
             <!-- Live State Mathematical Metrics Bar -->
             <div class="grid grid-cols-4 gap-1.5 text-center font-mono">
               <div class="bg-slate-900/90 p-2 rounded-xl border border-slate-800">
@@ -1301,6 +1320,22 @@
               <div id="puzzle-move-narration" class="text-[11px] text-slate-300 font-mono text-center bg-slate-950 p-2 rounded-lg border border-slate-800/80">
                 Ready. Slide tiles manually or scramble to solve.
               </div>
+            </div>
+
+            <!-- DESCRIPTION BOX 2: Playback + Narration explainer -->
+            <div class="bg-amber-950/25 border border-amber-800/50 rounded-xl p-3 space-y-1.5">
+              <div class="flex items-center gap-2">
+                <span class="text-base">💡</span>
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wide">Why Step Through Matters</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                Most search visualisers just play an animation. Here, each step of the scrubber reflects the <strong class="text-white">exact internal decision</strong> A* made —
+                which node it popped from its priority queue and why. The narration banner below the controls tells you which tile moved and in which direction.
+              </p>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                Notice that A* doesn't just rush toward the goal. It also <em>accounts for detours already taken</em>.
+                A move that looks closer to the goal might still have a higher <span class="math-pill font-mono text-emerald-300">$f$</span> if you've already taken a long path to get here — that's what separates A* from a simple Greedy search.
+              </p>
             </div>
 
             <!-- Scramble & Action Toolbar -->
@@ -1361,9 +1396,42 @@
                 <span class="font-bold text-slate-300">Successor Branches from Current State:</span>
                 <span class="text-[10px] text-slate-400">Lowest $f(n)$ popped first</span>
               </div>
+              <!-- DESCRIPTION BOX 3: Candidate branch + decision inspector explainer -->
+              <div class="bg-emerald-950/25 border border-emerald-800/50 rounded-xl p-3 space-y-1.5 mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">⭐</span>
+                  <span class="text-xs font-bold text-emerald-300 uppercase tracking-wide">How A* Picks the Winning Branch</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  Every time A* makes a move, it looks at <strong class="text-white">all legal tile slides</strong> from the blank's current position
+                  and scores each one. The card marked <span class="text-emerald-300 font-bold">★ CHOSEN (Lowest f)</span> is the actual move A* takes —
+                  it has the smallest total estimated cost to the goal.
+                </p>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  The other cards are real alternatives that A* considered but rejected. They stay on the <em>open list</em> (priority queue) and may be
+                  revisited if the chosen path later turns out to be a dead end — that's A*'s guarantee of completeness and optimality.
+                </p>
+              </div>
               <div id="puz-candidate-branches" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <!-- Rendered dynamically by renderCandidateBranches() -->
               </div>
+            </div>
+
+            <!-- DESCRIPTION BOX 4: Manhattan Distance admissibility explainer -->
+            <div class="bg-blue-950/25 border border-blue-800/50 rounded-xl p-3 space-y-1.5">
+              <div class="flex items-center gap-2">
+                <span class="text-base">📐</span>
+                <span class="text-xs font-bold text-blue-300 uppercase tracking-wide">Why Manhattan Distance Is Admissible</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <span class="math-pill font-mono text-amber-300">$h_2$</span> is calculated <strong class="text-white">tile by tile</strong>: for each tile not yet home,
+                count how many squares it must travel horizontally plus vertically to reach its goal position.
+                Add them all up — that's the Manhattan sum. The table below shows this live for every tile in the current state.
+              </p>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                This can <strong class="text-white">never overestimate</strong> the true cost (it's <em>admissible</em>) because tiles cannot jump over each other.
+                Every tile must actually travel at least that many squares — often more. An admissible heuristic guarantees A* always finds the <em>optimal</em> solution.
+              </p>
             </div>
 
             <!-- Tile-by-Tile Manhattan Breakdown Table -->
@@ -1410,6 +1478,24 @@
             <span>&#128640;</span>
             <span>Run Shootout on Current State</span>
           </button>
+        </div>
+
+        <!-- DESCRIPTION BOX 5: Heuristic Shootout explainer -->
+        <div class="bg-amber-950/25 border border-amber-800/50 rounded-xl p-3 space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🏁</span>
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-wide">What This Experiment Shows</span>
+          </div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            All 4 algorithms below solve the <strong class="text-white">exact same board</strong>. The only difference is how they estimate the remaining cost.
+            Watch how <span class="text-emerald-400 font-bold">A* with Manhattan</span> expands far fewer nodes than <span class="text-blue-400 font-bold">A* with Misplaced Tiles</span>,
+            yet always finds the same <em>optimal</em> solution. This is <strong class="text-white">heuristic dominance</strong> — a sharper lower bound means less wasted searching.
+          </p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            <span class="text-amber-400 font-bold">Greedy Best-First</span> uses only <span class="math-pill font-mono text-amber-300">$h_2$</span> (no $g$ at all),
+            so it may find a path fast but it's often <em>suboptimal</em> — it rushes toward the goal without caring how many moves it wasted getting here.
+            <span class="text-purple-400 font-bold">BFS</span> has no heuristic at all, so it expands nodes in waves and can become enormous for hard states.
+          </p>
         </div>
 
         <!-- Shootout Results Cards (4 Columns) -->
@@ -1552,6 +1638,27 @@
           <button onclick="togglePuzzleParity()" id="puz-parity-toggle-btn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-lg border border-slate-700 transition-all">
             &#9888; Swap Tiles 7 &amp; 8 (Toggle Parity)
           </button>
+        </div>
+
+        <!-- DESCRIPTION BOX 6: Inversion Parity explainer -->
+        <div class="bg-purple-950/25 border border-purple-800/50 rounded-xl p-3 space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🧮</span>
+            <span class="text-xs font-bold text-purple-300 uppercase tracking-wide">What Is an Inversion — and Why Does It Decide Solvability?</span>
+          </div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            Flatten the 8-puzzle into a 1D list (ignoring the blank). An <strong class="text-white">inversion</strong> is any pair of tiles where a larger
+            number appears <em>before</em> a smaller one — e.g. <span class="font-mono text-purple-300">(5, 3)</span> is an inversion because 5 > 3 but 5 comes first.
+            Every legal tile slide either <em>preserves the inversion count's parity</em> or changes it by ±2 (keeping it even or odd).
+          </p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            The <strong class="text-white">goal state has 0 inversions</strong> (even). Therefore: only states with an even inversion count can ever reach the goal.
+            If a state has an odd number of inversions, <em>no sequence of legal slides can fix it</em> — it's mathematically impossible.
+            That's why exactly <span class="math-pill font-mono text-purple-300">$rac{9!}{2} = 181{,}440$</span> of the 362,880 possible arrangements are solvable.
+          </p>
+          <p class="text-[11px] text-slate-400">
+            🔬 <strong>Try it:</strong> Click <span class="text-purple-300 font-bold">⚠ Swap Tiles 7 & 8</span> to flip the parity of the current state and watch the verdict change instantly.
+          </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 text-xs">
