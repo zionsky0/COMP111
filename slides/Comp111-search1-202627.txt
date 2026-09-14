@@ -1,0 +1,2446 @@
+
+--- PAGE 1 ---
+COMP111: Artificial Intelligence
+Introduction to Tree Search Problems
+Frank Wolter
+--- PAGE 2 ---
+Content
+▶Introduce problem solving through tree search;▶Show how such problems can be stated as search graphs;
+▶Show how the search tree is generated from the search graph;
+▶Introduce the main blind (also called uninformed) tree search
+algorithms:
+▶breadth-first search (BFS);
+▶depth-first search (DFS);
+▶Introduce the main performance measures for tree search
+algorithms and analyse BFS and DFS.
+--- PAGE 3 ---
+Content
+▶Introduce problem solving through tree search;
+▶Show how such problems can be stated as search graphs;▶Show how the search tree is generated from the search graph;
+▶Introduce the main blind (also called uninformed) tree search
+algorithms:
+▶breadth-first search (BFS);
+▶depth-first search (DFS);
+▶Introduce the main performance measures for tree search
+algorithms and analyse BFS and DFS.
+--- PAGE 4 ---
+Content
+▶Introduce problem solving through tree search;
+▶Show how such problems can be stated as search graphs;
+▶Show how the search tree is generated from the search graph;▶Introduce the main blind (also called uninformed) tree search
+algorithms:
+▶breadth-first search (BFS);
+▶depth-first search (DFS);
+▶Introduce the main performance measures for tree search
+algorithms and analyse BFS and DFS.
+--- PAGE 5 ---
+Content
+▶Introduce problem solving through tree search;
+▶Show how such problems can be stated as search graphs;
+▶Show how the search tree is generated from the search graph;
+▶Introduce the main blind (also called uninformed) tree search
+algorithms:
+▶breadth-first search (BFS);
+▶depth-first search (DFS);▶Introduce the main performance measures for tree search
+algorithms and analyse BFS and DFS.
+--- PAGE 6 ---
+Content
+▶Introduce problem solving through tree search;
+▶Show how such problems can be stated as search graphs;
+▶Show how the search tree is generated from the search graph;
+▶Introduce the main blind (also called uninformed) tree search
+algorithms:
+▶breadth-first search (BFS);
+▶depth-first search (DFS);
+▶Introduce the main performance measures for tree search
+algorithms and analyse BFS and DFS.
+--- PAGE 7 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).▶The goal is the state of affairs the agent wants to bring about.
+▶The difficulty is deciding the order in which the actions are
+carried out.
+▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).
+▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.
+▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 8 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).
+▶The goal is the state of affairs the agent wants to bring about.▶The difficulty is deciding the order in which the actions are
+carried out.
+▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).
+▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.
+▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 9 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).
+▶The goal is the state of affairs the agent wants to bring about.
+▶The difficulty is deciding the order in which the actions are
+carried out.▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).
+▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.
+▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 10 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).
+▶The goal is the state of affairs the agent wants to bring about.
+▶The difficulty is deciding the order in which the actions are
+carried out.
+▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.
+▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 11 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).
+▶The goal is the state of affairs the agent wants to bring about.
+▶The difficulty is deciding the order in which the actions are
+carried out.
+▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).
+▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 12 ---
+Solving Problems by Searching
+▶Consider an agent with a goal and a set of actions it can
+perform to reach the goal (a goal-based agent).
+▶The goal is the state of affairs the agent wants to bring about.
+▶The difficulty is deciding the order in which the actions are
+carried out.
+▶The agent thus wants to compute a sequence of actions
+leading to the goal, and possibly satisfying an optimality
+condition (e.g. being as cheap as possible).
+▶Describing the goal, the relevant states, the possible actions
+and the optimality criterion is called problem formulation.
+▶Looking for a sequence of actions that leads to a goal state
+(and is optimal) is called search.
+--- PAGE 13 ---
+Search is Everywhere
+The algorithms in this lecture are 60 years old and still run, every
+day, inside:
+▶Route planning: Google Maps / satnav (search over a road
+graph);▶Robotics and warehouses: an Amazon or Ocado robot
+planning a collision-free path;
+▶Game AI: from Deep Blue’s chess search to AlphaGo’s
+Monte-Carlo treesearch;
+▶LLM agents (2023–): a model that plans, calls a tool,
+observes and backtracks is exploring a tree of possible action
+sequences.
+The vocabulary we now define — state, action, frontier, branching
+factor — is the vocabulary used in all of these.
+--- PAGE 14 ---
+Search is Everywhere
+The algorithms in this lecture are 60 years old and still run, every
+day, inside:
+▶Route planning: Google Maps / satnav (search over a road
+graph);
+▶Robotics and warehouses: an Amazon or Ocado robot
+planning a collision-free path;▶Game AI: from Deep Blue’s chess search to AlphaGo’s
+Monte-Carlo treesearch;
+▶LLM agents (2023–): a model that plans, calls a tool,
+observes and backtracks is exploring a tree of possible action
+sequences.
+The vocabulary we now define — state, action, frontier, branching
+factor — is the vocabulary used in all of these.
+--- PAGE 15 ---
+Search is Everywhere
+The algorithms in this lecture are 60 years old and still run, every
+day, inside:
+▶Route planning: Google Maps / satnav (search over a road
+graph);
+▶Robotics and warehouses: an Amazon or Ocado robot
+planning a collision-free path;
+▶Game AI: from Deep Blue’s chess search to AlphaGo’s
+Monte-Carlo treesearch;▶LLM agents (2023–): a model that plans, calls a tool,
+observes and backtracks is exploring a tree of possible action
+sequences.
+The vocabulary we now define — state, action, frontier, branching
+factor — is the vocabulary used in all of these.
+--- PAGE 16 ---
+Search is Everywhere
+The algorithms in this lecture are 60 years old and still run, every
+day, inside:
+▶Route planning: Google Maps / satnav (search over a road
+graph);
+▶Robotics and warehouses: an Amazon or Ocado robot
+planning a collision-free path;
+▶Game AI: from Deep Blue’s chess search to AlphaGo’s
+Monte-Carlo treesearch;
+▶LLM agents (2023–): a model that plans, calls a tool,
+observes and backtracks is exploring a tree of possible action
+sequences.The vocabulary we now define — state, action, frontier, branching
+factor — is the vocabulary used in all of these.
+--- PAGE 17 ---
+Search is Everywhere
+The algorithms in this lecture are 60 years old and still run, every
+day, inside:
+▶Route planning: Google Maps / satnav (search over a road
+graph);
+▶Robotics and warehouses: an Amazon or Ocado robot
+planning a collision-free path;
+▶Game AI: from Deep Blue’s chess search to AlphaGo’s
+Monte-Carlo treesearch;
+▶LLM agents (2023–): a model that plans, calls a tool,
+observes and backtracks is exploring a tree of possible action
+sequences.
+The vocabulary we now define — state, action, frontier, branching
+factor — is the vocabulary used in all of these.
+--- PAGE 18 ---
+Four Running Examples
+▶Example 1: the 8-Puzzle
+▶Example 2: Holiday in Romania
+▶Example 3: the Vacuum cleaner world
+▶Example 4: the 8 Queens ProblemWe use the same four examples throughout: first to formulate the
+problem, then to measure how hard search on it is.
+--- PAGE 19 ---
+Four Running Examples
+▶Example 1: the 8-Puzzle
+▶Example 2: Holiday in Romania
+▶Example 3: the Vacuum cleaner world
+▶Example 4: the 8 Queens Problem
+We use the same four examples throughout: first to formulate the
+problem, then to measure how hard search on it is.
+--- PAGE 20 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 21 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 22 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 23 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 24 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 25 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 26 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.We now determine the search graph for each of the four problems.
+--- PAGE 27 ---
+Problem Formulation: the Search Graph
+▶First determine the set Sof possible states of the problem.
+▶The search graph for the problem is then given by:
+▶the set Sof states;
+▶a start state sstartfrom S;
+▶a set Sgoal⊆Sof goal states;
+▶a set Aof actions taking the agent from one state in Sto
+another; we often do not name the actions but simply say
+which states are reachable from a state by a single action;
+▶a cost function stating how expensive an action is. If all actions
+are equally expensive we set cost( a) = 1 for every action a.
+▶A solution is a sequence of actions which, performed in sstart,
+takes the agent to a state in Sgoal. A solution is optimal if
+there is no cheaper solution.
+We now determine the search graph for each of the four problems.
+--- PAGE 28 ---
+Example 1: the 8-Puzzle
+2
+Start State Goal State51 3
+4 6
+785
+12
+34
+67
+85
+Slide tiles into the empty square until the tiles are in order.
+▶States S: every way of filling the 3 ×3 grid with 1–8 and a
+blank;▶Start state sstart: a single state, e.g. the one shown on the left;
+▶Goal states Sgoal: the single state shown on the right;
+▶Actions: slide the tile left of / right of / above / below the
+blank into the blank;
+▶Cost: 1 per action, so an optimal solution is a shortest
+sequence of moves.
+--- PAGE 29 ---
+Example 1: the 8-Puzzle
+2
+Start State Goal State51 3
+4 6
+785
+12
+34
+67
+85
+Slide tiles into the empty square until the tiles are in order.
+▶States S: every way of filling the 3 ×3 grid with 1–8 and a
+blank;
+▶Start state sstart: a single state, e.g. the one shown on the left;▶Goal states Sgoal: the single state shown on the right;
+▶Actions: slide the tile left of / right of / above / below the
+blank into the blank;
+▶Cost: 1 per action, so an optimal solution is a shortest
+sequence of moves.
+--- PAGE 30 ---
+Example 1: the 8-Puzzle
+2
+Start State Goal State51 3
+4 6
+785
+12
+34
+67
+85
+Slide tiles into the empty square until the tiles are in order.
+▶States S: every way of filling the 3 ×3 grid with 1–8 and a
+blank;
+▶Start state sstart: a single state, e.g. the one shown on the left;
+▶Goal states Sgoal: the single state shown on the right;▶Actions: slide the tile left of / right of / above / below the
+blank into the blank;
+▶Cost: 1 per action, so an optimal solution is a shortest
+sequence of moves.
+--- PAGE 31 ---
+Example 1: the 8-Puzzle
+2
+Start State Goal State51 3
+4 6
+785
+12
+34
+67
+85
+Slide tiles into the empty square until the tiles are in order.
+▶States S: every way of filling the 3 ×3 grid with 1–8 and a
+blank;
+▶Start state sstart: a single state, e.g. the one shown on the left;
+▶Goal states Sgoal: the single state shown on the right;
+▶Actions: slide the tile left of / right of / above / below the
+blank into the blank;▶Cost: 1 per action, so an optimal solution is a shortest
+sequence of moves.
+--- PAGE 32 ---
+Example 1: the 8-Puzzle
+2
+Start State Goal State51 3
+4 6
+785
+12
+34
+67
+85
+Slide tiles into the empty square until the tiles are in order.
+▶States S: every way of filling the 3 ×3 grid with 1–8 and a
+blank;
+▶Start state sstart: a single state, e.g. the one shown on the left;
+▶Goal states Sgoal: the single state shown on the right;
+▶Actions: slide the tile left of / right of / above / below the
+blank into the blank;
+▶Cost: 1 per action, so an optimal solution is a shortest
+sequence of moves.
+--- PAGE 33 ---
+Exercise: drawing part of the search graph
+▶When drawing a search graph we abstract from the actions
+and simply draw an arrow from a state sto each state
+reachable from sby one action. These are the successor
+states of s. Conversely, s′is a predecessor of sifsis a
+successor of s′.▶Exercise. Draw part of the search graph of the 8-puzzle: list
+the successor states of the start state on the previous slide,
+and the predecessor states of the goal state.
+▶Question. The 8-puzzle graph is undirected: every action can
+be undone. Which of our four examples have this property,
+and which do not?
+--- PAGE 34 ---
+Exercise: drawing part of the search graph
+▶When drawing a search graph we abstract from the actions
+and simply draw an arrow from a state sto each state
+reachable from sby one action. These are the successor
+states of s. Conversely, s′is a predecessor of sifsis a
+successor of s′.
+▶Exercise. Draw part of the search graph of the 8-puzzle: list
+the successor states of the start state on the previous slide,
+and the predecessor states of the goal state.▶Question. The 8-puzzle graph is undirected: every action can
+be undone. Which of our four examples have this property,
+and which do not?
+--- PAGE 35 ---
+Exercise: drawing part of the search graph
+▶When drawing a search graph we abstract from the actions
+and simply draw an arrow from a state sto each state
+reachable from sby one action. These are the successor
+states of s. Conversely, s′is a predecessor of sifsis a
+successor of s′.
+▶Exercise. Draw part of the search graph of the 8-puzzle: list
+the successor states of the start state on the previous slide,
+and the predecessor states of the goal state.
+▶Question. The 8-puzzle graph is undirected: every action can
+be undone. Which of our four examples have this property,
+and which do not?
+--- PAGE 36 ---
+Example 2: Holiday in Romania
+On holiday in Romania; currently in Arad. Drive as quickly as
+possible to Bucharest.
+GiurgiuUrziceniHirsova
+EforieNeamtOradea
+Zerind
+Arad
+Timisoara
+Lugoj
+Mehadia
+Dobreta
+CraiovaSibiu Fagaras
+PitestiVasluiIasi
+Rimnicu Vilcea
+Bucharest71
+75
+118
+111
+70
+75
+120151
+140
+99
+80
+97
+101211
+138146 85
+90981429287
+86
+▶States S: being in a city on the map: in Arad, in Zerind, in
+Oradea, . . .▶Start state sstart: in Arad; Goal states Sgoal: in Bucharest;
+▶Actions: drive from atobforneighbouring cities a,b. There
+is no single action from Arad to Oradea;
+▶Cost: the km driven. Here the map isthe search graph.
+--- PAGE 37 ---
+Example 2: Holiday in Romania
+On holiday in Romania; currently in Arad. Drive as quickly as
+possible to Bucharest.
+GiurgiuUrziceniHirsova
+EforieNeamtOradea
+Zerind
+Arad
+Timisoara
+Lugoj
+Mehadia
+Dobreta
+CraiovaSibiu Fagaras
+PitestiVasluiIasi
+Rimnicu Vilcea
+Bucharest71
+75
+118
+111
+70
+75
+120151
+140
+99
+80
+97
+101211
+138146 85
+90981429287
+86
+▶States S: being in a city on the map: in Arad, in Zerind, in
+Oradea, . . .
+▶Start state sstart: in Arad; Goal states Sgoal: in Bucharest;▶Actions: drive from atobforneighbouring cities a,b. There
+is no single action from Arad to Oradea;
+▶Cost: the km driven. Here the map isthe search graph.
+--- PAGE 38 ---
+Example 2: Holiday in Romania
+On holiday in Romania; currently in Arad. Drive as quickly as
+possible to Bucharest.
+GiurgiuUrziceniHirsova
+EforieNeamtOradea
+Zerind
+Arad
+Timisoara
+Lugoj
+Mehadia
+Dobreta
+CraiovaSibiu Fagaras
+PitestiVasluiIasi
+Rimnicu Vilcea
+Bucharest71
+75
+118
+111
+70
+75
+120151
+140
+99
+80
+97
+101211
+138146 85
+90981429287
+86
+▶States S: being in a city on the map: in Arad, in Zerind, in
+Oradea, . . .
+▶Start state sstart: in Arad; Goal states Sgoal: in Bucharest;
+▶Actions: drive from atobforneighbouring cities a,b. There
+is no single action from Arad to Oradea;▶Cost: the km driven. Here the map isthe search graph.
+--- PAGE 39 ---
+Example 2: Holiday in Romania
+On holiday in Romania; currently in Arad. Drive as quickly as
+possible to Bucharest.
+GiurgiuUrziceniHirsova
+EforieNeamtOradea
+Zerind
+Arad
+Timisoara
+Lugoj
+Mehadia
+Dobreta
+CraiovaSibiu Fagaras
+PitestiVasluiIasi
+Rimnicu Vilcea
+Bucharest71
+75
+118
+111
+70
+75
+120151
+140
+99
+80
+97
+101211
+138146 85
+90981429287
+86
+▶States S: being in a city on the map: in Arad, in Zerind, in
+Oradea, . . .
+▶Start state sstart: in Arad; Goal states Sgoal: in Bucharest;
+▶Actions: drive from atobforneighbouring cities a,b. There
+is no single action from Arad to Oradea;
+▶Cost: the km driven. Here the map isthe search graph.
+--- PAGE 40 ---
+Example 3: the Vacuum cleaner world
+A B
+Possible start
+ Possible goal
+Two rooms; each may contain dirt; the cleaner is in one of them.
+▶States S: the 8 situations (cleaner left/right ×dirt in each
+room: 2 ×2×2);▶Start state sstart: any state; Goal states Sgoal: both rooms
+clean;
+▶Actions: move left, move right, suck;
+▶Cost: 1 per action.
+--- PAGE 41 ---
+Example 3: the Vacuum cleaner world
+A B
+Possible start
+ Possible goal
+Two rooms; each may contain dirt; the cleaner is in one of them.
+▶States S: the 8 situations (cleaner left/right ×dirt in each
+room: 2 ×2×2);
+▶Start state sstart: any state; Goal states Sgoal: both rooms
+clean;▶Actions: move left, move right, suck;
+▶Cost: 1 per action.
+--- PAGE 42 ---
+Example 3: the Vacuum cleaner world
+A B
+Possible start
+ Possible goal
+Two rooms; each may contain dirt; the cleaner is in one of them.
+▶States S: the 8 situations (cleaner left/right ×dirt in each
+room: 2 ×2×2);
+▶Start state sstart: any state; Goal states Sgoal: both rooms
+clean;
+▶Actions: move left, move right, suck;▶Cost: 1 per action.
+--- PAGE 43 ---
+Example 3: the Vacuum cleaner world
+A B
+Possible start
+ Possible goal
+Two rooms; each may contain dirt; the cleaner is in one of them.
+▶States S: the 8 situations (cleaner left/right ×dirt in each
+room: 2 ×2×2);
+▶Start state sstart: any state; Goal states Sgoal: both rooms
+clean;
+▶Actions: move left, move right, suck;
+▶Cost: 1 per action.
+--- PAGE 44 ---
+Example 3: the state space in full
+1 2
+3 4
+5 6
+7 8This is the whole search graph — all 8 states and all transitions.
+--- PAGE 45 ---
+Example 3: the state space in full
+1 2
+3 4
+5 6
+7 8
+This is the whole search graph — all 8 states and all transitions.
+--- PAGE 46 ---
+Example 4: the 8 Queens Problem
+2
+2
+1
+2
+3
+1
+23
+3
+2
+3
+2
+3
+0
+Place 8 queens on a chess board so that
+no queen attacks another.
+(A queen attacks any piece in the same row,
+column or diagonal.)
+▶States S: any arrangement of 0 to 8 queens on the board;▶Start state sstart: the empty board;
+▶Goal states Sgoal: 8 queens placed, no queen attacking
+another;
+▶Actions: add a queen to an empty square;
+▶Cost: irrelevant — every solution has the same length (8
+actions). Here we only care whether we find a goal, not how
+we got there.
+--- PAGE 47 ---
+Example 4: the 8 Queens Problem
+2
+2
+1
+2
+3
+1
+23
+3
+2
+3
+2
+3
+0
+Place 8 queens on a chess board so that
+no queen attacks another.
+(A queen attacks any piece in the same row,
+column or diagonal.)
+▶States S: any arrangement of 0 to 8 queens on the board;
+▶Start state sstart: the empty board;▶Goal states Sgoal: 8 queens placed, no queen attacking
+another;
+▶Actions: add a queen to an empty square;
+▶Cost: irrelevant — every solution has the same length (8
+actions). Here we only care whether we find a goal, not how
+we got there.
+--- PAGE 48 ---
+Example 4: the 8 Queens Problem
+2
+2
+1
+2
+3
+1
+23
+3
+2
+3
+2
+3
+0
+Place 8 queens on a chess board so that
+no queen attacks another.
+(A queen attacks any piece in the same row,
+column or diagonal.)
+▶States S: any arrangement of 0 to 8 queens on the board;
+▶Start state sstart: the empty board;
+▶Goal states Sgoal: 8 queens placed, no queen attacking
+another;▶Actions: add a queen to an empty square;
+▶Cost: irrelevant — every solution has the same length (8
+actions). Here we only care whether we find a goal, not how
+we got there.
+--- PAGE 49 ---
+Example 4: the 8 Queens Problem
+2
+2
+1
+2
+3
+1
+23
+3
+2
+3
+2
+3
+0
+Place 8 queens on a chess board so that
+no queen attacks another.
+(A queen attacks any piece in the same row,
+column or diagonal.)
+▶States S: any arrangement of 0 to 8 queens on the board;
+▶Start state sstart: the empty board;
+▶Goal states Sgoal: 8 queens placed, no queen attacking
+another;
+▶Actions: add a queen to an empty square;▶Cost: irrelevant — every solution has the same length (8
+actions). Here we only care whether we find a goal, not how
+we got there.
+--- PAGE 50 ---
+Example 4: the 8 Queens Problem
+2
+2
+1
+2
+3
+1
+23
+3
+2
+3
+2
+3
+0
+Place 8 queens on a chess board so that
+no queen attacks another.
+(A queen attacks any piece in the same row,
+column or diagonal.)
+▶States S: any arrangement of 0 to 8 queens on the board;
+▶Start state sstart: the empty board;
+▶Goal states Sgoal: 8 queens placed, no queen attacking
+another;
+▶Actions: add a queen to an empty square;
+▶Cost: irrelevant — every solution has the same length (8
+actions). Here we only care whether we find a goal, not how
+we got there.
+--- PAGE 51 ---
+Formulation matters: two graphs for 8 Queens
+Same problem, two search graphs:
+Naive: add a queen to any
+empty square.Better: add a queen to the
+leftmost empty column, on
+a square not attacked by an
+existing queen.Does the better formulation lose solutions? No:
+▶every solution has one queen per column, so fixing the column
+order only removes ”up to column permutation” equivalent
+paths.
+--- PAGE 52 ---
+Formulation matters: two graphs for 8 Queens
+Same problem, two search graphs:
+Naive: add a queen to any
+empty square.Better: add a queen to the
+leftmost empty column, on
+a square not attacked by an
+existing queen.
+Does the better formulation lose solutions? No:
+▶every solution has one queen per column, so fixing the column
+order only removes ”up to column permutation” equivalent
+paths.
+--- PAGE 53 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1 .8×1050.02 seconds
+15-Puzzle 101312 days
+Rubik’s Cube 4 .3×1019140 ,000 years
+24-Puzzle 102524 billion years
+Checkers 5 ×1020
+Chess 1045
+Go (19 ×19) 10170For comparison: there are roughly 1080atoms in the observable
+universe.
+From now on we assume the search graph cannot be stored. It is
+imaginary: we generate only the small part of it that we actually
+look at.
+--- PAGE 54 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1 .8×1050.02 seconds
+15-Puzzle 101312 days
+Rubik’s Cube 4 .3×1019140 ,000 years
+24-Puzzle 102524 billion years
+Checkers 5 ×1020
+Chess 1045
+Go (19 ×19) 10170
+For comparison: there are roughly 1080atoms in the observable
+universe.From now on we assume the search graph cannot be stored. It is
+imaginary: we generate only the small part of it that we actually
+look at.
+--- PAGE 55 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1 .8×1050.02 seconds
+15-Puzzle 101312 days
+Rubik’s Cube 4 .3×1019140 ,000 years
+24-Puzzle 102524 billion years
+Checkers 5 ×1020
+Chess 1045
+Go (19 ×19) 10170
+For comparison: there are roughly 1080atoms in the observable
+universe.
+From now on we assume the search graph cannot be stored. It is
+imaginary: we generate only the small part of it that we actually
+look at.
+--- PAGE 56 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1060.01 seconds
+15-Puzzle 10136 days
+Rubik’s Cube 101868,000 years
+24-Puzzle 102612 billion years
+Checkers 1040(solved in 2007, after 18 years of computation)
+Chess 1045
+Go (19 ×19) 10170For comparison: there are about 1080atoms in the observable
+universe. From now on we assume the search graph cannot be
+stored. It is imaginary: we only ever generate the small part of it
+that we look at.
+--- PAGE 57 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1060.01 seconds
+15-Puzzle 10136 days
+Rubik’s Cube 101868,000 years
+24-Puzzle 102612 billion years
+Checkers 1040(solved in 2007, after 18 years of computation)
+Chess 1045
+Go (19 ×19) 10170
+For comparison: there are about 1080atoms in the observable
+universe.From now on we assume the search graph cannot be
+stored. It is imaginary: we only ever generate the small part of it
+that we look at.
+--- PAGE 58 ---
+Size of the search graph
+Our examples are toys. Real state spaces are huge:
+Problem States Brute-force search (10 million states/sec)
+8-Puzzle 1060.01 seconds
+15-Puzzle 10136 days
+Rubik’s Cube 101868,000 years
+24-Puzzle 102612 billion years
+Checkers 1040(solved in 2007, after 18 years of computation)
+Chess 1045
+Go (19 ×19) 10170
+For comparison: there are about 1080atoms in the observable
+universe. From now on we assume the search graph cannot be
+stored. It is imaginary: we only ever generate the small part of it
+that we look at.
+--- PAGE 59 ---
+Search
+We assume that
+▶the start state sstartis given;▶the actions are given in the form: if in state s, then s1, . . . , sn
+can be reached (the successor states of s);
+▶a test for the goal states is given.
+Search is the systematic exploration of the search tree: the tree of
+all paths of states that start at sstartand follow available actions,
+until a path to a goal state is found.
+The search tree is also imaginary: it is generated as we go. Note it
+may be infinite even when the search graph is finite (paths may
+revisit states).
+--- PAGE 60 ---
+Search
+We assume that
+▶the start state sstartis given;
+▶the actions are given in the form: if in state s, then s1, . . . , sn
+can be reached (the successor states of s);▶a test for the goal states is given.
+Search is the systematic exploration of the search tree: the tree of
+all paths of states that start at sstartand follow available actions,
+until a path to a goal state is found.
+The search tree is also imaginary: it is generated as we go. Note it
+may be infinite even when the search graph is finite (paths may
+revisit states).
+--- PAGE 61 ---
+Search
+We assume that
+▶the start state sstartis given;
+▶the actions are given in the form: if in state s, then s1, . . . , sn
+can be reached (the successor states of s);
+▶a test for the goal states is given.Search is the systematic exploration of the search tree: the tree of
+all paths of states that start at sstartand follow available actions,
+until a path to a goal state is found.
+The search tree is also imaginary: it is generated as we go. Note it
+may be infinite even when the search graph is finite (paths may
+revisit states).
+--- PAGE 62 ---
+Search
+We assume that
+▶the start state sstartis given;
+▶the actions are given in the form: if in state s, then s1, . . . , sn
+can be reached (the successor states of s);
+▶a test for the goal states is given.
+Search is the systematic exploration of the search tree: the tree of
+all paths of states that start at sstartand follow available actions,
+until a path to a goal state is found.The search tree is also imaginary: it is generated as we go. Note it
+may be infinite even when the search graph is finite (paths may
+revisit states).
+--- PAGE 63 ---
+Search
+We assume that
+▶the start state sstartis given;
+▶the actions are given in the form: if in state s, then s1, . . . , sn
+can be reached (the successor states of s);
+▶a test for the goal states is given.
+Search is the systematic exploration of the search tree: the tree of
+all paths of states that start at sstartand follow available actions,
+until a path to a goal state is found.
+The search tree is also imaginary: it is generated as we go. Note it
+may be infinite even when the search graph is finite (paths may
+revisit states).
+--- PAGE 64 ---
+Search Tree for Holiday in Romania
+The paths starting in Arad are:
+▶Arad;▶Arad, Sibiu Arad, Timisoara Arad, Zerind;
+▶Arad, Sibiu, Arad Arad, Sibiu, Fagaras and so on.
+So there is 1 path of length 0, 3 paths of length 1, 8 paths of
+length 2, . . . Note Arad, Sibiu, Arad: paths may revisit a state.
+The tree is therefore infinite.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 65 ---
+Search Tree for Holiday in Romania
+The paths starting in Arad are:
+▶Arad;
+▶Arad, Sibiu Arad, Timisoara Arad, Zerind;▶Arad, Sibiu, Arad Arad, Sibiu, Fagaras and so on.
+So there is 1 path of length 0, 3 paths of length 1, 8 paths of
+length 2, . . . Note Arad, Sibiu, Arad: paths may revisit a state.
+The tree is therefore infinite.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 66 ---
+Search Tree for Holiday in Romania
+The paths starting in Arad are:
+▶Arad;
+▶Arad, Sibiu Arad, Timisoara Arad, Zerind;
+▶Arad, Sibiu, Arad Arad, Sibiu, Fagaras and so on.So there is 1 path of length 0, 3 paths of length 1, 8 paths of
+length 2, . . . Note Arad, Sibiu, Arad: paths may revisit a state.
+The tree is therefore infinite.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 67 ---
+Search Tree for Holiday in Romania
+The paths starting in Arad are:
+▶Arad;
+▶Arad, Sibiu Arad, Timisoara Arad, Zerind;
+▶Arad, Sibiu, Arad Arad, Sibiu, Fagaras and so on.
+So there is 1 path of length 0, 3 paths of length 1, 8 paths of
+length 2, . . .Note Arad, Sibiu, Arad: paths may revisit a state.
+The tree is therefore infinite.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 68 ---
+Search Tree for Holiday in Romania
+The paths starting in Arad are:
+▶Arad;
+▶Arad, Sibiu Arad, Timisoara Arad, Zerind;
+▶Arad, Sibiu, Arad Arad, Sibiu, Fagaras and so on.
+So there is 1 path of length 0, 3 paths of length 1, 8 paths of
+length 2, . . . Note Arad, Sibiu, Arad: paths may revisit a state.
+The tree is therefore infinite.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 69 ---
+Growing the Search Tree
+▶The root of the tree is the start state sstart;
+▶Applying actions, we grow longer paths by appending
+successor states to a path. This is called expanding the path.
+Rimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad OradeaArad
+--- PAGE 70 ---
+Growing the Search Tree
+▶The root of the tree is the start state sstart;
+▶Applying actions, we grow longer paths by appending
+successor states to a path. This is called expanding the path.
+Rimnicu Vilcea Lugoj Arad Fagaras Oradea Arad Arad OradeaZerindArad
+Sibiu Timisoara
+--- PAGE 71 ---
+Growing the Search Tree
+▶The root of the tree is the start state sstart;
+▶Applying actions, we grow longer paths by appending
+successor states to a path. This is called expanding the path.
+Lugoj Arad Arad Oradea Rimnicu VilceaZerindArad
+Sibiu
+Arad Fagaras OradeaTimisoara
+--- PAGE 72 ---
+The Search Tree
+(a) The initial state
+(b) After expanding Arad
+(c) After expanding SibiuRimnicu Vilcea Lugoj Arad Fagaras Oradea Arad Arad OradeaRimnicu Vilcea LugojZerind Sibiu
+Arad Fagaras OradeaTimisoara
+Arad Arad Oradea
+Lugoj Arad Arad OradeaZerindArad
+Sibiu TimisoaraArad
+Rimnicu VilceaZerindArad
+Sibiu
+Arad Fagaras OradeaTimisoara
+A search algorithm is a rule for deciding which path to grow next.
+--- PAGE 73 ---
+Pseudocode
+In this module we give algorithms in pseudocode: informal,
+high-level descriptions intended for human rather than machine
+reading.Pseudocode abstracts from implementation details and may leave
+steps (or subroutines) unspecified.
+We now give a generic search algorithm which, in fact, leaves one
+very important step open.
+--- PAGE 74 ---
+Pseudocode
+In this module we give algorithms in pseudocode: informal,
+high-level descriptions intended for human rather than machine
+reading.
+Pseudocode abstracts from implementation details and may leave
+steps (or subroutines) unspecified.We now give a generic search algorithm which, in fact, leaves one
+very important step open.
+--- PAGE 75 ---
+Pseudocode
+In this module we give algorithms in pseudocode: informal,
+high-level descriptions intended for human rather than machine
+reading.
+Pseudocode abstracts from implementation details and may leave
+steps (or subroutines) unspecified.
+We now give a generic search algorithm which, in fact, leaves one
+very important step open.
+--- PAGE 76 ---
+Generic Algorithm for Search
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:Set frontier := {s0}
+5:while frontier is not empty do
+6: select and remove from frontier a path s0. . .sk
+7: ifgoal( sk)then
+8: return s0. . .sk(and terminate)
+9: else for every successor sofskadds0. . .sksto frontier
+10: end if
+11:end while
+12:return failureThe frontier (also called agenda) holds the paths generated but
+not yet expanded.
+--- PAGE 77 ---
+Generic Algorithm for Search
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:Set frontier := {s0}
+5:while frontier is not empty do
+6: select and remove from frontier a path s0. . .sk
+7: ifgoal( sk)then
+8: return s0. . .sk(and terminate)
+9: else for every successor sofskadds0. . .sksto frontier
+10: end if
+11:end while
+12:return failure
+The frontier (also called agenda) holds the paths generated but
+not yet expanded.
+--- PAGE 78 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 79 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 80 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 81 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 82 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 83 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 84 ---
+Generic Algorithm for Search: comments
+▶The input is a start state s0, a way of producing the successors
+of a state, and a way of testing whether a state is a goal state.
+▶The algorithm maintains a set frontier of paths, initially just
+the path s0.
+▶While frontier is non-empty, it selects and removes a path
+from it (we say the path is expanded).
+▶If the last state of that path is a goal state, it terminates and
+returns the path.
+▶Otherwise it adds to frontier every path obtained by
+appending one successor.
+▶Then it repeats, selecting from the updated frontier.
+▶Note: the frontier stores paths, not states — we must return
+the route, not just the news that a goal exists.
+--- PAGE 85 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier?Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 86 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 87 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 88 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 89 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 90 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).One line of difference. Completely different behaviour.
+--- PAGE 91 ---
+What the Generic Algorithm Leaves Open
+▶Which path s0. . .skdo we select and remove from the
+frontier? Equivalently: which path do we expand? (Or
+loosely: which state skdo we expand?)
+▶In which order do we add the new paths s0. . .sksto the
+frontier?
+The second question we ignore (don’t-care non-determinism). The
+first question is the algorithm:
+▶Breadth-first search (BFS): always select the path first added
+to the frontier (frontier as a queue, FIFO);
+▶Depth-first search (DFS): always select the path last added to
+the frontier (frontier as a stack, LIFO).
+One line of difference. Completely different behaviour.
+--- PAGE 92 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;▶Then expand all paths produced in the previous step — depth
+2;
+▶Then expand all paths produced in that step — depth 3;
+▶and so on.
+In general: expand all paths of length nbefore any path of length n+ 1.
+Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 93 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;
+▶Then expand all paths produced in the previous step — depth
+2;▶Then expand all paths produced in that step — depth 3;
+▶and so on.
+In general: expand all paths of length nbefore any path of length n+ 1.
+Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 94 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;
+▶Then expand all paths produced in the previous step — depth
+2;
+▶Then expand all paths produced in that step — depth 3;▶and so on.
+In general: expand all paths of length nbefore any path of length n+ 1.
+Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 95 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;
+▶Then expand all paths produced in the previous step — depth
+2;
+▶Then expand all paths produced in that step — depth 3;
+▶and so on.In general: expand all paths of length nbefore any path of length n+ 1.
+Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 96 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;
+▶Then expand all paths produced in the previous step — depth
+2;
+▶Then expand all paths produced in that step — depth 3;
+▶and so on.
+In general: expand all paths of length nbefore any path of length n+ 1.Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 97 ---
+Breadth-First Search (BFS)
+▶Start by expanding the start state — this gives the tree down
+to depth 1;
+▶Then expand all paths produced in the previous step — depth
+2;
+▶Then expand all paths produced in that step — depth 3;
+▶and so on.
+In general: expand all paths of length nbefore any path of length n+ 1.
+Implementation: the frontier is a FIFO queue — new paths go to
+the back.
+--- PAGE 98 ---
+Breadth-First Search: pseudocode
+For the select step, always select the path first added to the
+frontier:
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:
+5:Set frontier := {s0}
+6:while frontier is not empty do
+7: select and remove from frontier the path s0. . .skthat was
+8: first added to frontier
+9: ifgoal( sk)then
+10: return s0. . .sk(and terminate)
+11: else for every successor sofskadds0. . .sksto frontier
+12: end if
+13:end while
+--- PAGE 99 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+SA
+B
+CD
+E
+FGH
+--- PAGE 100 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SA
+B
+CD
+E
+FGH
+Selected: S. Goal? No. Expand: add SA ,SB ,SC.
+--- PAGE 101 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SA
+B
+CD
+E
+FGH
+Selected: SA. Goal? No. Expand: add SAD ,SAE.
+--- PAGE 102 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SBnot goal {SC ,SAD ,SAE ,SBG}SA
+B
+CD
+E
+FGH
+Selected: SB. Goal? No. Expand: add SBG .
+--- PAGE 103 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SBnot goal {SC ,SAD ,SAE ,SBG}
+SCnot goal {SAD ,SAE ,SBG ,SCF}SA
+B
+CD
+E
+FGH
+Selected: SC. Goal? No. Expand: add SCF.
+--- PAGE 104 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SBnot goal {SC ,SAD ,SAE ,SBG}
+SCnot goal {SAD ,SAE ,SBG ,SCF}
+SAD not goal {SAE ,SBG ,SCF ,SADH }SA
+B
+CD
+E
+FGH
+Selected: SAD . Goal? No. Expand: add SADH .
+--- PAGE 105 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SBnot goal {SC ,SAD ,SAE ,SBG}
+SCnot goal {SAD ,SAE ,SBG ,SCF}
+SAD not goal {SAE ,SBG ,SCF ,SADH }
+SAE not goal {SBG ,SCF ,SADH ,SAEG}SA
+B
+CD
+E
+FGH
+Selected: SAE. Goal? No. Expand: add SAEG .
+--- PAGE 106 ---
+Breadth-First Search: worked example
+Reaching Gfrom S:
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SBnot goal {SC ,SAD ,SAE ,SBG}
+SCnot goal {SAD ,SAE ,SBG ,SCF}
+SAD not goal {SAE ,SBG ,SCF ,SADH }
+SAE not goal {SBG ,SCF ,SADH ,SAEG}
+SBG goal! {SCF ,SADH ,SAEG}SA
+B
+CD
+E
+FGH
+Selected: SBG . Goal? Yes! Solution: SBG — and note it is a
+shortest path to G.
+--- PAGE 107 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 108 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 109 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 110 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 111 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 112 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 113 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 114 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 115 ---
+Example: BFS in a Maze
+Start
+BFS spreads out evenly in all directions: it is cautious but thorough.
+--- PAGE 116 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.
+Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+--- PAGE 117 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.
+▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+--- PAGE 118 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.
+▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.
+Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+A
+B C
+D E F G
+HIJKLMNO
+--- PAGE 119 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.
+▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.
+Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+A
+B C
+D E F G
+HIJKLMNO
+--- PAGE 120 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.
+▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.
+Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+A
+B C
+D E F G
+HIJKLMNO
+--- PAGE 121 ---
+Depth-First Search (DFS)
+▶Start by expanding the start state;
+▶Select one of the resulting paths and expand it;
+▶Select one of those paths and expand it; and so on.
+▶Always select the longest (deepest) path: follow one branch of
+the tree to the end, then backtrack.
+Implementation: the frontier is a LIFO stack — new paths go to
+the front.
+A
+B C
+D E F G
+HIJKLMNO
+--- PAGE 122 ---
+Depth-First Search: pseudocode
+For the select step, always select the path last added to the
+frontier:
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:
+5:Set frontier := {s0}
+6:while frontier is not empty do
+7: select and remove from frontier the path s0. . .skthat was
+8: last added to frontier
+9: ifgoal( sk)then
+10: return s0. . .sk(and terminate)
+11: else for every successor sofskadds0. . .sksto frontier
+12: end if
+13:end whileOnly one word has changed: “first” →“last”.
+--- PAGE 123 ---
+Depth-First Search: pseudocode
+For the select step, always select the path last added to the
+frontier:
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:
+5:Set frontier := {s0}
+6:while frontier is not empty do
+7: select and remove from frontier the path s0. . .skthat was
+8: last added to frontier
+9: ifgoal( sk)then
+10: return s0. . .sk(and terminate)
+11: else for every successor sofskadds0. . .sksto frontier
+12: end if
+13:end while
+Only one word has changed: “first” →“last”.
+--- PAGE 124 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+SA
+B
+CD
+E
+FGH
+--- PAGE 125 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SA
+B
+CD
+E
+FGH
+Selected: S. Goal? No. Expand: add SA ,SB ,SC.
+--- PAGE 126 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SA
+B
+CD
+E
+FGH
+Selected: SA(last added). Goal? No. Expand: add SAD ,SAE.
+--- PAGE 127 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SAD not goal {SB ,SC ,SAE ,SADH } SA
+B
+CD
+E
+FGH
+Selected: SAD . Goal? No. Expand: add SADH .
+--- PAGE 128 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SAD not goal {SB ,SC ,SAE ,SADH }
+SADH not goal {SB ,SC ,SAE}SA
+B
+CD
+E
+FGH
+Selected: SADH . Goal? No. Nothing to add — backtrack.
+--- PAGE 129 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SAD not goal {SB ,SC ,SAE ,SADH }
+SADH not goal {SB ,SC ,SAE}
+SAE not goal {SB ,SC ,SAEG}SA
+B
+CD
+E
+FGH
+Selected: SAE. Goal? No. Expand: add SAEG .
+--- PAGE 130 ---
+Depth-First Search: worked example
+Reaching Gfrom S(same graph):
+Expanded path Frontier
+{S}
+Snot goal {SA ,SB ,SC}
+SAnot goal {SB ,SC ,SAD ,SAE}
+SAD not goal {SB ,SC ,SAE ,SADH }
+SADH not goal {SB ,SC ,SAE}
+SAE not goal {SB ,SC ,SAEG}
+SAEG goal! {SB ,SC}SA
+B
+CD
+E
+FGH
+Selected: SAEG . Goal? Yes! Solution: SAEG — of length 3,
+whereas BFS found the shorter SBG . DFS is not optimal.
+--- PAGE 131 ---
+Example: DFS in a Maze
+Start
+DFS commits to one direction and backtracks: it is bold but easily lost.
+--- PAGE 132 ---
+Example: DFS in a Maze
+Start
+DFS commits to one direction and backtracks: it is bold but easily lost.
+--- PAGE 133 ---
+Example: DFS in a Maze
+Start
+DFS commits to one direction and backtracks: it is bold but easily lost.
+--- PAGE 134 ---
+Example: DFS in a Maze
+Start
+DFS commits to one direction and backtracks: it is bold but easily lost.
+--- PAGE 135 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 136 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 137 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 138 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 139 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 140 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 141 ---
+Properties of Search Strategies
+▶Completeness: does the algorithm always find a solution if one
+exists?
+YES for BFS, NO for DFS (consider cycles in the search
+graph).
+▶Optimality: does the algorithm always find a shortest path (a
+path of lowest cost)?
+YES for BFS, NO for DFS.
+▶Time complexity: how many paths are generated?
+▶Space complexity: how many paths are held in memory (in
+the frontier) at once?
+For the last two we first need a way of measuring the size of the
+problem.
+--- PAGE 142 ---
+Measuring the Problem: b,d,m
+Time and space complexity are measured in terms of:
+▶b— the maximum branching factor of the search tree: the
+largest number of successors any state has;▶d— the depth of the optimal solution: the length of the
+shortest path from sstartto a goal state;
+▶m— the maximum depth of the state space: the length of
+the longest path in the search tree (may be ∞).
+Note m=∞whenever the search graph contains a cycle: our
+search tree simply grows paths, and nothing stops it from going
+round the cycle forever.
+--- PAGE 143 ---
+Measuring the Problem: b,d,m
+Time and space complexity are measured in terms of:
+▶b— the maximum branching factor of the search tree: the
+largest number of successors any state has;
+▶d— the depth of the optimal solution: the length of the
+shortest path from sstartto a goal state;▶m— the maximum depth of the state space: the length of
+the longest path in the search tree (may be ∞).
+Note m=∞whenever the search graph contains a cycle: our
+search tree simply grows paths, and nothing stops it from going
+round the cycle forever.
+--- PAGE 144 ---
+Measuring the Problem: b,d,m
+Time and space complexity are measured in terms of:
+▶b— the maximum branching factor of the search tree: the
+largest number of successors any state has;
+▶d— the depth of the optimal solution: the length of the
+shortest path from sstartto a goal state;
+▶m— the maximum depth of the state space: the length of
+the longest path in the search tree (may be ∞).Note m=∞whenever the search graph contains a cycle: our
+search tree simply grows paths, and nothing stops it from going
+round the cycle forever.
+--- PAGE 145 ---
+Measuring the Problem: b,d,m
+Time and space complexity are measured in terms of:
+▶b— the maximum branching factor of the search tree: the
+largest number of successors any state has;
+▶d— the depth of the optimal solution: the length of the
+shortest path from sstartto a goal state;
+▶m— the maximum depth of the state space: the length of
+the longest path in the search tree (may be ∞).
+Note m=∞whenever the search graph contains a cycle: our
+search tree simply grows paths, and nothing stops it from going
+round the cycle forever.
+--- PAGE 146 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞Holiday in Romania 4 3 (Arad →Bucharest) ∞
+Vacuum world 2 up to 3 ∞
+8 Queens 64 8 8
+▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231
+▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 147 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞
+Holiday in Romania 4 3 (Arad →Bucharest) ∞Vacuum world 2 up to 3 ∞
+8 Queens 64 8 8
+▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231
+▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 148 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞
+Holiday in Romania 4 3 (Arad →Bucharest) ∞
+Vacuum world 2 up to 3 ∞8 Queens 64 8 8
+▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231
+▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 149 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞
+Holiday in Romania 4 3 (Arad →Bucharest) ∞
+Vacuum world 2 up to 3 ∞
+8 Queens 64 8 8▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231
+▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 150 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞
+Holiday in Romania 4 3 (Arad →Bucharest) ∞
+Vacuum world 2 up to 3 ∞
+8 Queens 64 8 8
+▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 151 ---
+b,dandmfor our Four Examples
+Problem b d m
+8-Puzzle 4 up to 31 ∞
+Holiday in Romania 4 3 (Arad →Bucharest) ∞
+Vacuum world 2 up to 3 ∞
+8 Queens 64 8 8
+▶8-Puzzle: b= 4 when the blank is in the centre. The hardest
+start states need 31 moves, e.g.
+876 8 6
+41 547
+253 231
+▶8 Queens: every solution path has length exactly 8, so
+d=m= 8 and there are no cycles — the only example here
+with a finite search tree.
+--- PAGE 152 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).
+▶Space: in the worst case the frontier holds bdpaths
+(exponential).
+▶Complete: guaranteed to find a solution if one exists.
+▶Optimal: always finds a shortest solution (when all actions
+cost the same).
+Space, not time, is what usually kills BFS in practice.
+--- PAGE 153 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.
+▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).▶Space: in the worst case the frontier holds bdpaths
+(exponential).
+▶Complete: guaranteed to find a solution if one exists.
+▶Optimal: always finds a shortest solution (when all actions
+cost the same).
+Space, not time, is what usually kills BFS in practice.
+--- PAGE 154 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.
+▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).
+▶Space: in the worst case the frontier holds bdpaths
+(exponential).▶Complete: guaranteed to find a solution if one exists.
+▶Optimal: always finds a shortest solution (when all actions
+cost the same).
+Space, not time, is what usually kills BFS in practice.
+--- PAGE 155 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.
+▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).
+▶Space: in the worst case the frontier holds bdpaths
+(exponential).
+▶Complete: guaranteed to find a solution if one exists.▶Optimal: always finds a shortest solution (when all actions
+cost the same).
+Space, not time, is what usually kills BFS in practice.
+--- PAGE 156 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.
+▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).
+▶Space: in the worst case the frontier holds bdpaths
+(exponential).
+▶Complete: guaranteed to find a solution if one exists.
+▶Optimal: always finds a shortest solution (when all actions
+cost the same).Space, not time, is what usually kills BFS in practice.
+--- PAGE 157 ---
+Properties of Breadth-First Search
+Fact. In a search tree with maximum branching factor bthere are
+at most bdpaths of length d, and at most 1 + b+b2+···+bd
+paths of length at most d.
+▶Time: if the shortest path to a goal has length d, in the worst
+case BFS generates
+1 +b+b2+···+bd
+paths before reaching a goal (exponential).
+▶Space: in the worst case the frontier holds bdpaths
+(exponential).
+▶Complete: guaranteed to find a solution if one exists.
+▶Optimal: always finds a shortest solution (when all actions
+cost the same).
+Space, not time, is what usually kills BFS in practice.
+--- PAGE 158 ---
+Combinatorial Explosion
+Depth Paths Time
+0 1 1 msec
+1 11 .01 sec
+2 111 .1 sec
+411,111 11 secs
+6 10618 mins
+8 10831 hours
+10 1010128 days
+12 101235 yearsCombinatorial explo-
+sion!
+Time for breadth-first search, assuming a branching factor of 10 and roughly
+1000 paths expanded per second.
+--- PAGE 159 ---
+Properties of Depth-First Search
+▶Not complete: DFS may follow an infinite branch and never
+find an existing solution.▶Not optimal: the solution found need not be the shortest one
+(we saw SAEG vsSBG ).
+▶Time: if the longest path from the start state has length m, in
+the worst case DFS generates
+1 +b+b2+···+bm
+paths (exponential). If m=∞, DFS may not terminate at all.
+▶Space: the frontier holds at most
+b×m
+paths. If DFS does find a solution, its memory requirement is
+far smaller than that of BFS — linear rather than exponential
+in the depth.
+--- PAGE 160 ---
+Properties of Depth-First Search
+▶Not complete: DFS may follow an infinite branch and never
+find an existing solution.
+▶Not optimal: the solution found need not be the shortest one
+(we saw SAEG vsSBG ).▶Time: if the longest path from the start state has length m, in
+the worst case DFS generates
+1 +b+b2+···+bm
+paths (exponential). If m=∞, DFS may not terminate at all.
+▶Space: the frontier holds at most
+b×m
+paths. If DFS does find a solution, its memory requirement is
+far smaller than that of BFS — linear rather than exponential
+in the depth.
+--- PAGE 161 ---
+Properties of Depth-First Search
+▶Not complete: DFS may follow an infinite branch and never
+find an existing solution.
+▶Not optimal: the solution found need not be the shortest one
+(we saw SAEG vsSBG ).
+▶Time: if the longest path from the start state has length m, in
+the worst case DFS generates
+1 +b+b2+···+bm
+paths (exponential). If m=∞, DFS may not terminate at all.▶Space: the frontier holds at most
+b×m
+paths. If DFS does find a solution, its memory requirement is
+far smaller than that of BFS — linear rather than exponential
+in the depth.
+--- PAGE 162 ---
+Properties of Depth-First Search
+▶Not complete: DFS may follow an infinite branch and never
+find an existing solution.
+▶Not optimal: the solution found need not be the shortest one
+(we saw SAEG vsSBG ).
+▶Time: if the longest path from the start state has length m, in
+the worst case DFS generates
+1 +b+b2+···+bm
+paths (exponential). If m=∞, DFS may not terminate at all.
+▶Space: the frontier holds at most
+b×m
+paths. If DFS does find a solution, its memory requirement is
+far smaller than that of BFS — linear rather than exponential
+in the depth.
+--- PAGE 163 ---
+Why is DFS space only b×m? Watch the tree grow
+s0 depth 0•the current path
+•paths waiting unexpanded
+in the frontier (stubs)
+Here b= 3, so each
+expansion leaves b−1 = 2
+paths behind.
+Frontier = {s0}, size 1.
+--- PAGE 164 ---
+Why is DFS space only b×m? Watch the tree grow
+s0
+s1depth 0
+depth 1•the current path
+•paths waiting unexpanded
+in the frontier (stubs)
+Here b= 3, so each
+expansion leaves b−1 = 2
+paths behind.
+Expand s0: add 3
+children, dive down s1.
+Size = 3.
+--- PAGE 165 ---
+Why is DFS space only b×m? Watch the tree grow
+s0
+s1
+s2depth 0
+depth 1
+depth 2•the current path
+•paths waiting unexpanded
+in the frontier (stubs)
+Here b= 3, so each
+expansion leaves b−1 = 2
+paths behind.
+Expand s1: 2 stubs stay
+at depth 1, add 3 more.
+Size = 2 + 3 = 5.
+--- PAGE 166 ---
+Why is DFS space only b×m? Watch the tree grow
+s0
+s1
+s2
+s3depth 0
+depth 1
+depth 2
+depth 3•the current path
+•paths waiting unexpanded
+in the frontier (stubs)
+Here b= 3, so each
+expansion leaves b−1 = 2
+paths behind.
+Expand s2: another 2
+stubs at depth 2.
+Size = 2 + 2 + 3 = 7.
+--- PAGE 167 ---
+Why is DFS space only b×m? Watch the tree grow
+s0
+s1
+s2
+s3depth 0
+depth 1
+depth 2
+depth 3•the current path
+•paths waiting unexpanded
+in the frontier (stubs)
+Here b= 3, so each
+expansion leaves b−1 = 2
+paths behind.
+At depth kthe frontier
+holds
+k(b−1) + 1
+paths.
+--- PAGE 168 ---
+The bound b×m, read off the pseudocode
+1: frontier := {s0}
+2:while frontier not empty do
+3: remove the last-added path
+s0. . .sk
+4: ifgoal( sk)then
+5: return s0. . .sk
+6: else
+7: push s0. . .sksfor each
+successor s
+8: end if
+9:end whileOne pass of the loop
+▶removes one path, and
+▶adds at most b(one per
+successor),
+▶then dives into the
+deepest.
+So each level of the descent
+leaves at most b−1
+un-expanded siblings behind.The current descent is a single path, so it has length at most m: it
+meets one node at each depth 0 ,1, . . . , m. Adding up the siblings
+it leaves behind,
+|frontier | ≤ (b−1)|{z}
+per level×m|{z}
+levels+ 1|{z}
+current path≤b×m.
+Linear in m— whereas BFS needs bdpaths at once.
+--- PAGE 169 ---
+The bound b×m, read off the pseudocode
+1: frontier := {s0}
+2:while frontier not empty do
+3: remove the last-added path
+s0. . .sk
+4: ifgoal( sk)then
+5: return s0. . .sk
+6: else
+7: push s0. . .sksfor each
+successor s
+8: end if
+9:end whileOne pass of the loop
+▶removes one path, and
+▶adds at most b(one per
+successor),
+▶then dives into the
+deepest.
+So each level of the descent
+leaves at most b−1
+un-expanded siblings behind.
+The current descent is a single path, so it has length at most m: it
+meets one node at each depth 0 ,1, . . . , m. Adding up the siblings
+it leaves behind,
+|frontier | ≤ (b−1)|{z}
+per level×m|{z}
+levels+ 1|{z}
+current path≤b×m.Linear in m— whereas BFS needs bdpaths at once.
+--- PAGE 170 ---
+The bound b×m, read off the pseudocode
+1: frontier := {s0}
+2:while frontier not empty do
+3: remove the last-added path
+s0. . .sk
+4: ifgoal( sk)then
+5: return s0. . .sk
+6: else
+7: push s0. . .sksfor each
+successor s
+8: end if
+9:end whileOne pass of the loop
+▶removes one path, and
+▶adds at most b(one per
+successor),
+▶then dives into the
+deepest.
+So each level of the descent
+leaves at most b−1
+un-expanded siblings behind.
+The current descent is a single path, so it has length at most m: it
+meets one node at each depth 0 ,1, . . . , m. Adding up the siblings
+it leaves behind,
+|frontier | ≤ (b−1)|{z}
+per level×m|{z}
+levels+ 1|{z}
+current path≤b×m.
+Linear in m— whereas BFS needs bdpaths at once.
+--- PAGE 171 ---
+The frontier at its largest (a snapshot)
+≤b−1The blue spine is the single path
+being explored ( ≤medges). Every
+orange stub is one un-expanded path
+sitting in the frontier.
+Counting exactly, the worst case is
+(b−1)m+ 1≤b×m,
+so the frontier grows only linearly in
+the depth.
+Footnote for the curious. We are counting paths in the frontier. A path can itself be
+up to mlong, so storing full paths costs O(bm2) symbols; keeping parent-pointers
+instead makes each frontier entry O(1), and the memory really is O(bm).
+--- PAGE 172 ---
+BFS vs DFS: summary
+BFS DFS
+Frontier queue (FIFO) stack (LIFO)
+Complete? yes no
+Optimal? yes no
+Time O(bd) O(bm)
+Space O(bd) O(b×m)▶BFS is complete and optimal, but expensive — above all in
+memory;
+▶DFS is cheap in memory, but incomplete and non-optimal;
+▶Can’t we do better than this?
+--- PAGE 173 ---
+BFS vs DFS: summary
+BFS DFS
+Frontier queue (FIFO) stack (LIFO)
+Complete? yes no
+Optimal? yes no
+Time O(bd) O(bm)
+Space O(bd) O(b×m)
+▶BFS is complete and optimal, but expensive — above all in
+memory;▶DFS is cheap in memory, but incomplete and non-optimal;
+▶Can’t we do better than this?
+--- PAGE 174 ---
+BFS vs DFS: summary
+BFS DFS
+Frontier queue (FIFO) stack (LIFO)
+Complete? yes no
+Optimal? yes no
+Time O(bd) O(bm)
+Space O(bd) O(b×m)
+▶BFS is complete and optimal, but expensive — above all in
+memory;
+▶DFS is cheap in memory, but incomplete and non-optimal;▶Can’t we do better than this?
+--- PAGE 175 ---
+BFS vs DFS: summary
+BFS DFS
+Frontier queue (FIFO) stack (LIFO)
+Complete? yes no
+Optimal? yes no
+Time O(bd) O(bm)
+Space O(bd) O(b×m)
+▶BFS is complete and optimal, but expensive — above all in
+memory;
+▶DFS is cheap in memory, but incomplete and non-optimal;
+▶Can’t we do better than this?
+--- PAGE 176 ---
+Note: Big O-Notation
+A function g is in O(f) if there exist a positive constant c and a
+threshold n0such that
+|g(n)| ≤c×f(n)
+for all n≥n0. In computer science, O-notation lets us describe
+how an algorithm’s running time or memory grows with the input
+size while ignoring hardware speed and implementation details.
+This matters most for scalability: two methods that look similar on
+small inputs can diverge enormously as the problem grows, which
+is exactly the combinatorial explosion.
+--- PAGE 177 ---
+Quick Quiz
+1. In the vacuum world the search graph has only 8 states, yet
+m=∞. Why?2. A friend runs DFS on the Romania map and reports the route
+Arad, Sibiu, Arad, Sibiu, Arad, . . . What has gone wrong, and
+what would you add to fix it?
+3. For 8 Queens, does it matter whether we use BFS or DFS?
+Which would you choose, and why?
+4. You have a robot with 2MB of memory searching a graph
+with b= 10 and d= 12. Which algorithm do you run?
+--- PAGE 178 ---
+Quick Quiz
+1. In the vacuum world the search graph has only 8 states, yet
+m=∞. Why?
+2. A friend runs DFS on the Romania map and reports the route
+Arad, Sibiu, Arad, Sibiu, Arad, . . . What has gone wrong, and
+what would you add to fix it?3. For 8 Queens, does it matter whether we use BFS or DFS?
+Which would you choose, and why?
+4. You have a robot with 2MB of memory searching a graph
+with b= 10 and d= 12. Which algorithm do you run?
+--- PAGE 179 ---
+Quick Quiz
+1. In the vacuum world the search graph has only 8 states, yet
+m=∞. Why?
+2. A friend runs DFS on the Romania map and reports the route
+Arad, Sibiu, Arad, Sibiu, Arad, . . . What has gone wrong, and
+what would you add to fix it?
+3. For 8 Queens, does it matter whether we use BFS or DFS?
+Which would you choose, and why?4. You have a robot with 2MB of memory searching a graph
+with b= 10 and d= 12. Which algorithm do you run?
+--- PAGE 180 ---
+Quick Quiz
+1. In the vacuum world the search graph has only 8 states, yet
+m=∞. Why?
+2. A friend runs DFS on the Romania map and reports the route
+Arad, Sibiu, Arad, Sibiu, Arad, . . . What has gone wrong, and
+what would you add to fix it?
+3. For 8 Queens, does it matter whether we use BFS or DFS?
+Which would you choose, and why?
+4. You have a robot with 2MB of memory searching a graph
+with b= 10 and d= 12. Which algorithm do you run?
+--- PAGE 181 ---
+Try it Yourself
+▶Watch BFS and DFS race on a maze you draw yourself:
+https://qiao.github.io/PathFinding.js/visual/▶Implement the generic algorithm on the 8-puzzle in 30 lines of
+Python: change one line ( frontier.pop(0) →
+frontier.pop() ) and BFS becomes DFS. Time both.
+▶Then ask yourself the question the next lecture answers:
+Instead of expanding anypath, why not expand the most promising one?
+--- PAGE 182 ---
+Try it Yourself
+▶Watch BFS and DFS race on a maze you draw yourself:
+https://qiao.github.io/PathFinding.js/visual/
+▶Implement the generic algorithm on the 8-puzzle in 30 lines of
+Python: change one line ( frontier.pop(0) →
+frontier.pop() ) and BFS becomes DFS. Time both.▶Then ask yourself the question the next lecture answers:
+Instead of expanding anypath, why not expand the most promising one?
+--- PAGE 183 ---
+Try it Yourself
+▶Watch BFS and DFS race on a maze you draw yourself:
+https://qiao.github.io/PathFinding.js/visual/
+▶Implement the generic algorithm on the 8-puzzle in 30 lines of
+Python: change one line ( frontier.pop(0) →
+frontier.pop() ) and BFS becomes DFS. Time both.
+▶Then ask yourself the question the next lecture answers:
+Instead of expanding anypath, why not expand the most promising one?
+--- PAGE 184 ---
+Next Lectures
+Search strategies:
+▶Blind (uninformed) search: no information about states
+beyond the problem definition
+▶breadth-first search ✓
+▶depth-first search ✓
+▶···▶Heuristic (informed) search: we can tell whether one non-goal
+state is “more promising” than another
+▶greedy search
+▶A∗search
+--- PAGE 185 ---
+Next Lectures
+Search strategies:
+▶Blind (uninformed) search: no information about states
+beyond the problem definition
+▶breadth-first search ✓
+▶depth-first search ✓
+▶···
+▶Heuristic (informed) search: we can tell whether one non-goal
+state is “more promising” than another
+▶greedy search
+▶A∗search

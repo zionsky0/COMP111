@@ -1,0 +1,1789 @@
+
+--- PAGE 1 ---
+COMP111: Artificial Intelligence
+Views of AI and History of AI
+Frank Wolter
+--- PAGE 2 ---
+Content
+▶Views of AI: what is AI, and how would we know an
+intelligent machine if we saw one?▶Brief history of AI: booms, winters, and the current wave.
+Learning outcomes
+Give and criticise definitions of AI; distinguish narrow AI from AGI;
+explain the four views of AI; explain the combinatorial explosion
+and why it derailed early AI; name the key milestones from 1943 to
+today and the technical reason each one worked.
+--- PAGE 3 ---
+Content
+▶Views of AI: what is AI, and how would we know an
+intelligent machine if we saw one?
+▶Brief history of AI: booms, winters, and the current wave.Learning outcomes
+Give and criticise definitions of AI; distinguish narrow AI from AGI;
+explain the four views of AI; explain the combinatorial explosion
+and why it derailed early AI; name the key milestones from 1943 to
+today and the technical reason each one worked.
+--- PAGE 4 ---
+Content
+▶Views of AI: what is AI, and how would we know an
+intelligent machine if we saw one?
+▶Brief history of AI: booms, winters, and the current wave.
+Learning outcomes
+Give and criticise definitions of AI; distinguish narrow AI from AGI;
+explain the four views of AI; explain the combinatorial explosion
+and why it derailed early AI; name the key milestones from 1943 to
+today and the technical reason each one worked.
+--- PAGE 5 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 6 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 7 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 8 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 9 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 10 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 11 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 12 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 13 ---
+Typical AI Application Areas
+▶Natural language processing: understanding, generating,
+translating, summarising.
+▶Vision: object recognition, face recognition, scene recognition,
+medical imaging.
+▶Robotics: car driving, autonomous aerial vehicles, warehouse
+robots.
+▶Mathematics: four colour theorem (1976), Jacobian
+conjecture (2026).
+▶Speech recognition: smartphones, live captioning.
+▶Game playing: chess, Go, poker.
+▶Coding agents and assistants.
+▶Diagnosis in healthcare; drug discovery; protein structure
+prediction.
+▶Recommendation, fraud detection, forecasting: the “invisible”
+AI you use every day.
+--- PAGE 14 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)
+▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)
+▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)
+The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.
+Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 15 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)
+▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)
+▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)
+The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.
+Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 16 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)
+▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)
+▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)
+The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.
+Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 17 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)
+▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)
+▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)
+▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.
+Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 18 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)
+▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)
+▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)
+▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)
+The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 19 ---
+What is AI?
+▶The goal of work in AI is to build machines that perform tasks normally
+requiring human intelligence. (Nilsson 1971)
+▶AI is everything we can’t do with today’s computers. (Possibly McCarthy,
+1980s)
+▶My definition of AI is any algorithm that is new in computer science.
+Once the algorithm becomes accepted then it’s not AI, it’s just a boring
+algorithm. At one time windows, mouse, menus, scroll bars etc. were
+considered an AI technique. (Possibly Keane, 1990s)
+▶A branch of computer science dealing with the simulation of intelligent
+behavior in computers. The capability of a machine to imitate intelligent
+human behavior. (Merriam Webster Dictionary)
+The AI effect
+“As soon as it works, no one calls it AI any more.” Optical character
+recognition, spam filters, route planning and machine translation were all
+flagship AI problems; today they are simply computer programs.
+Vote
+Which of these is AI? (a) a chess engine searching millions of positions; (b) a
+spam filter trained on a million emails; (c) a thermostat; (d) a sat-nav running
+Dijkstra; (e) ChatGPT writing a poem.
+--- PAGE 20 ---
+AI is both science and engineering
+▶the science of understanding intelligent entities: developing
+theories/models which attempt to explain and predict the
+nature of such entities.▶the engineering of intelligent entities.
+Compare aeronautics: understanding how birds fly is a different
+project from building an aircraft . Aircraft do not flap their wings
+— but they do obey aerodynamics.
+--- PAGE 21 ---
+AI is both science and engineering
+▶the science of understanding intelligent entities: developing
+theories/models which attempt to explain and predict the
+nature of such entities.
+▶the engineering of intelligent entities.Compare aeronautics: understanding how birds fly is a different
+project from building an aircraft . Aircraft do not flap their wings
+— but they do obey aerodynamics.
+--- PAGE 22 ---
+AI is both science and engineering
+▶the science of understanding intelligent entities: developing
+theories/models which attempt to explain and predict the
+nature of such entities.
+▶the engineering of intelligent entities.
+Compare aeronautics: understanding how birds fly is a different
+project from building an aircraft . Aircraft do not flap their wings
+— but they do obey aerodynamics.
+--- PAGE 23 ---
+Basic Terminology
+▶AGI (artificial general intelligence, or strong AI): artificial
+system that can accomplish any intellectual task that humans
+can perform. Often sentience or consciousness are also
+required in definitions of AGI.▶Narrow (or weak) AI: artificial system that is able to solve a
+small number of specific intellectual problems. Does not
+experience consciousness.
+Before ChatGPT, other large language models (LLMs), and more
+generally generative AI, came up in 2022/23, almost all AI
+researchers and practitioners would have described their goal as
+narrow AI. That has changed a bit: some argue that generative AI
+is a significant step towards AGI, while others regard current
+systems as very broad narrow AI.
+--- PAGE 24 ---
+Basic Terminology
+▶AGI (artificial general intelligence, or strong AI): artificial
+system that can accomplish any intellectual task that humans
+can perform. Often sentience or consciousness are also
+required in definitions of AGI.
+▶Narrow (or weak) AI: artificial system that is able to solve a
+small number of specific intellectual problems. Does not
+experience consciousness.Before ChatGPT, other large language models (LLMs), and more
+generally generative AI, came up in 2022/23, almost all AI
+researchers and practitioners would have described their goal as
+narrow AI. That has changed a bit: some argue that generative AI
+is a significant step towards AGI, while others regard current
+systems as very broad narrow AI.
+--- PAGE 25 ---
+Basic Terminology
+▶AGI (artificial general intelligence, or strong AI): artificial
+system that can accomplish any intellectual task that humans
+can perform. Often sentience or consciousness are also
+required in definitions of AGI.
+▶Narrow (or weak) AI: artificial system that is able to solve a
+small number of specific intellectual problems. Does not
+experience consciousness.
+Before ChatGPT, other large language models (LLMs), and more
+generally generative AI, came up in 2022/23, almost all AI
+researchers and practitioners would have described their goal as
+narrow AI. That has changed a bit: some argue that generative AI
+is a significant step towards AGI, while others regard current
+systems as very broad narrow AI.
+--- PAGE 26 ---
+Terminology: AI vs. ML vs. deep learning vs. generative AI
+These terms are used interchangeably in the media. They are not synonyms.
+Artificial Intelligence
+search, logic planning
+Machine Learning
+Deep Learning
+Generative
+AI▶Machine learning: behaviour is learned from data rather than programmed.
+▶Deep learning: ML with many-layered neural networks; features are learned, not
+hand-crafted.
+▶Generative AI: models that generate content (text, images, code) from a prompt.
+▶Not all AI is ML: a chess engine’s search, or a Prolog program, learns nothing.
+--- PAGE 27 ---
+Terminology: AI vs. ML vs. deep learning vs. generative AI
+These terms are used interchangeably in the media. They are not synonyms.
+Artificial Intelligence
+search, logic planning
+Machine Learning
+Deep Learning
+Generative
+AI
+▶Machine learning: behaviour is learned from data rather than programmed.
+▶Deep learning: ML with many-layered neural networks; features are learned, not
+hand-crafted.
+▶Generative AI: models that generate content (text, images, code) from a prompt.
+▶Not all AI is ML: a chess engine’s search, or a Prolog program, learns nothing.
+--- PAGE 28 ---
+Four Views of AI
+Human-like Rational
+Thought Systems that think like humans Systems that think rationally
+(cognitive science) (logic, probability)
+Behaviour Systems that act like humans Systems that act rationally
+(Turing test) (intelligent agents)▶Rows: is the yardstick internal process orexternal behaviour ?
+▶Columns: is the yardstick human performance or an ideal
+standard of correctness ?
+Modern AI lives mostly in the bottom-right cell: agents that act
+rationally to achieve a goal.
+--- PAGE 29 ---
+Four Views of AI
+Human-like Rational
+Thought Systems that think like humans Systems that think rationally
+(cognitive science) (logic, probability)
+Behaviour Systems that act like humans Systems that act rationally
+(Turing test) (intelligent agents)
+▶Rows: is the yardstick internal process orexternal behaviour ?
+▶Columns: is the yardstick human performance or an ideal
+standard of correctness ?Modern AI lives mostly in the bottom-right cell: agents that act
+rationally to achieve a goal.
+--- PAGE 30 ---
+Four Views of AI
+Human-like Rational
+Thought Systems that think like humans Systems that think rationally
+(cognitive science) (logic, probability)
+Behaviour Systems that act like humans Systems that act rationally
+(Turing test) (intelligent agents)
+▶Rows: is the yardstick internal process orexternal behaviour ?
+▶Columns: is the yardstick human performance or an ideal
+standard of correctness ?
+Modern AI lives mostly in the bottom-right cell: agents that act
+rationally to achieve a goal.
+--- PAGE 31 ---
+Thinking Humanly vs Acting Humanly
+▶Cognitive science: to understand and build intelligent
+machines we should simulate human thinking.
+▶Computer science (often): to build intelligent machines
+simulate the intelligent behavior of humans. It is not
+necessary nor desirable that an intelligent machine processes
+information in the same way as humans (think humanly); the
+aim is to create machines that are able to behave (e.g., take
+part in conversations) in the same way as humans.
+The emphasis on simulating behavior rather than internal processes
+has consequences for the question: when can we count a machine
+as being intelligent ?“Can machines think?” −→“Can machines behave intelligently?”
+--- PAGE 32 ---
+Thinking Humanly vs Acting Humanly
+▶Cognitive science: to understand and build intelligent
+machines we should simulate human thinking.
+▶Computer science (often): to build intelligent machines
+simulate the intelligent behavior of humans. It is not
+necessary nor desirable that an intelligent machine processes
+information in the same way as humans (think humanly); the
+aim is to create machines that are able to behave (e.g., take
+part in conversations) in the same way as humans.
+The emphasis on simulating behavior rather than internal processes
+has consequences for the question: when can we count a machine
+as being intelligent ?
+“Can machines think?” −→“Can machines behave intelligently?”
+--- PAGE 33 ---
+The Turing Test (1950)
+Turing, Computing Machinery and Intelligence : replace the
+ill-defined question “Can machines think?” by an operational test
+— the imitation game .
+Interrogator
+(human)Player A
+(human)
+Player B
+(machine)text only
+text only
+The machine passes if the interrogator cannot reliably tell which is
+which.30 seconds with your neighbour
+Write down onequestion you think a machine would fail but a
+human would pass. (Classics: commonsense physics; ambiguous
+pronouns — “the trophy doesn’t fit in the suitcase because itis
+too big”.)
+--- PAGE 34 ---
+The Turing Test (1950)
+Turing, Computing Machinery and Intelligence : replace the
+ill-defined question “Can machines think?” by an operational test
+— the imitation game .
+Interrogator
+(human)Player A
+(human)
+Player B
+(machine)text only
+text only
+The machine passes if the interrogator cannot reliably tell which is
+which.
+30 seconds with your neighbour
+Write down onequestion you think a machine would fail but a
+human would pass. (Classics: commonsense physics; ambiguous
+pronouns — “the trophy doesn’t fit in the suitcase because itis
+too big”.)
+--- PAGE 35 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.
+▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.
+▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.
+▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.
+Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 36 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.
+▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.
+▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.
+▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.
+Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 37 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.
+▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.
+▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.
+▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.
+Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 38 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.
+▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.
+▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.
+▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.
+Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 39 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.
+▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.
+▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.
+▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.
+▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 40 ---
+Criticisms of the Turing Test
+▶It rewards deception, not intelligence: to pass, a machine
+must pretend to be bad at arithmetic.
+▶It is anthropocentric: aeroplanes are not tested by whether
+they fool ornithologists.
+▶It is not a useful engineering benchmark: not diagnostic, not
+decomposable, and heavily dependent on the interrogator’s
+skill.
+▶The ELIZA effect (Weizenbaum 1966): people attribute
+understanding to very shallow systems. ELIZA was a few
+pages of pattern-matching rules, and users confided in it.
+▶Searle’s Chinese Room (1980): a system might produce
+perfect answers by manipulating symbols with no
+understanding.
+Modern practice: replace the Turing test by task-specific
+benchmarks — and remember Goodhart’s law (“when a measure
+becomes a target, it ceases to be a good measure”).
+--- PAGE 41 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.
+▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.
+▶Also use techniques from economics/game theory to create
+machines that act rationally.
+▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.
+▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 42 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?
+▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.
+▶Also use techniques from economics/game theory to create
+machines that act rationally.
+▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.
+▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 43 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?
+▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.
+▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.▶Also use techniques from economics/game theory to create
+machines that act rationally.
+▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.
+▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 44 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?
+▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.
+▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.
+▶Also use techniques from economics/game theory to create
+machines that act rationally.▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.
+▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 45 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?
+▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.
+▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.
+▶Also use techniques from economics/game theory to create
+machines that act rationally.
+▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 46 ---
+Thinking and Acting Rationally
+▶Investigating how we actually think and act is one route to AI.
+But how about how we should think and act?
+▶Use techniques from logic and probability theory to create
+machines that reason correctly. The result is idealised
+reasoning.
+▶Acting rationally = acting to achieve one’s goals, given one’s
+beliefs. An agent perceives an environment and acts on it; a
+rational agent chooses actions expected to maximise its
+performance measure. This is the framework for the rest of
+the module.
+▶Also use techniques from economics/game theory to create
+machines that act rationally.
+▶Rationality is not omniscience: doing the best you can with
+the information and computation available is called bounded
+rationality.
+▶Problem of current generative AI: it often does not reason
+correctly.
+--- PAGE 47 ---
+A brief history of AI
+1943 1956 1973 1980s 1987 1997 2012 2022early optimism winter Iexpert
+systemswinter IIstatistical ML →deep
+learning→generative AIThe recurring pattern: success on toy problems →extravagant
+promises →failure to scale →funding collapse (an “AI winter”)
+→a new technical idea →repeat.
+For every milestone that follows, ask: what exactly made it work ,
+andwhat did it not solve ?
+--- PAGE 48 ---
+A brief history of AI
+1943 1956 1973 1980s 1987 1997 2012 2022early optimism winter Iexpert
+systemswinter IIstatistical ML →deep
+learning→generative AI
+The recurring pattern: success on toy problems →extravagant
+promises →failure to scale →funding collapse (an “AI winter”)
+→a new technical idea →repeat.For every milestone that follows, ask: what exactly made it work ,
+andwhat did it not solve ?
+--- PAGE 49 ---
+A brief history of AI
+1943 1956 1973 1980s 1987 1997 2012 2022early optimism winter Iexpert
+systemswinter IIstatistical ML →deep
+learning→generative AI
+The recurring pattern: success on toy problems →extravagant
+promises →failure to scale →funding collapse (an “AI winter”)
+→a new technical idea →repeat.
+For every milestone that follows, ask: what exactly made it work ,
+andwhat did it not solve ?
+--- PAGE 50 ---
+First steps towards AI: 1943–56
+▶Based on first insights into the functioning of neurons in the
+brain and Turing’s theory of computation, McCulloch & Pitts
+(1943) suggest a model of artificial neural networks.▶Minsky and Edmonds (1951) build the first neural network
+computer (SNARC) using vacuum tubes to simulate a
+network of 40 neurons.
+▶Shannon, Turing (1950): the first chess playing programs.
+(Turing’s had to be executed by hand — no machine was fast
+enough.) Turing also proposed building a “child machine” and
+educating it: learning was part of the plan from the very
+beginning.
+--- PAGE 51 ---
+First steps towards AI: 1943–56
+▶Based on first insights into the functioning of neurons in the
+brain and Turing’s theory of computation, McCulloch & Pitts
+(1943) suggest a model of artificial neural networks.
+▶Minsky and Edmonds (1951) build the first neural network
+computer (SNARC) using vacuum tubes to simulate a
+network of 40 neurons.▶Shannon, Turing (1950): the first chess playing programs.
+(Turing’s had to be executed by hand — no machine was fast
+enough.) Turing also proposed building a “child machine” and
+educating it: learning was part of the plan from the very
+beginning.
+--- PAGE 52 ---
+First steps towards AI: 1943–56
+▶Based on first insights into the functioning of neurons in the
+brain and Turing’s theory of computation, McCulloch & Pitts
+(1943) suggest a model of artificial neural networks.
+▶Minsky and Edmonds (1951) build the first neural network
+computer (SNARC) using vacuum tubes to simulate a
+network of 40 neurons.
+▶Shannon, Turing (1950): the first chess playing programs.
+(Turing’s had to be executed by hand — no machine was fast
+enough.) Turing also proposed building a “child machine” and
+educating it: learning was part of the plan from the very
+beginning.
+--- PAGE 53 ---
+Dartmouth Conference: 1956
+▶A two-month conference, 10 attendees. Main figures:
+McCarthy, Minsky, Shannon, Samuel, Newell, Simon.▶Newell & Simon presented the LOGIC THEORIST program,
+which proved theorems from Principia Mathematica . Simon:
+“We have invented a computer program capable of thinking
+non-numerically, and thereby solved the venerable mind-body
+problem.”
+▶The corresponding article was rejected by the Journal of
+Symbolic Logic .
+▶The name ‘Artificial Intelligence’, coined by John McCarthy,
+was adopted.
+▶No technical breakthroughs — but a research agenda, a
+community, and a name.
+--- PAGE 54 ---
+Dartmouth Conference: 1956
+▶A two-month conference, 10 attendees. Main figures:
+McCarthy, Minsky, Shannon, Samuel, Newell, Simon.
+▶Newell & Simon presented the LOGIC THEORIST program,
+which proved theorems from Principia Mathematica . Simon:
+“We have invented a computer program capable of thinking
+non-numerically, and thereby solved the venerable mind-body
+problem.”▶The corresponding article was rejected by the Journal of
+Symbolic Logic .
+▶The name ‘Artificial Intelligence’, coined by John McCarthy,
+was adopted.
+▶No technical breakthroughs — but a research agenda, a
+community, and a name.
+--- PAGE 55 ---
+Dartmouth Conference: 1956
+▶A two-month conference, 10 attendees. Main figures:
+McCarthy, Minsky, Shannon, Samuel, Newell, Simon.
+▶Newell & Simon presented the LOGIC THEORIST program,
+which proved theorems from Principia Mathematica . Simon:
+“We have invented a computer program capable of thinking
+non-numerically, and thereby solved the venerable mind-body
+problem.”
+▶The corresponding article was rejected by the Journal of
+Symbolic Logic .▶The name ‘Artificial Intelligence’, coined by John McCarthy,
+was adopted.
+▶No technical breakthroughs — but a research agenda, a
+community, and a name.
+--- PAGE 56 ---
+Dartmouth Conference: 1956
+▶A two-month conference, 10 attendees. Main figures:
+McCarthy, Minsky, Shannon, Samuel, Newell, Simon.
+▶Newell & Simon presented the LOGIC THEORIST program,
+which proved theorems from Principia Mathematica . Simon:
+“We have invented a computer program capable of thinking
+non-numerically, and thereby solved the venerable mind-body
+problem.”
+▶The corresponding article was rejected by the Journal of
+Symbolic Logic .
+▶The name ‘Artificial Intelligence’, coined by John McCarthy,
+was adopted.▶No technical breakthroughs — but a research agenda, a
+community, and a name.
+--- PAGE 57 ---
+Dartmouth Conference: 1956
+▶A two-month conference, 10 attendees. Main figures:
+McCarthy, Minsky, Shannon, Samuel, Newell, Simon.
+▶Newell & Simon presented the LOGIC THEORIST program,
+which proved theorems from Principia Mathematica . Simon:
+“We have invented a computer program capable of thinking
+non-numerically, and thereby solved the venerable mind-body
+problem.”
+▶The corresponding article was rejected by the Journal of
+Symbolic Logic .
+▶The name ‘Artificial Intelligence’, coined by John McCarthy,
+was adopted.
+▶No technical breakthroughs — but a research agenda, a
+community, and a name.
+--- PAGE 58 ---
+Optimism regarding AGI (1956–70)
+Promising performance of early AI systems on simple examples
+(integration problems, algebra problems, moving blocks) led to
+great expectations. Simon (1957):
+It is not my aim to surprise or shock you — but the simplest
+way I can summarize is to say that there are now in the world
+machines that can think, that can learn and that can create.
+Moreover, their ability to do these things is going to increase
+rapidly until — in a visible future — the range of problems
+they can handle will be coextensive with the range to which the
+human mind has been applied.Also from this era: Rosenblatt’s perceptron (1958), an early
+trainable neural network, with huge press attention. Minsky &
+Papert (1969) then showed that a single-layer perceptron cannot
+even learn XOR — and neural network funding dried up for fifteen
+years.
+--- PAGE 59 ---
+Optimism regarding AGI (1956–70)
+Promising performance of early AI systems on simple examples
+(integration problems, algebra problems, moving blocks) led to
+great expectations. Simon (1957):
+It is not my aim to surprise or shock you — but the simplest
+way I can summarize is to say that there are now in the world
+machines that can think, that can learn and that can create.
+Moreover, their ability to do these things is going to increase
+rapidly until — in a visible future — the range of problems
+they can handle will be coextensive with the range to which the
+human mind has been applied.
+Also from this era: Rosenblatt’s perceptron (1958), an early
+trainable neural network, with huge press attention. Minsky &
+Papert (1969) then showed that a single-layer perceptron cannot
+even learn XOR — and neural network funding dried up for fifteen
+years.
+--- PAGE 60 ---
+It does not work. . . (1970s)
+The systems from the 1960s almost always failed completely when
+tried out on a wider selection of, or more difficult, problems.
+Examples:▶Translation of Russian scientific papers into English (space
+race between USSR and US) by simple syntactic
+transformations failed completely because of a lack of stored
+general knowledge to resolve ambiguities. Syntax is not
+meaning.
+▶Game playing programs failed because of inherent
+intractability (combinatorial explosion). Techniques developed
+for toy examples did not scale.
+Estimate first
+In chess, how many distinct positions can arise after fourmoves by
+each player? (a) thousands (b) millions (c) billions (d)
+hundreds of billions
+--- PAGE 61 ---
+It does not work. . . (1970s)
+The systems from the 1960s almost always failed completely when
+tried out on a wider selection of, or more difficult, problems.
+Examples:
+▶Translation of Russian scientific papers into English (space
+race between USSR and US) by simple syntactic
+transformations failed completely because of a lack of stored
+general knowledge to resolve ambiguities. Syntax is not
+meaning.▶Game playing programs failed because of inherent
+intractability (combinatorial explosion). Techniques developed
+for toy examples did not scale.
+Estimate first
+In chess, how many distinct positions can arise after fourmoves by
+each player? (a) thousands (b) millions (c) billions (d)
+hundreds of billions
+--- PAGE 62 ---
+It does not work. . . (1970s)
+The systems from the 1960s almost always failed completely when
+tried out on a wider selection of, or more difficult, problems.
+Examples:
+▶Translation of Russian scientific papers into English (space
+race between USSR and US) by simple syntactic
+transformations failed completely because of a lack of stored
+general knowledge to resolve ambiguities. Syntax is not
+meaning.
+▶Game playing programs failed because of inherent
+intractability (combinatorial explosion). Techniques developed
+for toy examples did not scale.Estimate first
+In chess, how many distinct positions can arise after fourmoves by
+each player? (a) thousands (b) millions (c) billions (d)
+hundreds of billions
+--- PAGE 63 ---
+It does not work. . . (1970s)
+The systems from the 1960s almost always failed completely when
+tried out on a wider selection of, or more difficult, problems.
+Examples:
+▶Translation of Russian scientific papers into English (space
+race between USSR and US) by simple syntactic
+transformations failed completely because of a lack of stored
+general knowledge to resolve ambiguities. Syntax is not
+meaning.
+▶Game playing programs failed because of inherent
+intractability (combinatorial explosion). Techniques developed
+for toy examples did not scale.
+Estimate first
+In chess, how many distinct positions can arise after fourmoves by
+each player? (a) thousands (b) millions (c) billions (d)
+hundreds of billions
+--- PAGE 64 ---
+Combinatorial Explosion (Chess)
+In principle, it is easy to write a program playing chess by
+computing all possible sequences of moves (say, up to 40 moves)
+and then selecting an optimal move. In chess, however, there are
+approximately
+▶400 different positions after one move apiece;
+▶72,084 different positions after two moves apiece;
+▶9×106positions after three moves apiece;
+▶288×109different possible positions after four moves apiece;
+▶and so on — the whole game tree is roughly 10120(the
+“Shannon number”).For comparison: there are about 1080atoms in the observable
+universe.
+In practice, it simply is not possible (and never will be possible) to
+compute all relevant sequences of moves! Growth is exponential in
+the depth: bdfor branching factor b.
+--- PAGE 65 ---
+Combinatorial Explosion (Chess)
+In principle, it is easy to write a program playing chess by
+computing all possible sequences of moves (say, up to 40 moves)
+and then selecting an optimal move. In chess, however, there are
+approximately
+▶400 different positions after one move apiece;
+▶72,084 different positions after two moves apiece;
+▶9×106positions after three moves apiece;
+▶288×109different possible positions after four moves apiece;
+▶and so on — the whole game tree is roughly 10120(the
+“Shannon number”).
+For comparison: there are about 1080atoms in the observable
+universe.In practice, it simply is not possible (and never will be possible) to
+compute all relevant sequences of moves! Growth is exponential in
+the depth: bdfor branching factor b.
+--- PAGE 66 ---
+Combinatorial Explosion (Chess)
+In principle, it is easy to write a program playing chess by
+computing all possible sequences of moves (say, up to 40 moves)
+and then selecting an optimal move. In chess, however, there are
+approximately
+▶400 different positions after one move apiece;
+▶72,084 different positions after two moves apiece;
+▶9×106positions after three moves apiece;
+▶288×109different possible positions after four moves apiece;
+▶and so on — the whole game tree is roughly 10120(the
+“Shannon number”).
+For comparison: there are about 1080atoms in the observable
+universe.
+In practice, it simply is not possible (and never will be possible) to
+compute all relevant sequences of moves! Growth is exponential in
+the depth: bdfor branching factor b.
+--- PAGE 67 ---
+Combinatorial Explosion (Rubik’s Cube)
+For a Rubik’s Cube there are
+▶43,252,003,274,489,856,000 combinations ( ≈4.3×1019);
+▶up to 481,229,803,398,374,426,442,198,455,156,736 brute-force
+solution attempts.
+(For comparison: the 2019 Summit machine at Oak Ridge National Lab
+executes roughly 1018instructions per second.)Insight: the fact that a program can find a solution in principle does not
+mean it can find it in practice . And yet every cube can be solved in at most
+20 moves (“God’s number”, proved 2010): good heuristics explore a
+vanishing fraction of the space. (Topic of the next section.)
+The Lighthill Report (1973) for the British Research Council concluded that
+AI researchers had failed to address the combinatorial explosion, and was
+pessimistic about general robotics and natural language processing. It
+formed the basis for the UK government’s decision to essentially end
+support for AI research: the first AI winter.
+--- PAGE 68 ---
+Combinatorial Explosion (Rubik’s Cube)
+For a Rubik’s Cube there are
+▶43,252,003,274,489,856,000 combinations ( ≈4.3×1019);
+▶up to 481,229,803,398,374,426,442,198,455,156,736 brute-force
+solution attempts.
+(For comparison: the 2019 Summit machine at Oak Ridge National Lab
+executes roughly 1018instructions per second.)
+Insight: the fact that a program can find a solution in principle does not
+mean it can find it in practice . And yet every cube can be solved in at most
+20 moves (“God’s number”, proved 2010): good heuristics explore a
+vanishing fraction of the space. (Topic of the next section.)The Lighthill Report (1973) for the British Research Council concluded that
+AI researchers had failed to address the combinatorial explosion, and was
+pessimistic about general robotics and natural language processing. It
+formed the basis for the UK government’s decision to essentially end
+support for AI research: the first AI winter.
+--- PAGE 69 ---
+Combinatorial Explosion (Rubik’s Cube)
+For a Rubik’s Cube there are
+▶43,252,003,274,489,856,000 combinations ( ≈4.3×1019);
+▶up to 481,229,803,398,374,426,442,198,455,156,736 brute-force
+solution attempts.
+(For comparison: the 2019 Summit machine at Oak Ridge National Lab
+executes roughly 1018instructions per second.)
+Insight: the fact that a program can find a solution in principle does not
+mean it can find it in practice . And yet every cube can be solved in at most
+20 moves (“God’s number”, proved 2010): good heuristics explore a
+vanishing fraction of the space. (Topic of the next section.)
+The Lighthill Report (1973) for the British Research Council concluded that
+AI researchers had failed to address the combinatorial explosion, and was
+pessimistic about general robotics and natural language processing. It
+formed the basis for the UK government’s decision to essentially end
+support for AI research: the first AI winter.
+--- PAGE 70 ---
+Expert Systems (Narrow AI)
+▶General purpose, brute force techniques don’t work, so use knowledge
+rich solutions. The early 1980s saw the emergence of expert systems:
+systems exploiting knowledge about tightly focused domains to solve
+problems normally considered the domain of experts. Architecture: a
+knowledge base of IF–THEN rules elicited from experts, plus an
+inference engine.▶Examples (combining basic logic and probability based reasoning):
+▶MYCIN : diagnose infections, recommend antibiotics. Matched
+specialists in trials — never deployed.
+▶XCON : configuring DEC VAX hardware; reportedly saved DEC millions
+per year.
+▶PROSPECTOR : aid geologists in mineral exploration, finding sites for
+drilling.
+▶1990s: most companies set up to commercialise expert systems did not
+survive. Problems:
+▶the knowledge elicitation bottleneck: rules must be written by hand, and
+experts cannot articulate what they know;
+▶brittleness: no common sense; one step outside the domain and answers
+are nonsense;
+▶lack of trust in the recommendations given.
+▶Result: the second AI winter ( ≈1987–93). The field then turned
+quietly from hand-coded rules to learning from data and to probability
+(Bayesian networks, statistical NLP).
+--- PAGE 71 ---
+Expert Systems (Narrow AI)
+▶General purpose, brute force techniques don’t work, so use knowledge
+rich solutions. The early 1980s saw the emergence of expert systems:
+systems exploiting knowledge about tightly focused domains to solve
+problems normally considered the domain of experts. Architecture: a
+knowledge base of IF–THEN rules elicited from experts, plus an
+inference engine.
+▶Examples (combining basic logic and probability based reasoning):
+▶MYCIN : diagnose infections, recommend antibiotics. Matched
+specialists in trials — never deployed.
+▶XCON : configuring DEC VAX hardware; reportedly saved DEC millions
+per year.
+▶PROSPECTOR : aid geologists in mineral exploration, finding sites for
+drilling.▶1990s: most companies set up to commercialise expert systems did not
+survive. Problems:
+▶the knowledge elicitation bottleneck: rules must be written by hand, and
+experts cannot articulate what they know;
+▶brittleness: no common sense; one step outside the domain and answers
+are nonsense;
+▶lack of trust in the recommendations given.
+▶Result: the second AI winter ( ≈1987–93). The field then turned
+quietly from hand-coded rules to learning from data and to probability
+(Bayesian networks, statistical NLP).
+--- PAGE 72 ---
+Expert Systems (Narrow AI)
+▶General purpose, brute force techniques don’t work, so use knowledge
+rich solutions. The early 1980s saw the emergence of expert systems:
+systems exploiting knowledge about tightly focused domains to solve
+problems normally considered the domain of experts. Architecture: a
+knowledge base of IF–THEN rules elicited from experts, plus an
+inference engine.
+▶Examples (combining basic logic and probability based reasoning):
+▶MYCIN : diagnose infections, recommend antibiotics. Matched
+specialists in trials — never deployed.
+▶XCON : configuring DEC VAX hardware; reportedly saved DEC millions
+per year.
+▶PROSPECTOR : aid geologists in mineral exploration, finding sites for
+drilling.
+▶1990s: most companies set up to commercialise expert systems did not
+survive. Problems:
+▶the knowledge elicitation bottleneck: rules must be written by hand, and
+experts cannot articulate what they know;
+▶brittleness: no common sense; one step outside the domain and answers
+are nonsense;
+▶lack of trust in the recommendations given.▶Result: the second AI winter ( ≈1987–93). The field then turned
+quietly from hand-coded rules to learning from data and to probability
+(Bayesian networks, statistical NLP).
+--- PAGE 73 ---
+Expert Systems (Narrow AI)
+▶General purpose, brute force techniques don’t work, so use knowledge
+rich solutions. The early 1980s saw the emergence of expert systems:
+systems exploiting knowledge about tightly focused domains to solve
+problems normally considered the domain of experts. Architecture: a
+knowledge base of IF–THEN rules elicited from experts, plus an
+inference engine.
+▶Examples (combining basic logic and probability based reasoning):
+▶MYCIN : diagnose infections, recommend antibiotics. Matched
+specialists in trials — never deployed.
+▶XCON : configuring DEC VAX hardware; reportedly saved DEC millions
+per year.
+▶PROSPECTOR : aid geologists in mineral exploration, finding sites for
+drilling.
+▶1990s: most companies set up to commercialise expert systems did not
+survive. Problems:
+▶the knowledge elicitation bottleneck: rules must be written by hand, and
+experts cannot articulate what they know;
+▶brittleness: no common sense; one step outside the domain and answers
+are nonsense;
+▶lack of trust in the recommendations given.
+▶Result: the second AI winter ( ≈1987–93). The field then turned
+quietly from hand-coded rules to learning from data and to probability
+(Bayesian networks, statistical NLP).
+--- PAGE 74 ---
+Major steps in the past 30 years
+1997: IBM’s Deep Blue defeated world
+chess champion Garry Kasparov
+(31
+2: 21
+2).
+Reasons for success: much faster,
+purpose-built machines with more
+storage; heuristic search (alpha–beta
+pruning) at ≈200 million positions per
+second; opening book; hand-tuned
+evaluation function.Note: no learning at all . Deep Blue is a
+triumph of search and engineering.
+
+--- PAGE 75 ---
+Major steps in the past 30 years
+1997: IBM’s Deep Blue defeated world
+chess champion Garry Kasparov
+(31
+2: 21
+2).
+Reasons for success: much faster,
+purpose-built machines with more
+storage; heuristic search (alpha–beta
+pruning) at ≈200 million positions per
+second; opening book; hand-tuned
+evaluation function.
+Note: no learning at all . Deep Blue is a
+triumph of search and engineering.
+
+--- PAGE 76 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.
+▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.
+▶In 2011 it beat former champions Brad Rutter and Ken Jennings.
+▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.
+▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 77 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.
+▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.
+▶In 2011 it beat former champions Brad Rutter and Ken Jennings.
+▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.
+▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 78 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.
+▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.
+▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.▶In 2011 it beat former champions Brad Rutter and Ken Jennings.
+▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.
+▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 79 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.
+▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.
+▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.
+▶In 2011 it beat former champions Brad Rutter and Ken Jennings.▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.
+▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 80 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.
+▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.
+▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.
+▶In 2011 it beat former champions Brad Rutter and Ken Jennings.
+▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 81 ---
+IBM Watson wins Jeopardy! (2011)
+▶Jeopardy! is an American television quiz show: contestants are
+presented with general knowledge clues they must answer, under time
+pressure.
+▶Example:
+▶Clue: In the 2004 opening ceremonies of the Olympic Games a sole
+member of this team opened the Parade of Nations; the rest of his team
+closed it.
+▶Answer: Greece.
+▶Watson is a question answering system for questions posed in natural
+language; it computes a confidence score and only buzzes in when
+confident enough.
+▶In 2011 it beat former champions Brad Rutter and Ken Jennings.
+▶Reasons for success: progress in natural language processing and in
+extracting knowledge from structured and unstructured content (four
+terabytes, including Wikipedia); massive parallelism.
+▶Reality check: the follow-up “Watson Health” business was sold off in
+2022. Winning a quiz show is not practising medicine.
+--- PAGE 82 ---
+AlphaGo wins against a 9-dan professional (2016)
+▶Go: two players place stones on the
+intersections of a 19 ×19 grid; the
+objective is to surround more territory
+than the opponent. About 2 ×10170
+legal positions, and positions are hard
+to evaluate with hand-written rules.
+▶AlphaGo (Google DeepMind) beat
+Lee Sedol 4–1.
+▶Reasons for success: heuristic search
+is not enough. AlphaGo combined
+Monte Carlo tree search with deep
+neural networks, trained on human
+games and then by self-play.▶Deep Blue’s knowledge was written
+by humans ; AlphaGo’s was learned.
+Move 37 of game 2 was one a human
+would play with probability 1 /10,000
+— and it won the game.
+▶AlphaZero (2017): given only the
+rules and no human games,
+superhuman at Go, chess and shogi
+by self-play.
+
+--- PAGE 83 ---
+AlphaGo wins against a 9-dan professional (2016)
+▶Go: two players place stones on the
+intersections of a 19 ×19 grid; the
+objective is to surround more territory
+than the opponent. About 2 ×10170
+legal positions, and positions are hard
+to evaluate with hand-written rules.
+▶AlphaGo (Google DeepMind) beat
+Lee Sedol 4–1.
+▶Reasons for success: heuristic search
+is not enough. AlphaGo combined
+Monte Carlo tree search with deep
+neural networks, trained on human
+games and then by self-play.
+▶Deep Blue’s knowledge was written
+by humans ; AlphaGo’s was learned.
+Move 37 of game 2 was one a human
+would play with probability 1 /10,000
+— and it won the game.▶AlphaZero (2017): given only the
+rules and no human games,
+superhuman at Go, chess and shogi
+by self-play.
+
+--- PAGE 84 ---
+AlphaGo wins against a 9-dan professional (2016)
+▶Go: two players place stones on the
+intersections of a 19 ×19 grid; the
+objective is to surround more territory
+than the opponent. About 2 ×10170
+legal positions, and positions are hard
+to evaluate with hand-written rules.
+▶AlphaGo (Google DeepMind) beat
+Lee Sedol 4–1.
+▶Reasons for success: heuristic search
+is not enough. AlphaGo combined
+Monte Carlo tree search with deep
+neural networks, trained on human
+games and then by self-play.
+▶Deep Blue’s knowledge was written
+by humans ; AlphaGo’s was learned.
+Move 37 of game 2 was one a human
+would play with probability 1 /10,000
+— and it won the game.
+▶AlphaZero (2017): given only the
+rules and no human games,
+superhuman at Go, chess and shogi
+by self-play.
+
+--- PAGE 85 ---
+AlphaFold: predicting 3D protein structures (2020)
+▶Proteins underpin the biological processes of all living beings.
+They are the building blocks of life.
+▶There are hundreds of millions of known proteins. Each has a
+unique 3D shape that determines how it works and what it
+does.
+▶Predicting that 3D shape from the sequence of amino acids
+had been an unsolved challenge for over 50 years; determining
+one structure experimentally could take years.
+▶Essentially solved by Google DeepMind in 2020; the public
+database now covers over 200 million proteins. Nobel Prize in
+Chemistry 2024 for Demis Hassabis and John Jumper.
+▶Reason for success: progress in machine learning, in particular
+deep neural networks — plus decades of curated public data.The pattern: a hard scientific problem + a large, clean dataset + deep learning.
+--- PAGE 86 ---
+AlphaFold: predicting 3D protein structures (2020)
+▶Proteins underpin the biological processes of all living beings.
+They are the building blocks of life.
+▶There are hundreds of millions of known proteins. Each has a
+unique 3D shape that determines how it works and what it
+does.
+▶Predicting that 3D shape from the sequence of amino acids
+had been an unsolved challenge for over 50 years; determining
+one structure experimentally could take years.
+▶Essentially solved by Google DeepMind in 2020; the public
+database now covers over 200 million proteins. Nobel Prize in
+Chemistry 2024 for Demis Hassabis and John Jumper.
+▶Reason for success: progress in machine learning, in particular
+deep neural networks — plus decades of curated public data.
+The pattern: a hard scientific problem + a large, clean dataset + deep learning.
+--- PAGE 87 ---
+Self-driving cars and RoboCup
+▶Self-driving car: a vehicle sensing its environment and navigating
+without human input. 1995: CMU’s NavLab 5 drove 2,849 miles,
+98.2% autonomously — but the last 1.8% is where the difficulty lives.▶2004 DARPA Grand Challenge: none of the vehicles finished the
+150-mile desert route (best: 7.32 miles). One year later, five vehicles
+completed it.
+▶Today driverless taxis operate commercially in several cities, but
+progress has been far slower than predicted, and trust, liability and
+regulation remain the hard part. Progress came from better sensors and
+machine learning for perception, mapping and localisation.
+▶RoboCup (since 1997): by mid-century, a team of autonomous
+humanoid robots shall beat the human World Cup winners under FIFA
+rules. See https://en.wikipedia.org/wiki/RoboCup .
+▶Why is football harder than chess? Moravec’s paradox: high-level
+reasoning needs little computation; low-level perception and motion
+need enormous amounts.
+--- PAGE 88 ---
+Self-driving cars and RoboCup
+▶Self-driving car: a vehicle sensing its environment and navigating
+without human input. 1995: CMU’s NavLab 5 drove 2,849 miles,
+98.2% autonomously — but the last 1.8% is where the difficulty lives.
+▶2004 DARPA Grand Challenge: none of the vehicles finished the
+150-mile desert route (best: 7.32 miles). One year later, five vehicles
+completed it.▶Today driverless taxis operate commercially in several cities, but
+progress has been far slower than predicted, and trust, liability and
+regulation remain the hard part. Progress came from better sensors and
+machine learning for perception, mapping and localisation.
+▶RoboCup (since 1997): by mid-century, a team of autonomous
+humanoid robots shall beat the human World Cup winners under FIFA
+rules. See https://en.wikipedia.org/wiki/RoboCup .
+▶Why is football harder than chess? Moravec’s paradox: high-level
+reasoning needs little computation; low-level perception and motion
+need enormous amounts.
+--- PAGE 89 ---
+Self-driving cars and RoboCup
+▶Self-driving car: a vehicle sensing its environment and navigating
+without human input. 1995: CMU’s NavLab 5 drove 2,849 miles,
+98.2% autonomously — but the last 1.8% is where the difficulty lives.
+▶2004 DARPA Grand Challenge: none of the vehicles finished the
+150-mile desert route (best: 7.32 miles). One year later, five vehicles
+completed it.
+▶Today driverless taxis operate commercially in several cities, but
+progress has been far slower than predicted, and trust, liability and
+regulation remain the hard part. Progress came from better sensors and
+machine learning for perception, mapping and localisation.▶RoboCup (since 1997): by mid-century, a team of autonomous
+humanoid robots shall beat the human World Cup winners under FIFA
+rules. See https://en.wikipedia.org/wiki/RoboCup .
+▶Why is football harder than chess? Moravec’s paradox: high-level
+reasoning needs little computation; low-level perception and motion
+need enormous amounts.
+--- PAGE 90 ---
+Self-driving cars and RoboCup
+▶Self-driving car: a vehicle sensing its environment and navigating
+without human input. 1995: CMU’s NavLab 5 drove 2,849 miles,
+98.2% autonomously — but the last 1.8% is where the difficulty lives.
+▶2004 DARPA Grand Challenge: none of the vehicles finished the
+150-mile desert route (best: 7.32 miles). One year later, five vehicles
+completed it.
+▶Today driverless taxis operate commercially in several cities, but
+progress has been far slower than predicted, and trust, liability and
+regulation remain the hard part. Progress came from better sensors and
+machine learning for perception, mapping and localisation.
+▶RoboCup (since 1997): by mid-century, a team of autonomous
+humanoid robots shall beat the human World Cup winners under FIFA
+rules. See https://en.wikipedia.org/wiki/RoboCup .▶Why is football harder than chess? Moravec’s paradox: high-level
+reasoning needs little computation; low-level perception and motion
+need enormous amounts.
+--- PAGE 91 ---
+Self-driving cars and RoboCup
+▶Self-driving car: a vehicle sensing its environment and navigating
+without human input. 1995: CMU’s NavLab 5 drove 2,849 miles,
+98.2% autonomously — but the last 1.8% is where the difficulty lives.
+▶2004 DARPA Grand Challenge: none of the vehicles finished the
+150-mile desert route (best: 7.32 miles). One year later, five vehicles
+completed it.
+▶Today driverless taxis operate commercially in several cities, but
+progress has been far slower than predicted, and trust, liability and
+regulation remain the hard part. Progress came from better sensors and
+machine learning for perception, mapping and localisation.
+▶RoboCup (since 1997): by mid-century, a team of autonomous
+humanoid robots shall beat the human World Cup winners under FIFA
+rules. See https://en.wikipedia.org/wiki/RoboCup .
+▶Why is football harder than chess? Moravec’s paradox: high-level
+reasoning needs little computation; low-level perception and motion
+need enormous amounts.
+--- PAGE 92 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 93 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 94 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 95 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 96 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 97 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 98 ---
+Deep learning to generative AI (2012–)
+▶2012, AlexNet: a deep convolutional network halved the error rate on
+the ImageNet challenge. Ingredients: a large labelled dataset, GPUs,
+and depth. (2024 Nobel Prize in Physics: Hinton and Hopfield, for
+foundational work on neural networks.)
+▶2017, transformers: “Attention Is All You Need” introduced the
+architecture behind essentially every modern large model. Attention
+lets the model weigh the relevance of every other token, and it
+parallelises well on GPUs.
+▶2018–20, pre-training: train once on huge amounts of unlabelled text
+(predicting the next word), then adapt to many tasks — instead of
+building a separate system per task.
+▶2022, ChatGPT: a chatbot based on the GPT-3.5 large language
+model (OpenAI); the fastest-adopted consumer software product in
+history.
+▶Leading families in 2026 include GPT (OpenAI), Claude (Anthropic),
+Gemini (Google DeepMind), Grok (xAI), and open-weight models such
+as Llama, Qwen, DeepSeek. (This list will be out of date by the time you read
+it — itself a data point.)
+▶Scale: trained on trillions of words, with 1011–1012parameters, at a cost of tens to
+hundreds of millions of dollars per training run. Scaling laws: quality improves
+smoothly with data, parameters and compute.
+▶Post-training matters as much as pre-training: instruction tuning and reinforcement
+learning from human feedback (RLHF) turn a text predictor into an assistant.
+--- PAGE 99 ---
+How an LLM works — and how it fails
+The capital of France is ?P(“Paris”) = 0 .92
+P(“the”) = 0 .03
+P(“Lyon”) = 0 .01
+▶The model computes a probability distribution over the next token and
+samples from it. Repeat. That is all it does at inference time.▶So it has no database of facts to look up and no notion of truth — it
+has statistics. A hallucination (e.g. an invented but perfectly plausible
+citation) is therefore expected behaviour, not a bug.
+▶Mitigations: retrieval (give the model the actual documents), tool use
+(calculator, search, theorem prover), and reasoning models that are
+trained to think step by step before answering.
+▶Agents chain these together: read a repository, edit code, run the tests,
+iterate. Note that this reunites machine learning with the old traditions
+of search and knowledge representation.
+--- PAGE 100 ---
+How an LLM works — and how it fails
+The capital of France is ?P(“Paris”) = 0 .92
+P(“the”) = 0 .03
+P(“Lyon”) = 0 .01
+▶The model computes a probability distribution over the next token and
+samples from it. Repeat. That is all it does at inference time.
+▶So it has no database of facts to look up and no notion of truth — it
+has statistics. A hallucination (e.g. an invented but perfectly plausible
+citation) is therefore expected behaviour, not a bug.▶Mitigations: retrieval (give the model the actual documents), tool use
+(calculator, search, theorem prover), and reasoning models that are
+trained to think step by step before answering.
+▶Agents chain these together: read a repository, edit code, run the tests,
+iterate. Note that this reunites machine learning with the old traditions
+of search and knowledge representation.
+--- PAGE 101 ---
+How an LLM works — and how it fails
+The capital of France is ?P(“Paris”) = 0 .92
+P(“the”) = 0 .03
+P(“Lyon”) = 0 .01
+▶The model computes a probability distribution over the next token and
+samples from it. Repeat. That is all it does at inference time.
+▶So it has no database of facts to look up and no notion of truth — it
+has statistics. A hallucination (e.g. an invented but perfectly plausible
+citation) is therefore expected behaviour, not a bug.
+▶Mitigations: retrieval (give the model the actual documents), tool use
+(calculator, search, theorem prover), and reasoning models that are
+trained to think step by step before answering.▶Agents chain these together: read a repository, edit code, run the tests,
+iterate. Note that this reunites machine learning with the old traditions
+of search and knowledge representation.
+--- PAGE 102 ---
+How an LLM works — and how it fails
+The capital of France is ?P(“Paris”) = 0 .92
+P(“the”) = 0 .03
+P(“Lyon”) = 0 .01
+▶The model computes a probability distribution over the next token and
+samples from it. Repeat. That is all it does at inference time.
+▶So it has no database of facts to look up and no notion of truth — it
+has statistics. A hallucination (e.g. an invented but perfectly plausible
+citation) is therefore expected behaviour, not a bug.
+▶Mitigations: retrieval (give the model the actual documents), tool use
+(calculator, search, theorem prover), and reasoning models that are
+trained to think step by step before answering.
+▶Agents chain these together: read a repository, edit code, run the tests,
+iterate. Note that this reunites machine learning with the old traditions
+of search and knowledge representation.
+--- PAGE 103 ---
+Major Challenge: Explainable AI
+▶In many domains it is important to understand the decisions
+and predictions of AI algorithms. Examples: clinical decision
+support, recruitment, credit scoring, financial advice.▶Many AI algorithms (in particular deep learning) are naturally
+opaque, and typically even experts cannot explain their
+decisions or predictions.
+▶Lots of current research into explaining such decisions: feature
+attribution, counterfactuals (“you would have been approved
+if. . . ”), and interpretability of the network’s internal structure.
+▶Warning: an explanation that is plausible but not faithful is
+worse than none.
+--- PAGE 104 ---
+Major Challenge: Explainable AI
+▶In many domains it is important to understand the decisions
+and predictions of AI algorithms. Examples: clinical decision
+support, recruitment, credit scoring, financial advice.
+▶Many AI algorithms (in particular deep learning) are naturally
+opaque, and typically even experts cannot explain their
+decisions or predictions.▶Lots of current research into explaining such decisions: feature
+attribution, counterfactuals (“you would have been approved
+if. . . ”), and interpretability of the network’s internal structure.
+▶Warning: an explanation that is plausible but not faithful is
+worse than none.
+--- PAGE 105 ---
+Major Challenge: Explainable AI
+▶In many domains it is important to understand the decisions
+and predictions of AI algorithms. Examples: clinical decision
+support, recruitment, credit scoring, financial advice.
+▶Many AI algorithms (in particular deep learning) are naturally
+opaque, and typically even experts cannot explain their
+decisions or predictions.
+▶Lots of current research into explaining such decisions: feature
+attribution, counterfactuals (“you would have been approved
+if. . . ”), and interpretability of the network’s internal structure.▶Warning: an explanation that is plausible but not faithful is
+worse than none.
+--- PAGE 106 ---
+Major Challenge: Explainable AI
+▶In many domains it is important to understand the decisions
+and predictions of AI algorithms. Examples: clinical decision
+support, recruitment, credit scoring, financial advice.
+▶Many AI algorithms (in particular deep learning) are naturally
+opaque, and typically even experts cannot explain their
+decisions or predictions.
+▶Lots of current research into explaining such decisions: feature
+attribution, counterfactuals (“you would have been approved
+if. . . ”), and interpretability of the network’s internal structure.
+▶Warning: an explanation that is plausible but not faithful is
+worse than none.
+--- PAGE 107 ---
+Summary
+▶AI has no single agreed definition, and the label moves as
+techniques succeed (the AI effect).▶Four views: thinking/acting ×humanly/rationally. Modern AI
+mostly builds agents that act rationally.
+▶Two AI winters were caused by over-promising plus the
+combinatorial explosion: what works on toy problems need not
+scale.
+▶Each milestone has a technical reason: Deep Blue (search +
+hardware), Watson (NLP + knowledge extraction), AlphaGo
+(search + deep RL), AlphaFold (deep learning + data), LLMs
+(transformers + scale + post-training).
+--- PAGE 108 ---
+Summary
+▶AI has no single agreed definition, and the label moves as
+techniques succeed (the AI effect).
+▶Four views: thinking/acting ×humanly/rationally. Modern AI
+mostly builds agents that act rationally.▶Two AI winters were caused by over-promising plus the
+combinatorial explosion: what works on toy problems need not
+scale.
+▶Each milestone has a technical reason: Deep Blue (search +
+hardware), Watson (NLP + knowledge extraction), AlphaGo
+(search + deep RL), AlphaFold (deep learning + data), LLMs
+(transformers + scale + post-training).
+--- PAGE 109 ---
+Summary
+▶AI has no single agreed definition, and the label moves as
+techniques succeed (the AI effect).
+▶Four views: thinking/acting ×humanly/rationally. Modern AI
+mostly builds agents that act rationally.
+▶Two AI winters were caused by over-promising plus the
+combinatorial explosion: what works on toy problems need not
+scale.▶Each milestone has a technical reason: Deep Blue (search +
+hardware), Watson (NLP + knowledge extraction), AlphaGo
+(search + deep RL), AlphaFold (deep learning + data), LLMs
+(transformers + scale + post-training).
+--- PAGE 110 ---
+Summary
+▶AI has no single agreed definition, and the label moves as
+techniques succeed (the AI effect).
+▶Four views: thinking/acting ×humanly/rationally. Modern AI
+mostly builds agents that act rationally.
+▶Two AI winters were caused by over-promising plus the
+combinatorial explosion: what works on toy problems need not
+scale.
+▶Each milestone has a technical reason: Deep Blue (search +
+hardware), Watson (NLP + knowledge extraction), AlphaGo
+(search + deep RL), AlphaFold (deep learning + data), LLMs
+(transformers + scale + post-training).

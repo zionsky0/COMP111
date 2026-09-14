@@ -1,0 +1,842 @@
+
+--- PAGE 1 ---
+COMP111: Artificial Intelligence
+More on uninformed tree search
+Frank Wolter
+--- PAGE 2 ---
+Recap
+Basic uninformed tree search algorithms:
+▶Breadth-first search (BFS): expand the oldest path in the
+frontier (FIFO queue). Complete and optimal, but memory
+hungry.▶Depth-first search (DFS): expand the newest path in the
+frontier (LIFO stack). Very modest memory use, but
+incomplete (it can get lost down an infinite branch) and not
+optimal.
+--- PAGE 3 ---
+Recap
+Basic uninformed tree search algorithms:
+▶Breadth-first search (BFS): expand the oldest path in the
+frontier (FIFO queue). Complete and optimal, but memory
+hungry.
+▶Depth-first search (DFS): expand the newest path in the
+frontier (LIFO stack). Very modest memory use, but
+incomplete (it can get lost down an infinite branch) and not
+optimal.
+--- PAGE 4 ---
+Terminology and notation (used from now on)
+▶b= branching factor: maximum number of successors of a
+state.
+▶d= depth of the shallowest goal: length of a shortest path
+from the start state to a goal state.
+▶m= maximum depth of the search tree ( m=∞if paths can
+be arbitrarily long).
+▶ℓ= depth limit that weimpose (introduced below).▶A path is generated when it is put on the frontier; it is
+expanded when it is taken off the frontier and its successors
+are generated.
+▶Complete: if a solution exists, the algorithm finds one.
+▶Optimal: the solution returned is a shortest path.
+▶Time complexity: number of paths generated. Space
+complexity: maximum size of the frontier.
+--- PAGE 5 ---
+Terminology and notation (used from now on)
+▶b= branching factor: maximum number of successors of a
+state.
+▶d= depth of the shallowest goal: length of a shortest path
+from the start state to a goal state.
+▶m= maximum depth of the search tree ( m=∞if paths can
+be arbitrarily long).
+▶ℓ= depth limit that weimpose (introduced below).
+▶A path is generated when it is put on the frontier; it is
+expanded when it is taken off the frontier and its successors
+are generated.
+▶Complete: if a solution exists, the algorithm finds one.
+▶Optimal: the solution returned is a shortest path.
+▶Time complexity: number of paths generated. Space
+complexity: maximum size of the frontier.
+--- PAGE 6 ---
+Recap: BFS and DFS side by side
+Complete? Optimal? Time Space
+BFS yes yes O(bd)O(bd)
+DFS no no O(bm)O(b m)
+The whole of this section is about the gap in this table: BFS has
+the good guarantees, DFS has the good memory behaviour. Can
+we have both?
+--- PAGE 7 ---
+Overview
+▶Variations and combinations:
+▶Depth limited search (DLS)
+▶Iterative deepening search (IDS)
+▶Speeding up techniques:
+▶Avoiding repeated states
+▶Bi-directional search▶Where these ideas are still used today (chess engines, Rubik’s
+cube solvers, planners).
+--- PAGE 8 ---
+Overview
+▶Variations and combinations:
+▶Depth limited search (DLS)
+▶Iterative deepening search (IDS)
+▶Speeding up techniques:
+▶Avoiding repeated states
+▶Bi-directional search
+▶Where these ideas are still used today (chess engines, Rubik’s
+cube solvers, planners).
+--- PAGE 9 ---
+Depth Limited Search (DLS)
+▶Depth-first search has one very desirable property: space
+complexity.▶But if a wrong path is expanded (with no solution on it), then
+the search may take a very long time, or may not terminate at
+all.
+▶Idea: fix a depth limit ℓand never expand a path of length ℓ.
+▶So DLS = DFS + “stop going deeper at level ℓ”.
+▶Useful if you know (or can bound) the length of a shortest
+solution.
+--- PAGE 10 ---
+Depth Limited Search (DLS)
+▶Depth-first search has one very desirable property: space
+complexity.
+▶But if a wrong path is expanded (with no solution on it), then
+the search may take a very long time, or may not terminate at
+all.▶Idea: fix a depth limit ℓand never expand a path of length ℓ.
+▶So DLS = DFS + “stop going deeper at level ℓ”.
+▶Useful if you know (or can bound) the length of a shortest
+solution.
+--- PAGE 11 ---
+Depth Limited Search (DLS)
+▶Depth-first search has one very desirable property: space
+complexity.
+▶But if a wrong path is expanded (with no solution on it), then
+the search may take a very long time, or may not terminate at
+all.
+▶Idea: fix a depth limit ℓand never expand a path of length ℓ.▶So DLS = DFS + “stop going deeper at level ℓ”.
+▶Useful if you know (or can bound) the length of a shortest
+solution.
+--- PAGE 12 ---
+Depth Limited Search (DLS)
+▶Depth-first search has one very desirable property: space
+complexity.
+▶But if a wrong path is expanded (with no solution on it), then
+the search may take a very long time, or may not terminate at
+all.
+▶Idea: fix a depth limit ℓand never expand a path of length ℓ.
+▶So DLS = DFS + “stop going deeper at level ℓ”.▶Useful if you know (or can bound) the length of a shortest
+solution.
+--- PAGE 13 ---
+Depth Limited Search (DLS)
+▶Depth-first search has one very desirable property: space
+complexity.
+▶But if a wrong path is expanded (with no solution on it), then
+the search may take a very long time, or may not terminate at
+all.
+▶Idea: fix a depth limit ℓand never expand a path of length ℓ.
+▶So DLS = DFS + “stop going deeper at level ℓ”.
+▶Useful if you know (or can bound) the length of a shortest
+solution.
+--- PAGE 14 ---
+Depth Limited Search (DLS)
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4: non-negative integer DepthLimit
+5:
+6:Set frontier := {s0}
+7:while frontier is not empty do
+8: select and remove from frontier the path s0....skadded
+9: last to frontier
+10: ifgoal( sk)then
+11: return s0. ..sk(and terminate)
+12: else Ifk<DepthLimit, then for every successor sofsk
+13: adds0. ..sksto frontier
+14: end if
+15:end while
+--- PAGE 15 ---
+Choosing the depth limit: Romania
+▶Only 20 cities on the map = ⇒no path without repeated
+states is longer than 19. So ℓ= 19 is safe.▶Careful examination shows that any city can be reached from
+any other in at most 10 steps. So also ℓ= 10 is safe.
+▶In general: a safe depth limit is any upper bound on the
+longest shortest path between two states.
+--- PAGE 16 ---
+Choosing the depth limit: Romania
+▶Only 20 cities on the map = ⇒no path without repeated
+states is longer than 19. So ℓ= 19 is safe.
+▶Careful examination shows that any city can be reached from
+any other in at most 10 steps. So also ℓ= 10 is safe.▶In general: a safe depth limit is any upper bound on the
+longest shortest path between two states.
+--- PAGE 17 ---
+Choosing the depth limit: Romania
+▶Only 20 cities on the map = ⇒no path without repeated
+states is longer than 19. So ℓ= 19 is safe.
+▶Careful examination shows that any city can be reached from
+any other in at most 10 steps. So also ℓ= 10 is safe.
+▶In general: a safe depth limit is any upper bound on the
+longest shortest path between two states.
+--- PAGE 18 ---
+Example: a safe depth limit for Rubik’s Cube
+Recall from Section 2: the cube has 43 ,252,003,274,489,856,000
+states. So how deep could a solution possibly be?▶In 2010 it was proved (by exhaustive computer search) that
+every configuration can be solved in at most 20 moves. (This
+number is sometimes called God’s number.)
+▶Hence ℓ= 20 is a provably safe depth limit — and DLS with
+ℓ= 20 is complete for the cube, even though plain DFS could
+wander forever.
+▶The state space is enormous, but it is shallow: b≈18,
+d≤20. This is exactly the regime in which depth-limited and
+iterative-deepening methods are good options.
+Moral: knowing a bound on dcan be worth more than knowing
+anything about the size of the state space.
+--- PAGE 19 ---
+Example: a safe depth limit for Rubik’s Cube
+Recall from Section 2: the cube has 43 ,252,003,274,489,856,000
+states. So how deep could a solution possibly be?
+▶In 2010 it was proved (by exhaustive computer search) that
+every configuration can be solved in at most 20 moves. (This
+number is sometimes called God’s number.)▶Hence ℓ= 20 is a provably safe depth limit — and DLS with
+ℓ= 20 is complete for the cube, even though plain DFS could
+wander forever.
+▶The state space is enormous, but it is shallow: b≈18,
+d≤20. This is exactly the regime in which depth-limited and
+iterative-deepening methods are good options.
+Moral: knowing a bound on dcan be worth more than knowing
+anything about the size of the state space.
+--- PAGE 20 ---
+Example: a safe depth limit for Rubik’s Cube
+Recall from Section 2: the cube has 43 ,252,003,274,489,856,000
+states. So how deep could a solution possibly be?
+▶In 2010 it was proved (by exhaustive computer search) that
+every configuration can be solved in at most 20 moves. (This
+number is sometimes called God’s number.)
+▶Hence ℓ= 20 is a provably safe depth limit — and DLS with
+ℓ= 20 is complete for the cube, even though plain DFS could
+wander forever.▶The state space is enormous, but it is shallow: b≈18,
+d≤20. This is exactly the regime in which depth-limited and
+iterative-deepening methods are good options.
+Moral: knowing a bound on dcan be worth more than knowing
+anything about the size of the state space.
+--- PAGE 21 ---
+Example: a safe depth limit for Rubik’s Cube
+Recall from Section 2: the cube has 43 ,252,003,274,489,856,000
+states. So how deep could a solution possibly be?
+▶In 2010 it was proved (by exhaustive computer search) that
+every configuration can be solved in at most 20 moves. (This
+number is sometimes called God’s number.)
+▶Hence ℓ= 20 is a provably safe depth limit — and DLS with
+ℓ= 20 is complete for the cube, even though plain DFS could
+wander forever.
+▶The state space is enormous, but it is shallow: b≈18,
+d≤20. This is exactly the regime in which depth-limited and
+iterative-deepening methods are good options.Moral: knowing a bound on dcan be worth more than knowing
+anything about the size of the state space.
+--- PAGE 22 ---
+Example: a safe depth limit for Rubik’s Cube
+Recall from Section 2: the cube has 43 ,252,003,274,489,856,000
+states. So how deep could a solution possibly be?
+▶In 2010 it was proved (by exhaustive computer search) that
+every configuration can be solved in at most 20 moves. (This
+number is sometimes called God’s number.)
+▶Hence ℓ= 20 is a provably safe depth limit — and DLS with
+ℓ= 20 is complete for the cube, even though plain DFS could
+wander forever.
+▶The state space is enormous, but it is shallow: b≈18,
+d≤20. This is exactly the regime in which depth-limited and
+iterative-deepening methods are good options.
+Moral: knowing a bound on dcan be worth more than knowing
+anything about the size of the state space.
+--- PAGE 23 ---
+Properties of Depth Limited Search (DLS)
+▶Not complete: if d> ℓthen DLS returns failure although a
+solution exists. If d≤ℓ, DLS does find a solution.▶Not optimal: it returns the first solution it stumbles on, which
+need not be a shortest one.
+▶Time: in the worst case DLS generates
+1 +b+b2+···+bℓ=O(bℓ)
+paths.
+▶Space: the frontier holds at most bsiblings for each of the ℓ
+levels of the current branch, so at most b·ℓpaths, i.e. O(bℓ).
+--- PAGE 24 ---
+Properties of Depth Limited Search (DLS)
+▶Not complete: if d> ℓthen DLS returns failure although a
+solution exists. If d≤ℓ, DLS does find a solution.
+▶Not optimal: it returns the first solution it stumbles on, which
+need not be a shortest one.▶Time: in the worst case DLS generates
+1 +b+b2+···+bℓ=O(bℓ)
+paths.
+▶Space: the frontier holds at most bsiblings for each of the ℓ
+levels of the current branch, so at most b·ℓpaths, i.e. O(bℓ).
+--- PAGE 25 ---
+Properties of Depth Limited Search (DLS)
+▶Not complete: if d> ℓthen DLS returns failure although a
+solution exists. If d≤ℓ, DLS does find a solution.
+▶Not optimal: it returns the first solution it stumbles on, which
+need not be a shortest one.
+▶Time: in the worst case DLS generates
+1 +b+b2+···+bℓ=O(bℓ)
+paths.▶Space: the frontier holds at most bsiblings for each of the ℓ
+levels of the current branch, so at most b·ℓpaths, i.e. O(bℓ).
+--- PAGE 26 ---
+Properties of Depth Limited Search (DLS)
+▶Not complete: if d> ℓthen DLS returns failure although a
+solution exists. If d≤ℓ, DLS does find a solution.
+▶Not optimal: it returns the first solution it stumbles on, which
+need not be a shortest one.
+▶Time: in the worst case DLS generates
+1 +b+b2+···+bℓ=O(bℓ)
+paths.
+▶Space: the frontier holds at most bsiblings for each of the ℓ
+levels of the current branch, so at most b·ℓpaths, i.e. O(bℓ).
+--- PAGE 27 ---
+Quiz (2 minutes, talk to your neighbour)
+A state space has b= 4 and a shortest solution at depth d= 6.
+You run DLS with limit ℓ= 4.
+1. What does the algorithm return?
+2. Does it terminate?
+3. You now rerun it with ℓ= 8. Is the returned solution of length
+6?Answers: (1) failure — no solution has length ≤4; (2) yes, always:
+the tree below depth ℓis finite; (3) not necessarily — DLS is not
+optimal, it may return a solution of length 7 or 8.
+--- PAGE 28 ---
+Quiz (2 minutes, talk to your neighbour)
+A state space has b= 4 and a shortest solution at depth d= 6.
+You run DLS with limit ℓ= 4.
+1. What does the algorithm return?
+2. Does it terminate?
+3. You now rerun it with ℓ= 8. Is the returned solution of length
+6?
+Answers: (1) failure — no solution has length ≤4; (2) yes, always:
+the tree below depth ℓis finite; (3) not necessarily — DLS is not
+optimal, it may return a solution of length 7 or 8.
+--- PAGE 29 ---
+Iterative Deepening Search (IDS)
+▶Problem: if we guess a depth limit that is too small, DLS is
+incomplete. If we guess one that is too large, we lose the
+benefit.▶Idea: don’t guess. Try every limit in turn.
+▶run DLS with limit 0; if a solution is found, return it;
+▶otherwise run DLS with limit 1; then 2; then 3; . . .
+▶The first solution found is at depth d, so it is a shortest
+solution.
+▶Useful when the search space is large and the depth of the
+solution is unknown — which is the normal situation.
+--- PAGE 30 ---
+Iterative Deepening Search (IDS)
+▶Problem: if we guess a depth limit that is too small, DLS is
+incomplete. If we guess one that is too large, we lose the
+benefit.
+▶Idea: don’t guess. Try every limit in turn.
+▶run DLS with limit 0; if a solution is found, return it;
+▶otherwise run DLS with limit 1; then 2; then 3; . . .▶The first solution found is at depth d, so it is a shortest
+solution.
+▶Useful when the search space is large and the depth of the
+solution is unknown — which is the normal situation.
+--- PAGE 31 ---
+Iterative Deepening Search (IDS)
+▶Problem: if we guess a depth limit that is too small, DLS is
+incomplete. If we guess one that is too large, we lose the
+benefit.
+▶Idea: don’t guess. Try every limit in turn.
+▶run DLS with limit 0; if a solution is found, return it;
+▶otherwise run DLS with limit 1; then 2; then 3; . . .
+▶The first solution found is at depth d, so it is a shortest
+solution.▶Useful when the search space is large and the depth of the
+solution is unknown — which is the normal situation.
+--- PAGE 32 ---
+Iterative Deepening Search (IDS)
+▶Problem: if we guess a depth limit that is too small, DLS is
+incomplete. If we guess one that is too large, we lose the
+benefit.
+▶Idea: don’t guess. Try every limit in turn.
+▶run DLS with limit 0; if a solution is found, return it;
+▶otherwise run DLS with limit 1; then 2; then 3; . . .
+▶The first solution found is at depth d, so it is a shortest
+solution.
+▶Useful when the search space is large and the depth of the
+solution is unknown — which is the normal situation.
+--- PAGE 33 ---
+General Algorithm for Iterative Deepening (IDS)
+Call DLS as a subroutine:
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:
+5:Set DepthLimit := 0
+6:repeat
+7: Result := depth limited search(DepthLimit)
+8: ifResult is a path s0...skthen
+9: return s0...sk(and terminate)
+10: else DepthLimit := DepthLimit + 1
+11: end if
+12:until FalseEvery iteration starts from scratch: the tree above the new limit is
+regenerated. This looks wasteful. The next slides show why it is
+not.
+--- PAGE 34 ---
+General Algorithm for Iterative Deepening (IDS)
+Call DLS as a subroutine:
+1:Input: a start state s0
+2: for each state sthe successors of s
+3: a test goal( s) checking whether sis a goal state
+4:
+5:Set DepthLimit := 0
+6:repeat
+7: Result := depth limited search(DepthLimit)
+8: ifResult is a path s0...skthen
+9: return s0...sk(and terminate)
+10: else DepthLimit := DepthLimit + 1
+11: end if
+12:until False
+Every iteration starts from scratch: the tree above the new limit is
+regenerated. This looks wasteful. The next slides show why it is
+not.
+--- PAGE 35 ---
+Properties of Iterative Deepening (IDS)
+▶Complete: if a solution exists (and bis finite) IDS finds one,
+because the limit eventually reaches d.▶Optimal: the solution returned is a shortest path — no
+solution of length <dwas missed, since all smaller limits
+failed.
+▶Time: let dbe the length of the shortest path to a goal state.
+Then in the worst case IDS will look at
+1 + (1 + b) + (1 + b+b2) +···+ (1 + b+b2+···+bd)
+paths before reaching a goal state.
+▶Space: O(b d) — the same as DFS, since each iteration is
+just a DLS.
+So IDS has the guarantees of BFS at the memory cost of DFS.
+--- PAGE 36 ---
+Properties of Iterative Deepening (IDS)
+▶Complete: if a solution exists (and bis finite) IDS finds one,
+because the limit eventually reaches d.
+▶Optimal: the solution returned is a shortest path — no
+solution of length <dwas missed, since all smaller limits
+failed.▶Time: let dbe the length of the shortest path to a goal state.
+Then in the worst case IDS will look at
+1 + (1 + b) + (1 + b+b2) +···+ (1 + b+b2+···+bd)
+paths before reaching a goal state.
+▶Space: O(b d) — the same as DFS, since each iteration is
+just a DLS.
+So IDS has the guarantees of BFS at the memory cost of DFS.
+--- PAGE 37 ---
+Properties of Iterative Deepening (IDS)
+▶Complete: if a solution exists (and bis finite) IDS finds one,
+because the limit eventually reaches d.
+▶Optimal: the solution returned is a shortest path — no
+solution of length <dwas missed, since all smaller limits
+failed.
+▶Time: let dbe the length of the shortest path to a goal state.
+Then in the worst case IDS will look at
+1 + (1 + b) + (1 + b+b2) +···+ (1 + b+b2+···+bd)
+paths before reaching a goal state.▶Space: O(b d) — the same as DFS, since each iteration is
+just a DLS.
+So IDS has the guarantees of BFS at the memory cost of DFS.
+--- PAGE 38 ---
+Properties of Iterative Deepening (IDS)
+▶Complete: if a solution exists (and bis finite) IDS finds one,
+because the limit eventually reaches d.
+▶Optimal: the solution returned is a shortest path — no
+solution of length <dwas missed, since all smaller limits
+failed.
+▶Time: let dbe the length of the shortest path to a goal state.
+Then in the worst case IDS will look at
+1 + (1 + b) + (1 + b+b2) +···+ (1 + b+b2+···+bd)
+paths before reaching a goal state.
+▶Space: O(b d) — the same as DFS, since each iteration is
+just a DLS.So IDS has the guarantees of BFS at the memory cost of DFS.
+--- PAGE 39 ---
+Properties of Iterative Deepening (IDS)
+▶Complete: if a solution exists (and bis finite) IDS finds one,
+because the limit eventually reaches d.
+▶Optimal: the solution returned is a shortest path — no
+solution of length <dwas missed, since all smaller limits
+failed.
+▶Time: let dbe the length of the shortest path to a goal state.
+Then in the worst case IDS will look at
+1 + (1 + b) + (1 + b+b2) +···+ (1 + b+b2+···+bd)
+paths before reaching a goal state.
+▶Space: O(b d) — the same as DFS, since each iteration is
+just a DLS.
+So IDS has the guarantees of BFS at the memory cost of DFS.
+--- PAGE 40 ---
+IDS versus BFS: is the regeneration expensive?
+Example: b= 10, d= 5.
+▶BFS generates 1 + b+···+b5= 111 ,111 paths and must
+store up to b5= 100 ,000.
+▶IDS generates 1 + (1 + b) +···+ (1 + ···+b5) = 123 ,456
+paths and stores only about b·d= 50.
+▶Cost: 11% more work. Benefit: 2000 ×less memory.Why so cheap? Because the last level dominates: it contains more
+nodes than all the levels above it put together. Redoing everything
+above it is almost free.
+--- PAGE 41 ---
+IDS versus BFS: is the regeneration expensive?
+Example: b= 10, d= 5.
+▶BFS generates 1 + b+···+b5= 111 ,111 paths and must
+store up to b5= 100 ,000.
+▶IDS generates 1 + (1 + b) +···+ (1 + ···+b5) = 123 ,456
+paths and stores only about b·d= 50.
+▶Cost: 11% more work. Benefit: 2000 ×less memory.
+Why so cheap? Because the last level dominates: it contains more
+nodes than all the levels above it put together. Redoing everything
+above it is almost free.
+--- PAGE 42 ---
+Where IDS is naturally used
+▶IDA∗(iterative deepening A∗, covered soon) is the standard
+optimal solver for the 15-puzzle and for Rubik’s cube: it
+iterates on a cost bound rather than a depth bound.▶A web crawler that must find the shortest click-path from a
+page to another: you can’t hold a BFS frontier of the web in
+RAM, but you can hold one root-to-page path.
+Whenever memory — not time — is the binding constraint,
+iterative deepening is the first thing to try.
+--- PAGE 43 ---
+Where IDS is naturally used
+▶IDA∗(iterative deepening A∗, covered soon) is the standard
+optimal solver for the 15-puzzle and for Rubik’s cube: it
+iterates on a cost bound rather than a depth bound.
+▶A web crawler that must find the shortest click-path from a
+page to another: you can’t hold a BFS frontier of the web in
+RAM, but you can hold one root-to-page path.Whenever memory — not time — is the binding constraint,
+iterative deepening is the first thing to try.
+--- PAGE 44 ---
+Where IDS is naturally used
+▶IDA∗(iterative deepening A∗, covered soon) is the standard
+optimal solver for the 15-puzzle and for Rubik’s cube: it
+iterates on a cost bound rather than a depth bound.
+▶A web crawler that must find the shortest click-path from a
+page to another: you can’t hold a BFS frontier of the web in
+RAM, but you can hold one root-to-page path.
+Whenever memory — not time — is the binding constraint,
+iterative deepening is the first thing to try.
+--- PAGE 45 ---
+Algorithmic Improvements
+Speeding things up:
+avoiding repeated states, and searching from both
+ends.
+--- PAGE 46 ---
+Repeated states: how bad is it?
+A robot on a grid can move N, E, S, W, so b= 4.
+▶Number of paths of length dfrom the start: up to 4d.
+▶Number of states reachable in dsteps: only 2 d2+ 2d+ 1.d paths of length dstates within dsteps
+5 1 ,024 61
+10 ≈1.0×106221
+20 ≈1.1×1012841
+The search tree is exponential; the state graph is quadratic.
+Almost all the work of a tree search is re-exploring states it has
+already seen.
+--- PAGE 47 ---
+Repeated states: how bad is it?
+A robot on a grid can move N, E, S, W, so b= 4.
+▶Number of paths of length dfrom the start: up to 4d.
+▶Number of states reachable in dsteps: only 2 d2+ 2d+ 1.
+d paths of length dstates within dsteps
+5 1 ,024 61
+10 ≈1.0×106221
+20 ≈1.1×1012841The search tree is exponential; the state graph is quadratic.
+Almost all the work of a tree search is re-exploring states it has
+already seen.
+--- PAGE 48 ---
+Repeated states: how bad is it?
+A robot on a grid can move N, E, S, W, so b= 4.
+▶Number of paths of length dfrom the start: up to 4d.
+▶Number of states reachable in dsteps: only 2 d2+ 2d+ 1.
+d paths of length dstates within dsteps
+5 1 ,024 61
+10 ≈1.0×106221
+20 ≈1.1×1012841
+The search tree is exponential; the state graph is quadratic.
+Almost all the work of a tree search is re-exploring states it has
+already seen.
+--- PAGE 49 ---
+Avoiding Repeated States
+Three options, in order of increasing effectiveness andincreasing
+overhead:
+1. Do not return to the state you have just come from.2. Do not create paths with a cycle in them (no state occurs
+twice on the same path).
+3. Do not create paths containing any state that occurred in a
+path created earlier — set of reached states.
+This turns tree search into graph search.
+The trade-off is real: option 3 makes BFS on the grid above
+polynomial instead of exponential, but it also destroys the memory
+advantage of DFS and IDS, which is a main reason we were using
+them. So: BFS is usually run as graph search (option 3); DFS and
+IDS usually use option 2.
+--- PAGE 50 ---
+Avoiding Repeated States
+Three options, in order of increasing effectiveness andincreasing
+overhead:
+1. Do not return to the state you have just come from.
+2. Do not create paths with a cycle in them (no state occurs
+twice on the same path).3. Do not create paths containing any state that occurred in a
+path created earlier — set of reached states.
+This turns tree search into graph search.
+The trade-off is real: option 3 makes BFS on the grid above
+polynomial instead of exponential, but it also destroys the memory
+advantage of DFS and IDS, which is a main reason we were using
+them. So: BFS is usually run as graph search (option 3); DFS and
+IDS usually use option 2.
+--- PAGE 51 ---
+Avoiding Repeated States
+Three options, in order of increasing effectiveness andincreasing
+overhead:
+1. Do not return to the state you have just come from.
+2. Do not create paths with a cycle in them (no state occurs
+twice on the same path).
+3. Do not create paths containing any state that occurred in a
+path created earlier — set of reached states.
+This turns tree search into graph search.The trade-off is real: option 3 makes BFS on the grid above
+polynomial instead of exponential, but it also destroys the memory
+advantage of DFS and IDS, which is a main reason we were using
+them. So: BFS is usually run as graph search (option 3); DFS and
+IDS usually use option 2.
+--- PAGE 52 ---
+Avoiding Repeated States
+Three options, in order of increasing effectiveness andincreasing
+overhead:
+1. Do not return to the state you have just come from.
+2. Do not create paths with a cycle in them (no state occurs
+twice on the same path).
+3. Do not create paths containing any state that occurred in a
+path created earlier — set of reached states.
+This turns tree search into graph search.
+The trade-off is real: option 3 makes BFS on the grid above
+polynomial instead of exponential, but it also destroys the memory
+advantage of DFS and IDS, which is a main reason we were using
+them. So: BFS is usually run as graph search (option 3); DFS and
+IDS usually use option 2.
+--- PAGE 53 ---
+Bi-directional Search
+▶Suppose we search from the goal state backwards as well as
+from the initial state forwards.▶This involves determining predecessor states of the goal, then
+predecessors of those, . . .
+▶Stop when the two frontiers meet: a state reached from both
+ends gives a complete path (forwards to that state, then
+backwards to the goal).
+Start Goal
+frontiers meet in the middle
+--- PAGE 54 ---
+Bi-directional Search
+▶Suppose we search from the goal state backwards as well as
+from the initial state forwards.
+▶This involves determining predecessor states of the goal, then
+predecessors of those, . . .▶Stop when the two frontiers meet: a state reached from both
+ends gives a complete path (forwards to that state, then
+backwards to the goal).
+Start Goal
+frontiers meet in the middle
+--- PAGE 55 ---
+Bi-directional Search
+▶Suppose we search from the goal state backwards as well as
+from the initial state forwards.
+▶This involves determining predecessor states of the goal, then
+predecessors of those, . . .
+▶Stop when the two frontiers meet: a state reached from both
+ends gives a complete path (forwards to that state, then
+backwards to the goal).
+Start Goal
+frontiers meet in the middle
+--- PAGE 56 ---
+Bi-directional Search: good properties
+▶Often much more efficient: instead of one search to depth d,
+we do two searches to depth d/2.
+▶2bd/2is dramatically smaller than bd.▶Example: b= 10, d= 6.
+▶BFS examines 1 + b+···+b6= 1,111,111 paths.
+▶Bi-directional BFS examines 2 ×(1 + b+b2+b3) = 2,222
+paths.
+▶The memory requirement drops in the same way: bd/2per
+direction rather than bd.
+▶Different strategies can be used in the two directions.
+--- PAGE 57 ---
+Bi-directional Search: good properties
+▶Often much more efficient: instead of one search to depth d,
+we do two searches to depth d/2.
+▶2bd/2is dramatically smaller than bd.
+▶Example: b= 10, d= 6.
+▶BFS examines 1 + b+···+b6= 1,111,111 paths.
+▶Bi-directional BFS examines 2 ×(1 + b+b2+b3) = 2,222
+paths.▶The memory requirement drops in the same way: bd/2per
+direction rather than bd.
+▶Different strategies can be used in the two directions.
+--- PAGE 58 ---
+Bi-directional Search: good properties
+▶Often much more efficient: instead of one search to depth d,
+we do two searches to depth d/2.
+▶2bd/2is dramatically smaller than bd.
+▶Example: b= 10, d= 6.
+▶BFS examines 1 + b+···+b6= 1,111,111 paths.
+▶Bi-directional BFS examines 2 ×(1 + b+b2+b3) = 2,222
+paths.
+▶The memory requirement drops in the same way: bd/2per
+direction rather than bd.▶Different strategies can be used in the two directions.
+--- PAGE 59 ---
+Bi-directional Search: good properties
+▶Often much more efficient: instead of one search to depth d,
+we do two searches to depth d/2.
+▶2bd/2is dramatically smaller than bd.
+▶Example: b= 10, d= 6.
+▶BFS examines 1 + b+···+b6= 1,111,111 paths.
+▶Bi-directional BFS examines 2 ×(1 + b+b2+b3) = 2,222
+paths.
+▶The memory requirement drops in the same way: bd/2per
+direction rather than bd.
+▶Different strategies can be used in the two directions.
+--- PAGE 60 ---
+Bi-directional Search: problematic properties
+▶We must be able to generate predecessors of a state. Easy on
+a map (roads run both ways); hard when actions destroy
+information (e.g. “delete the file”).▶We need an explicit goal state. If the goal is described by a
+property (“a checkmate position”), there may be billions of
+goal states to search back from.
+▶We need an efficient test of whether a newly generated state
+appears in the other frontier — in practice a hash table.
+▶Optimality needs care: the firstmeeting point of the two
+frontiers is not always on a shortest path. A correct
+implementation must finish the current level and compare all
+meeting points.
+▶Memory is still O(bd/2) per direction: better, but still
+exponential. For large dthis remains impractical.
+--- PAGE 61 ---
+Bi-directional Search: problematic properties
+▶We must be able to generate predecessors of a state. Easy on
+a map (roads run both ways); hard when actions destroy
+information (e.g. “delete the file”).
+▶We need an explicit goal state. If the goal is described by a
+property (“a checkmate position”), there may be billions of
+goal states to search back from.▶We need an efficient test of whether a newly generated state
+appears in the other frontier — in practice a hash table.
+▶Optimality needs care: the firstmeeting point of the two
+frontiers is not always on a shortest path. A correct
+implementation must finish the current level and compare all
+meeting points.
+▶Memory is still O(bd/2) per direction: better, but still
+exponential. For large dthis remains impractical.
+--- PAGE 62 ---
+Bi-directional Search: problematic properties
+▶We must be able to generate predecessors of a state. Easy on
+a map (roads run both ways); hard when actions destroy
+information (e.g. “delete the file”).
+▶We need an explicit goal state. If the goal is described by a
+property (“a checkmate position”), there may be billions of
+goal states to search back from.
+▶We need an efficient test of whether a newly generated state
+appears in the other frontier — in practice a hash table.▶Optimality needs care: the firstmeeting point of the two
+frontiers is not always on a shortest path. A correct
+implementation must finish the current level and compare all
+meeting points.
+▶Memory is still O(bd/2) per direction: better, but still
+exponential. For large dthis remains impractical.
+--- PAGE 63 ---
+Bi-directional Search: problematic properties
+▶We must be able to generate predecessors of a state. Easy on
+a map (roads run both ways); hard when actions destroy
+information (e.g. “delete the file”).
+▶We need an explicit goal state. If the goal is described by a
+property (“a checkmate position”), there may be billions of
+goal states to search back from.
+▶We need an efficient test of whether a newly generated state
+appears in the other frontier — in practice a hash table.
+▶Optimality needs care: the firstmeeting point of the two
+frontiers is not always on a shortest path. A correct
+implementation must finish the current level and compare all
+meeting points.▶Memory is still O(bd/2) per direction: better, but still
+exponential. For large dthis remains impractical.
+--- PAGE 64 ---
+Bi-directional Search: problematic properties
+▶We must be able to generate predecessors of a state. Easy on
+a map (roads run both ways); hard when actions destroy
+information (e.g. “delete the file”).
+▶We need an explicit goal state. If the goal is described by a
+property (“a checkmate position”), there may be billions of
+goal states to search back from.
+▶We need an efficient test of whether a newly generated state
+appears in the other frontier — in practice a hash table.
+▶Optimality needs care: the firstmeeting point of the two
+frontiers is not always on a shortest path. A correct
+implementation must finish the current level and compare all
+meeting points.
+▶Memory is still O(bd/2) per direction: better, but still
+exponential. For large dthis remains impractical.
+--- PAGE 65 ---
+Everything at a glance
+Complete? Optimal? Time Space
+Breadth-first (BFS) yes yes O(bd) O(bd)
+Depth-first (DFS) no no O(bm) O(b m)
+Depth-limited (DLS) if d≤ℓ no O(bℓ) O(bℓ)
+Iterative deepening (IDS) yes yes O(bd) O(b d)
+Bi-directional (BFS both) yes yes O(bd/2)O(bd/2)
+Read the table by column: IDS is the sweet spot for uninformed
+search — BFS’s guarantees, DFS’s memory. Bi-directional search
+beats it on time and space, but only when you can run the state
+space backwards from an explicit goal.
+--- PAGE 66 ---
+Interactive demo
+An in-browser visualiser for BFS, DFS, DLS, IDS and bi-directional
+search on a maze is on canvas (download).
+Watch the two counters as you switch algorithm:
+▶paths generated (time), and
+▶largest frontier (space).Try to reproduce, by hand, the numbers on the previous table: run
+BFS and IDS on the same maze, and check that IDS generates
+only a little more, while its frontier stays tiny.
+--- PAGE 67 ---
+Interactive demo
+An in-browser visualiser for BFS, DFS, DLS, IDS and bi-directional
+search on a maze is on canvas (download).
+Watch the two counters as you switch algorithm:
+▶paths generated (time), and
+▶largest frontier (space).
+Try to reproduce, by hand, the numbers on the previous table: run
+BFS and IDS on the same maze, and check that IDS generates
+only a little more, while its frontier stays tiny.
+--- PAGE 68 ---
+Quiz (2 minutes)
+You are searching for a route in a state space with b= 10 and
+d= 8. Your machine can store 106paths.
+1. Can you use BFS?
+2. Can you use IDS?
+3. You now learn that every action is reversible and the goal is a
+single known state. What do you do?Answers: (1) no — BFS needs about 108paths in memory; (2) yes
+— IDS needs about b·d= 80, at ≈11% extra time; (3)
+bi-directional search: two searches to depth 4, about 2 ·104paths
+in memory and far less time.
+--- PAGE 69 ---
+Quiz (2 minutes)
+You are searching for a route in a state space with b= 10 and
+d= 8. Your machine can store 106paths.
+1. Can you use BFS?
+2. Can you use IDS?
+3. You now learn that every action is reversible and the goal is a
+single known state. What do you do?
+Answers: (1) no — BFS needs about 108paths in memory; (2) yes
+— IDS needs about b·d= 80, at ≈11% extra time; (3)
+bi-directional search: two searches to depth 4, about 2 ·104paths
+in memory and far less time.
+--- PAGE 70 ---
+Summary
+▶More advanced uninformed search techniques:
+▶depth limited search — DFS made to terminate;
+▶iterative deepening — DFS made complete and optimal;
+▶avoiding repeated states — three levels, three different
+memory bills;
+▶bi-directional search — bdbecomes 2 bd/2, if you can search
+backwards.▶These improve substantially on plain BFS and DFS.
+▶But they are all still uninformed: they know nothing about
+which direction the goal lies in, and remain exponential in d.
+Realistic problems need heuristics — the topic of the next
+section.
+--- PAGE 71 ---
+Summary
+▶More advanced uninformed search techniques:
+▶depth limited search — DFS made to terminate;
+▶iterative deepening — DFS made complete and optimal;
+▶avoiding repeated states — three levels, three different
+memory bills;
+▶bi-directional search — bdbecomes 2 bd/2, if you can search
+backwards.
+▶These improve substantially on plain BFS and DFS.▶But they are all still uninformed: they know nothing about
+which direction the goal lies in, and remain exponential in d.
+Realistic problems need heuristics — the topic of the next
+section.
+--- PAGE 72 ---
+Summary
+▶More advanced uninformed search techniques:
+▶depth limited search — DFS made to terminate;
+▶iterative deepening — DFS made complete and optimal;
+▶avoiding repeated states — three levels, three different
+memory bills;
+▶bi-directional search — bdbecomes 2 bd/2, if you can search
+backwards.
+▶These improve substantially on plain BFS and DFS.
+▶But they are all still uninformed: they know nothing about
+which direction the goal lies in, and remain exponential in d.
+Realistic problems need heuristics — the topic of the next
+section.

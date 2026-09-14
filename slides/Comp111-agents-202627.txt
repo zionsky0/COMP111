@@ -1,0 +1,1982 @@
+
+--- PAGE 1 ---
+COMP111: Artificial Intelligence
+Intelligent Agents
+Frank Wolter
+--- PAGE 2 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);▶Agent function vs agent program; what rationality actually
+means;
+▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;
+▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;
+▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.
+Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 3 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);
+▶Agent function vs agent program; what rationality actually
+means;▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;
+▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;
+▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.
+Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 4 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);
+▶Agent function vs agent program; what rationality actually
+means;
+▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;
+▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.
+Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 5 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);
+▶Agent function vs agent program; what rationality actually
+means;
+▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;
+▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.
+Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 6 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);
+▶Agent function vs agent program; what rationality actually
+means;
+▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;
+▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;
+▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 7 ---
+Content
+▶The notion of intelligent agents (following Russell and Norvig);
+▶Agent function vs agent program; what rationality actually
+means;
+▶Task Environments (PEAS): Performance measure,
+environment, actuators, sensors;
+▶Task environment classification: fully observable vs partially
+observable, deterministic vs stochastic, episodic vs sequential,
+static vs dynamic, discrete vs continuous, single- vs
+multi-agent, known vs unknown;
+▶Agent classification: simple reflex agents, model-based reflex
+agents, goal-based agents, utility-based agents, learning
+agents.
+Learning outcomes
+Give a PEAS description of a task; classify a task environment
+along each dimension and say why the classification matters;
+identify which of the five agent architectures a system uses, and
+give the limitation that forces the move to the next one.
+--- PAGE 8 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.
+▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.
+▶A robotic agent might have cameras as sensors and various
+motors as actuators.
+▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)
+▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 9 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.
+▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.
+▶A robotic agent might have cameras as sensors and various
+motors as actuators.
+▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)
+▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 10 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.
+▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.
+▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.▶A robotic agent might have cameras as sensors and various
+motors as actuators.
+▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)
+▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 11 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.
+▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.
+▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.
+▶A robotic agent might have cameras as sensors and various
+motors as actuators.▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)
+▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 12 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.
+▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.
+▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.
+▶A robotic agent might have cameras as sensors and various
+motors as actuators.
+▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 13 ---
+Intelligent Agents
+▶The intelligent entities that we engineer in AI are known as
+agents.
+▶A popular characterisation by Russell and Norvig is:
+An agent is anything that can be viewed as perceiving its
+environment through sensors and acting upon that envi-
+ronment through actuators.
+▶A human agent has eyes, ears and other organs as sensors and
+hands, legs and other body parts as actuators.
+▶A robotic agent might have cameras as sensors and various
+motors as actuators.
+▶A software agent might receive keystrokes and file contents as
+sensor inputs and might act on the environment by writing
+files. (A modern coding assistant reads a repository and edits
+it: same picture.)
+▶It is reasonable to say that this module is about tools for
+designing and implementing rational agents.
+--- PAGE 14 ---
+Agent
+AgentEnvironmentSensors
+?
+ActuatorsPercepts
+Actions
+--- PAGE 15 ---
+Agent function vs agent program
+▶A percept is the agent’s input at one instant; the percept
+sequence is the complete history of everything the agent has
+ever perceived.▶Mathematically, an agent is described by its agent function
+f:P∗−→ A
+mapping every possible percept sequence to an action. This is
+a specification: it says what the agent does.
+▶The agent program is the concrete implementation. It says
+how.
+▶Why not simply tabulate f? Because the table is
+astronomically large: for chess it has more entries than there
+are atoms in the universe. The whole art of AI is producing
+rational behaviour from a small program.
+--- PAGE 16 ---
+Agent function vs agent program
+▶A percept is the agent’s input at one instant; the percept
+sequence is the complete history of everything the agent has
+ever perceived.
+▶Mathematically, an agent is described by its agent function
+f:P∗−→ A
+mapping every possible percept sequence to an action. This is
+a specification: it says what the agent does.▶The agent program is the concrete implementation. It says
+how.
+▶Why not simply tabulate f? Because the table is
+astronomically large: for chess it has more entries than there
+are atoms in the universe. The whole art of AI is producing
+rational behaviour from a small program.
+--- PAGE 17 ---
+Agent function vs agent program
+▶A percept is the agent’s input at one instant; the percept
+sequence is the complete history of everything the agent has
+ever perceived.
+▶Mathematically, an agent is described by its agent function
+f:P∗−→ A
+mapping every possible percept sequence to an action. This is
+a specification: it says what the agent does.
+▶The agent program is the concrete implementation. It says
+how.▶Why not simply tabulate f? Because the table is
+astronomically large: for chess it has more entries than there
+are atoms in the universe. The whole art of AI is producing
+rational behaviour from a small program.
+--- PAGE 18 ---
+Agent function vs agent program
+▶A percept is the agent’s input at one instant; the percept
+sequence is the complete history of everything the agent has
+ever perceived.
+▶Mathematically, an agent is described by its agent function
+f:P∗−→ A
+mapping every possible percept sequence to an action. This is
+a specification: it says what the agent does.
+▶The agent program is the concrete implementation. It says
+how.
+▶Why not simply tabulate f? Because the table is
+astronomically large: for chess it has more entries than there
+are atoms in the universe. The whole art of AI is producing
+rational behaviour from a small program.
+--- PAGE 19 ---
+Example: the vacuum world
+The vacuum world (Russell & Norvig) is our simplest test-bed. We
+use it because it is small enough to write the entire agent function
+as a table — impossible for chess or driving, where that table
+would not fit in the universe.
+Two squares, A,B; each clean
+or dirty. The agent sits in one
+square and perceives only that
+square:
+percept = (location ,status) .
+Actions: Left,Right ,Suck,
+NoOp .One agent function (suck if dirty, else
+move) :
+Percept sequence Action
+[A,Dirty] Suck
+[A,Clean] Right
+[B,Dirty] Suck
+[B,Clean] Left
+[A,Clean] Right
+......Sensible vs. rational?
+The table looks sensible — but “rational” is defined only relative to
+a performance measure . For instance: Score +1 per clean square
+each step and −1 per move: once both squares are clean the table
+still says Right , so the agent paces forever, losing a point each step.
+--- PAGE 20 ---
+Example: the vacuum world
+The vacuum world (Russell & Norvig) is our simplest test-bed. We
+use it because it is small enough to write the entire agent function
+as a table — impossible for chess or driving, where that table
+would not fit in the universe.
+Two squares, A,B; each clean
+or dirty. The agent sits in one
+square and perceives only that
+square:
+percept = (location ,status) .
+Actions: Left,Right ,Suck,
+NoOp .One agent function (suck if dirty, else
+move) :
+Percept sequence Action
+[A,Dirty] Suck
+[A,Clean] Right
+[B,Dirty] Suck
+[B,Clean] Left
+[A,Clean] Right
+......
+Sensible vs. rational?
+The table looks sensible — but “rational” is defined only relative to
+a performance measure . For instance: Score +1 per clean square
+each step and −1 per move: once both squares are clean the table
+still says Right , so the agent paces forever, losing a point each step.
+--- PAGE 21 ---
+Rationality
+Definition (Russell & Norvig)
+For each possible percept sequence, a rational agent should select
+an action that is expected to maximise its performance measure,
+given the evidence provided by the percept sequence and whatever
+built-in knowledge the agent has.Rationality depends on four things: the performance measure, the
+agent’s prior knowledge, the available actions, and the percept
+sequence to date.
+▶Rational ̸= omniscient: you cannot know the actual outcome,
+only the expected one. Crossing a road safely and being hit by
+a falling cargo door does not make you irrational.
+▶Rational ̸= perfect: rationality maximises expected
+performance.
+--- PAGE 22 ---
+Rationality
+Definition (Russell & Norvig)
+For each possible percept sequence, a rational agent should select
+an action that is expected to maximise its performance measure,
+given the evidence provided by the percept sequence and whatever
+built-in knowledge the agent has.
+Rationality depends on four things: the performance measure, the
+agent’s prior knowledge, the available actions, and the percept
+sequence to date.▶Rational ̸= omniscient: you cannot know the actual outcome,
+only the expected one. Crossing a road safely and being hit by
+a falling cargo door does not make you irrational.
+▶Rational ̸= perfect: rationality maximises expected
+performance.
+--- PAGE 23 ---
+Rationality
+Definition (Russell & Norvig)
+For each possible percept sequence, a rational agent should select
+an action that is expected to maximise its performance measure,
+given the evidence provided by the percept sequence and whatever
+built-in knowledge the agent has.
+Rationality depends on four things: the performance measure, the
+agent’s prior knowledge, the available actions, and the percept
+sequence to date.
+▶Rational ̸= omniscient: you cannot know the actual outcome,
+only the expected one. Crossing a road safely and being hit by
+a falling cargo door does not make you irrational.▶Rational ̸= perfect: rationality maximises expected
+performance.
+--- PAGE 24 ---
+Rationality
+Definition (Russell & Norvig)
+For each possible percept sequence, a rational agent should select
+an action that is expected to maximise its performance measure,
+given the evidence provided by the percept sequence and whatever
+built-in knowledge the agent has.
+Rationality depends on four things: the performance measure, the
+agent’s prior knowledge, the available actions, and the percept
+sequence to date.
+▶Rational ̸= omniscient: you cannot know the actual outcome,
+only the expected one. Crossing a road safely and being hit by
+a falling cargo door does not make you irrational.
+▶Rational ̸= perfect: rationality maximises expected
+performance.
+--- PAGE 25 ---
+Be careful what you measure
+The performance measure is chosen by us. Getting it wrong
+produces perfectly rational — and useless (or dangerous) —
+agents.▶Vacuum agent rewarded for amount of dirt collected : it sucks
+up dirt, dumps it back on the floor, and sucks it up again.
+Forever.
+▶A boat-racing agent rewarded for picking up bonus points
+learns to drive in circles through a lagoon, never finishing the
+race.
+▶Train a recommender system (choosing the content shown
+next) to maximize engagement and it will discover that
+outrage maximizes engagement.
+This is called specification gaming (or reward hacking): the agent
+optimises what you said, not what you meant .
+--- PAGE 26 ---
+Be careful what you measure
+The performance measure is chosen by us. Getting it wrong
+produces perfectly rational — and useless (or dangerous) —
+agents.
+▶Vacuum agent rewarded for amount of dirt collected : it sucks
+up dirt, dumps it back on the floor, and sucks it up again.
+Forever.▶A boat-racing agent rewarded for picking up bonus points
+learns to drive in circles through a lagoon, never finishing the
+race.
+▶Train a recommender system (choosing the content shown
+next) to maximize engagement and it will discover that
+outrage maximizes engagement.
+This is called specification gaming (or reward hacking): the agent
+optimises what you said, not what you meant .
+--- PAGE 27 ---
+Be careful what you measure
+The performance measure is chosen by us. Getting it wrong
+produces perfectly rational — and useless (or dangerous) —
+agents.
+▶Vacuum agent rewarded for amount of dirt collected : it sucks
+up dirt, dumps it back on the floor, and sucks it up again.
+Forever.
+▶A boat-racing agent rewarded for picking up bonus points
+learns to drive in circles through a lagoon, never finishing the
+race.▶Train a recommender system (choosing the content shown
+next) to maximize engagement and it will discover that
+outrage maximizes engagement.
+This is called specification gaming (or reward hacking): the agent
+optimises what you said, not what you meant .
+--- PAGE 28 ---
+Be careful what you measure
+The performance measure is chosen by us. Getting it wrong
+produces perfectly rational — and useless (or dangerous) —
+agents.
+▶Vacuum agent rewarded for amount of dirt collected : it sucks
+up dirt, dumps it back on the floor, and sucks it up again.
+Forever.
+▶A boat-racing agent rewarded for picking up bonus points
+learns to drive in circles through a lagoon, never finishing the
+race.
+▶Train a recommender system (choosing the content shown
+next) to maximize engagement and it will discover that
+outrage maximizes engagement.This is called specification gaming (or reward hacking): the agent
+optimises what you said, not what you meant .
+--- PAGE 29 ---
+Be careful what you measure
+The performance measure is chosen by us. Getting it wrong
+produces perfectly rational — and useless (or dangerous) —
+agents.
+▶Vacuum agent rewarded for amount of dirt collected : it sucks
+up dirt, dumps it back on the floor, and sucks it up again.
+Forever.
+▶A boat-racing agent rewarded for picking up bonus points
+learns to drive in circles through a lagoon, never finishing the
+race.
+▶Train a recommender system (choosing the content shown
+next) to maximize engagement and it will discover that
+outrage maximizes engagement.
+This is called specification gaming (or reward hacking): the agent
+optimises what you said, not what you meant .
+--- PAGE 30 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 31 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 32 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 33 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 34 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 35 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 36 ---
+Task Environments
+Agents are situated within task environments, which differ in
+accordance with the particular problem area that the agent is
+designed to address.
+When we design agents to solve particular problems, we must
+specify the task environment as fully as possible. Four elements
+(PEAS) to take into account (from Russell and Norvig):
+▶Performance measure: the criteria by which we can measure
+the success of an agent’s behaviour.
+▶Environment: the external environment that the agent
+inhabits.
+▶Actuators: the means by which the agent acts within its
+environment.
+▶Sensors: the means by which the agent senses its environment.
+PEAS comes first: before choosing an algorithm, write down what
+success means and what the agent can see and do.
+--- PAGE 37 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;
+▶Environment: roads, other traffic, pedestrians, customers;
+▶Actuators: steering, accelerator, brake, signal, display, etc.;
+▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.
+Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 38 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:
+▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;▶Environment: roads, other traffic, pedestrians, customers;
+▶Actuators: steering, accelerator, brake, signal, display, etc.;
+▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.
+Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 39 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:
+▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;
+▶Environment: roads, other traffic, pedestrians, customers;▶Actuators: steering, accelerator, brake, signal, display, etc.;
+▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.
+Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 40 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:
+▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;
+▶Environment: roads, other traffic, pedestrians, customers;
+▶Actuators: steering, accelerator, brake, signal, display, etc.;▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.
+Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 41 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:
+▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;
+▶Environment: roads, other traffic, pedestrians, customers;
+▶Actuators: steering, accelerator, brake, signal, display, etc.;
+▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 42 ---
+Example 1: taxi driver
+Consider a taxi driver agent. Its PEAS description might be as
+follows:
+▶Performance measure: safe, fast, legal, comfortable,
+profitable, etc.;
+▶Environment: roads, other traffic, pedestrians, customers;
+▶Actuators: steering, accelerator, brake, signal, display, etc.;
+▶Sensors: cameras, sonar, speedometer, GPS, engine sensors,
+keyboard.
+Note that the performance measure already contains a trade-off:
+fastandsafeandcomfortable cannot all be maximised at once.
+We will return to this with utility functions.
+--- PAGE 43 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:▶Performance measure: health of patient, costs of treatment.
+▶Environment: patient, hospital, staff.
+▶Actuators: display questions, tests, diagnoses and treatments.
+▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.
+A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 44 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:
+▶Performance measure: health of patient, costs of treatment.▶Environment: patient, hospital, staff.
+▶Actuators: display questions, tests, diagnoses and treatments.
+▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.
+A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 45 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:
+▶Performance measure: health of patient, costs of treatment.
+▶Environment: patient, hospital, staff.▶Actuators: display questions, tests, diagnoses and treatments.
+▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.
+A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 46 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:
+▶Performance measure: health of patient, costs of treatment.
+▶Environment: patient, hospital, staff.
+▶Actuators: display questions, tests, diagnoses and treatments.▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.
+A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 47 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:
+▶Performance measure: health of patient, costs of treatment.
+▶Environment: patient, hospital, staff.
+▶Actuators: display questions, tests, diagnoses and treatments.
+▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 48 ---
+Example 2: medical diagnosis
+Consider an agent used for medical diagnosis. Its PEAS description
+might be as follows:
+▶Performance measure: health of patient, costs of treatment.
+▶Environment: patient, hospital, staff.
+▶Actuators: display questions, tests, diagnoses and treatments.
+▶Sensors: keyboard entry of patient’s symptoms, responses to
+questions and findings.
+A subtlety: the agent’s actions change the percepts it will get
+(ordering a test produces new evidence). Deciding which test to
+order is itself a rational decision — information has value, and a
+cost.
+--- PAGE 49 ---
+Task Environments: properties
+The properties of the task environment may differ greatly,
+depending upon the application area. Russell and Norvig classify
+environments along these dimensions:
+▶Fully observable vs partially observable
+▶Deterministic vs stochastic
+▶Episodic vs sequential
+▶Static vs dynamic
+▶Discrete vs continuous
+▶Single-agent vs multi-agent
+▶Known vs unknownWhy bother? Because the classification determines the agent
+design: partial observability forces internal state; stochasticity
+forces reasoning about probabilities; sequentiality forces search and
+planning. The hardest case — partially observable, stochastic,
+sequential, dynamic, continuous, multi-agent, unknown — is called
+driving a taxi .
+--- PAGE 50 ---
+Task Environments: properties
+The properties of the task environment may differ greatly,
+depending upon the application area. Russell and Norvig classify
+environments along these dimensions:
+▶Fully observable vs partially observable
+▶Deterministic vs stochastic
+▶Episodic vs sequential
+▶Static vs dynamic
+▶Discrete vs continuous
+▶Single-agent vs multi-agent
+▶Known vs unknown
+Why bother? Because the classification determines the agent
+design: partial observability forces internal state; stochasticity
+forces reasoning about probabilities; sequentiality forces search and
+planning. The hardest case — partially observable, stochastic,
+sequential, dynamic, continuous, multi-agent, unknown — is called
+driving a taxi .
+--- PAGE 51 ---
+Fully observable vs partially observable
+Fully observable environment: one in which the agent can obtain
+complete, up-to-date information about the environment’s state.
+Many moderately complex environments are only partially
+observable.
+▶Fully observable environments are more convenient: the agent
+does not need to maintain any internal state (including
+memory) to keep track of the environment.▶Fully observable examples: a crossword puzzle, the game of
+chess.
+▶Partially observable examples: the everyday physical world
+(driving a car, playing football), the card game poker.
+▶Two causes of partial observability: noisy or inaccurate
+sensors, and missing sensors (a vacuum agent with no sensor
+for the other room). The extreme case, no sensors at all, is
+called an unobservable environment — surprisingly, a rational
+agent can still sometimes guarantee success.
+--- PAGE 52 ---
+Fully observable vs partially observable
+Fully observable environment: one in which the agent can obtain
+complete, up-to-date information about the environment’s state.
+Many moderately complex environments are only partially
+observable.
+▶Fully observable environments are more convenient: the agent
+does not need to maintain any internal state (including
+memory) to keep track of the environment.
+▶Fully observable examples: a crossword puzzle, the game of
+chess.▶Partially observable examples: the everyday physical world
+(driving a car, playing football), the card game poker.
+▶Two causes of partial observability: noisy or inaccurate
+sensors, and missing sensors (a vacuum agent with no sensor
+for the other room). The extreme case, no sensors at all, is
+called an unobservable environment — surprisingly, a rational
+agent can still sometimes guarantee success.
+--- PAGE 53 ---
+Fully observable vs partially observable
+Fully observable environment: one in which the agent can obtain
+complete, up-to-date information about the environment’s state.
+Many moderately complex environments are only partially
+observable.
+▶Fully observable environments are more convenient: the agent
+does not need to maintain any internal state (including
+memory) to keep track of the environment.
+▶Fully observable examples: a crossword puzzle, the game of
+chess.
+▶Partially observable examples: the everyday physical world
+(driving a car, playing football), the card game poker.▶Two causes of partial observability: noisy or inaccurate
+sensors, and missing sensors (a vacuum agent with no sensor
+for the other room). The extreme case, no sensors at all, is
+called an unobservable environment — surprisingly, a rational
+agent can still sometimes guarantee success.
+--- PAGE 54 ---
+Fully observable vs partially observable
+Fully observable environment: one in which the agent can obtain
+complete, up-to-date information about the environment’s state.
+Many moderately complex environments are only partially
+observable.
+▶Fully observable environments are more convenient: the agent
+does not need to maintain any internal state (including
+memory) to keep track of the environment.
+▶Fully observable examples: a crossword puzzle, the game of
+chess.
+▶Partially observable examples: the everyday physical world
+(driving a car, playing football), the card game poker.
+▶Two causes of partial observability: noisy or inaccurate
+sensors, and missing sensors (a vacuum agent with no sensor
+for the other room). The extreme case, no sensors at all, is
+called an unobservable environment — surprisingly, a rational
+agent can still sometimes guarantee success.
+--- PAGE 55 ---
+Deterministic vs stochastic
+Deterministic environment: one in which any action has a single
+guaranteed effect — there is no uncertainty about the state that
+will result from performing an action. In a stochastic environment
+the effect is not guaranteed.
+This definition applies from the point of view of the agent.
+▶If the environment is deterministic except for the actions of
+other agents, it is said to be strategic .▶Deterministic examples: a crossword puzzle, the game of
+chess.
+▶Stochastic examples: medical diagnosis, the card game poker,
+driving a car (the physical world).
+▶Careful: the real world is arguably deterministic — but it is so
+complex, and our sensors so poor, that we must treat it as
+stochastic. A taxi’s wheels really might slip. Uncertainty is a
+property of the agent’s knowledge, not only of the world.
+--- PAGE 56 ---
+Deterministic vs stochastic
+Deterministic environment: one in which any action has a single
+guaranteed effect — there is no uncertainty about the state that
+will result from performing an action. In a stochastic environment
+the effect is not guaranteed.
+This definition applies from the point of view of the agent.
+▶If the environment is deterministic except for the actions of
+other agents, it is said to be strategic .
+▶Deterministic examples: a crossword puzzle, the game of
+chess.▶Stochastic examples: medical diagnosis, the card game poker,
+driving a car (the physical world).
+▶Careful: the real world is arguably deterministic — but it is so
+complex, and our sensors so poor, that we must treat it as
+stochastic. A taxi’s wheels really might slip. Uncertainty is a
+property of the agent’s knowledge, not only of the world.
+--- PAGE 57 ---
+Deterministic vs stochastic
+Deterministic environment: one in which any action has a single
+guaranteed effect — there is no uncertainty about the state that
+will result from performing an action. In a stochastic environment
+the effect is not guaranteed.
+This definition applies from the point of view of the agent.
+▶If the environment is deterministic except for the actions of
+other agents, it is said to be strategic .
+▶Deterministic examples: a crossword puzzle, the game of
+chess.
+▶Stochastic examples: medical diagnosis, the card game poker,
+driving a car (the physical world).▶Careful: the real world is arguably deterministic — but it is so
+complex, and our sensors so poor, that we must treat it as
+stochastic. A taxi’s wheels really might slip. Uncertainty is a
+property of the agent’s knowledge, not only of the world.
+--- PAGE 58 ---
+Deterministic vs stochastic
+Deterministic environment: one in which any action has a single
+guaranteed effect — there is no uncertainty about the state that
+will result from performing an action. In a stochastic environment
+the effect is not guaranteed.
+This definition applies from the point of view of the agent.
+▶If the environment is deterministic except for the actions of
+other agents, it is said to be strategic .
+▶Deterministic examples: a crossword puzzle, the game of
+chess.
+▶Stochastic examples: medical diagnosis, the card game poker,
+driving a car (the physical world).
+▶Careful: the real world is arguably deterministic — but it is so
+complex, and our sensors so poor, that we must treat it as
+stochastic. A taxi’s wheels really might slip. Uncertainty is a
+property of the agent’s knowledge, not only of the world.
+--- PAGE 59 ---
+Episodic vs sequential
+Episodic environment: one where the performance of the agent
+depends on a number of discrete episodes with no link between its
+performance in different episodes. In sequential environments
+different episodes are linked.
+▶In episodic environments the agent can decide what action to
+perform based only on the current episode, without reasoning
+about interactions between this and future episodes.▶In sequential environments the current decision could affect all
+future decisions.
+▶Episodic examples: a mail sorting system, defect detection on
+an assembly line, classifying an image.
+▶Sequential examples: a crossword puzzle, the card game
+poker, driving a car, chess.
+▶Note: most machine learning as you will meet it
+(classification) is episodic ; most agent problems are
+sequential . Sequential is much harder: a good move now may
+lose the game in twenty moves.
+--- PAGE 60 ---
+Episodic vs sequential
+Episodic environment: one where the performance of the agent
+depends on a number of discrete episodes with no link between its
+performance in different episodes. In sequential environments
+different episodes are linked.
+▶In episodic environments the agent can decide what action to
+perform based only on the current episode, without reasoning
+about interactions between this and future episodes.
+▶In sequential environments the current decision could affect all
+future decisions.▶Episodic examples: a mail sorting system, defect detection on
+an assembly line, classifying an image.
+▶Sequential examples: a crossword puzzle, the card game
+poker, driving a car, chess.
+▶Note: most machine learning as you will meet it
+(classification) is episodic ; most agent problems are
+sequential . Sequential is much harder: a good move now may
+lose the game in twenty moves.
+--- PAGE 61 ---
+Episodic vs sequential
+Episodic environment: one where the performance of the agent
+depends on a number of discrete episodes with no link between its
+performance in different episodes. In sequential environments
+different episodes are linked.
+▶In episodic environments the agent can decide what action to
+perform based only on the current episode, without reasoning
+about interactions between this and future episodes.
+▶In sequential environments the current decision could affect all
+future decisions.
+▶Episodic examples: a mail sorting system, defect detection on
+an assembly line, classifying an image.▶Sequential examples: a crossword puzzle, the card game
+poker, driving a car, chess.
+▶Note: most machine learning as you will meet it
+(classification) is episodic ; most agent problems are
+sequential . Sequential is much harder: a good move now may
+lose the game in twenty moves.
+--- PAGE 62 ---
+Episodic vs sequential
+Episodic environment: one where the performance of the agent
+depends on a number of discrete episodes with no link between its
+performance in different episodes. In sequential environments
+different episodes are linked.
+▶In episodic environments the agent can decide what action to
+perform based only on the current episode, without reasoning
+about interactions between this and future episodes.
+▶In sequential environments the current decision could affect all
+future decisions.
+▶Episodic examples: a mail sorting system, defect detection on
+an assembly line, classifying an image.
+▶Sequential examples: a crossword puzzle, the card game
+poker, driving a car, chess.▶Note: most machine learning as you will meet it
+(classification) is episodic ; most agent problems are
+sequential . Sequential is much harder: a good move now may
+lose the game in twenty moves.
+--- PAGE 63 ---
+Episodic vs sequential
+Episodic environment: one where the performance of the agent
+depends on a number of discrete episodes with no link between its
+performance in different episodes. In sequential environments
+different episodes are linked.
+▶In episodic environments the agent can decide what action to
+perform based only on the current episode, without reasoning
+about interactions between this and future episodes.
+▶In sequential environments the current decision could affect all
+future decisions.
+▶Episodic examples: a mail sorting system, defect detection on
+an assembly line, classifying an image.
+▶Sequential examples: a crossword puzzle, the card game
+poker, driving a car, chess.
+▶Note: most machine learning as you will meet it
+(classification) is episodic ; most agent problems are
+sequential . Sequential is much harder: a good move now may
+lose the game in twenty moves.
+--- PAGE 64 ---
+Static vs dynamic
+Static environment: one that can be assumed to remain
+unchanged while the agent is deliberating.
+Dynamic environment: one that has other processes operating on
+it, and hence changes while the agent is deliberating.
+Static environments are easier: the agent need not keep observing
+the environment while deciding how to act, nor worry about time
+elapsing.
+▶Static examples: a crossword puzzle, the card game poker, the
+game of backgammon.▶Dynamic examples: medical diagnosis, the physical world,
+driving a car.
+▶Semi-dynamic : the environment does not change, but the
+agent’s score does — e.g. chess with a clock. Thinking is
+never free.
+--- PAGE 65 ---
+Static vs dynamic
+Static environment: one that can be assumed to remain
+unchanged while the agent is deliberating.
+Dynamic environment: one that has other processes operating on
+it, and hence changes while the agent is deliberating.
+Static environments are easier: the agent need not keep observing
+the environment while deciding how to act, nor worry about time
+elapsing.
+▶Static examples: a crossword puzzle, the card game poker, the
+game of backgammon.
+▶Dynamic examples: medical diagnosis, the physical world,
+driving a car.▶Semi-dynamic : the environment does not change, but the
+agent’s score does — e.g. chess with a clock. Thinking is
+never free.
+--- PAGE 66 ---
+Static vs dynamic
+Static environment: one that can be assumed to remain
+unchanged while the agent is deliberating.
+Dynamic environment: one that has other processes operating on
+it, and hence changes while the agent is deliberating.
+Static environments are easier: the agent need not keep observing
+the environment while deciding how to act, nor worry about time
+elapsing.
+▶Static examples: a crossword puzzle, the card game poker, the
+game of backgammon.
+▶Dynamic examples: medical diagnosis, the physical world,
+driving a car.
+▶Semi-dynamic : the environment does not change, but the
+agent’s score does — e.g. chess with a clock. Thinking is
+never free.
+--- PAGE 67 ---
+Discrete vs continuous
+Discrete environment: one that contains a fixed, finite number of
+distinct states.
+The distinction applies to the state of the environment, the way in
+which time is handled, and the percepts and actions of the agent.
+▶Discrete examples: a crossword puzzle, the game of chess
+(finitely many positions and moves).▶Continuous examples: driving a car (steering angle, speed and
+camera input all vary continuously); medical diagnosis
+(dosages).
+▶Continuous environments provide greater challenges for agent
+designers: you cannot enumerate the states, so you need
+approximation — which is exactly what neural networks
+provide.
+--- PAGE 68 ---
+Discrete vs continuous
+Discrete environment: one that contains a fixed, finite number of
+distinct states.
+The distinction applies to the state of the environment, the way in
+which time is handled, and the percepts and actions of the agent.
+▶Discrete examples: a crossword puzzle, the game of chess
+(finitely many positions and moves).
+▶Continuous examples: driving a car (steering angle, speed and
+camera input all vary continuously); medical diagnosis
+(dosages).▶Continuous environments provide greater challenges for agent
+designers: you cannot enumerate the states, so you need
+approximation — which is exactly what neural networks
+provide.
+--- PAGE 69 ---
+Discrete vs continuous
+Discrete environment: one that contains a fixed, finite number of
+distinct states.
+The distinction applies to the state of the environment, the way in
+which time is handled, and the percepts and actions of the agent.
+▶Discrete examples: a crossword puzzle, the game of chess
+(finitely many positions and moves).
+▶Continuous examples: driving a car (steering angle, speed and
+camera input all vary continuously); medical diagnosis
+(dosages).
+▶Continuous environments provide greater challenges for agent
+designers: you cannot enumerate the states, so you need
+approximation — which is exactly what neural networks
+provide.
+--- PAGE 70 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 71 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 72 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 73 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 74 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 75 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 76 ---
+Two more dimensions
+▶Single-agent vs multi-agent: is any other entity in the
+environment best modelled as maximising a performance
+measure that depends on my behaviour ?
+▶Competitive : chess, poker — my gain is your loss.
+▶Cooperative : two self-driving cars avoiding a collision;
+RoboCup team-mates.
+▶Multi-agent environments introduce communication,
+negotiation and randomised behaviour (being predictable is a
+weakness).
+▶Known vs unknown: this is about the agent’s knowledge of
+the rules of the environment , not about observability.
+▶Known but partially observable: solitaire — you know the
+rules, but not the face-down cards.
+▶Unknown but fully observable: a new video game — you see
+the whole screen, but must discover what the buttons do.
+--- PAGE 77 ---
+Interactive: classify these task environments
+Task Observable Determ. Episodic Static Discrete Agents
+Crossword full determ. sequential static discrete single
+Chess + clock full strategic sequential semi discrete multi
+Poker partial stochastic sequential static discrete multi
+Medical diagnosis partial stochastic sequential dynamic continuous single
+Image classification full determ. episodic static continuous single
+Taxi driving partial stochastic sequential dynamic continuous multiYour turn
+Classify (a) a spam filter, (b) a robot vacuum in a real flat with a
+cat, (c) an LLM agent fixing a bug in a code repository. Which
+dimension is hardest to decide?
+--- PAGE 78 ---
+Interactive: classify these task environments
+Task Observable Determ. Episodic Static Discrete Agents
+Crossword full determ. sequential static discrete single
+Chess + clock full strategic sequential semi discrete multi
+Poker partial stochastic sequential static discrete multi
+Medical diagnosis partial stochastic sequential dynamic continuous single
+Image classification full determ. episodic static continuous single
+Taxi driving partial stochastic sequential dynamic continuous multi
+Your turn
+Classify (a) a spam filter, (b) a robot vacuum in a real flat with a
+cat, (c) an LLM agent fixing a bug in a code repository. Which
+dimension is hardest to decide?
+--- PAGE 79 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents▶Model-based reflex agents
+▶Goal-based agents
+▶Utility-based agents
+▶Learning agents
+Read the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 80 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents
+▶Model-based reflex agents▶Goal-based agents
+▶Utility-based agents
+▶Learning agents
+Read the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 81 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents
+▶Model-based reflex agents
+▶Goal-based agents▶Utility-based agents
+▶Learning agents
+Read the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 82 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents
+▶Model-based reflex agents
+▶Goal-based agents
+▶Utility-based agents▶Learning agents
+Read the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 83 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents
+▶Model-based reflex agents
+▶Goal-based agents
+▶Utility-based agents
+▶Learning agentsRead the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 84 ---
+Intelligent agents: a classification
+We classify intelligent agents according to how they map percepts
+to actions. Russell and Norvig identify five basic kinds of agents
+that underpin most intelligent systems:
+▶Simple reflex agents
+▶Model-based reflex agents
+▶Goal-based agents
+▶Utility-based agents
+▶Learning agents
+Read the list as a ladder: each step is forced by a limitation of the
+one below. Ask at every step: what can this agent not do?
+--- PAGE 85 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 86 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 87 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 88 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 89 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 90 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 91 ---
+Simple reflex agents
+▶Simple reflex agents select the action to execute based only
+upon the current percept; they ignore the percept history.
+▶Implemented using condition–action rules such as
+if the car in front is braking, then initiate braking
+▶Simple to implement, very fast — and of very limited
+intelligence. They cannot
+▶play football: to decide the next move, a striker has to
+remember that a second ago there was a defender four metres
+away;
+▶play poker: the player has to remember the history of the
+current game;
+▶drive a car: to decide whether to overtake, the driver must
+remember whether another car was overtaking a few seconds
+ago.
+▶In a partially observable environment they can also get stuck
+in infinite loops (a vacuum agent with a broken dirt sensor
+endlessly moving left and right). A pinch of randomness helps.
+--- PAGE 92 ---
+Simple Reflex Agent
+AgentEnvironmentSensors
+ActuatorsWhat the world
+is like now
+What action I
+should do nowCondition-action rules
+--- PAGE 93 ---
+Model-based reflex agents
+▶Model-based reflex agents maintain an internal state
+(memory) that depends upon the percept history.▶The current percept is combined with the previous internal
+state to update the description of the current state.
+▶This is how they cope with partial observability: the state
+summarises what the agent cannot currently see.
+▶They need a model of ‘how the world works’:
+▶how the world changes independently of the agent (the car
+ahead keeps moving);
+▶how the world changes as a result of the agent’s actions (if I
+turn the wheel, I change lane).
+▶Still reflex: the rules say what to do now , not where the agent
+is trying to get to . A model-based agent at a junction knows
+exactly what the world looks like — and has no idea whether
+to turn left or right.
+--- PAGE 94 ---
+Model-based reflex agents
+▶Model-based reflex agents maintain an internal state
+(memory) that depends upon the percept history.
+▶The current percept is combined with the previous internal
+state to update the description of the current state.▶This is how they cope with partial observability: the state
+summarises what the agent cannot currently see.
+▶They need a model of ‘how the world works’:
+▶how the world changes independently of the agent (the car
+ahead keeps moving);
+▶how the world changes as a result of the agent’s actions (if I
+turn the wheel, I change lane).
+▶Still reflex: the rules say what to do now , not where the agent
+is trying to get to . A model-based agent at a junction knows
+exactly what the world looks like — and has no idea whether
+to turn left or right.
+--- PAGE 95 ---
+Model-based reflex agents
+▶Model-based reflex agents maintain an internal state
+(memory) that depends upon the percept history.
+▶The current percept is combined with the previous internal
+state to update the description of the current state.
+▶This is how they cope with partial observability: the state
+summarises what the agent cannot currently see.▶They need a model of ‘how the world works’:
+▶how the world changes independently of the agent (the car
+ahead keeps moving);
+▶how the world changes as a result of the agent’s actions (if I
+turn the wheel, I change lane).
+▶Still reflex: the rules say what to do now , not where the agent
+is trying to get to . A model-based agent at a junction knows
+exactly what the world looks like — and has no idea whether
+to turn left or right.
+--- PAGE 96 ---
+Model-based reflex agents
+▶Model-based reflex agents maintain an internal state
+(memory) that depends upon the percept history.
+▶The current percept is combined with the previous internal
+state to update the description of the current state.
+▶This is how they cope with partial observability: the state
+summarises what the agent cannot currently see.
+▶They need a model of ‘how the world works’:
+▶how the world changes independently of the agent (the car
+ahead keeps moving);
+▶how the world changes as a result of the agent’s actions (if I
+turn the wheel, I change lane).▶Still reflex: the rules say what to do now , not where the agent
+is trying to get to . A model-based agent at a junction knows
+exactly what the world looks like — and has no idea whether
+to turn left or right.
+--- PAGE 97 ---
+Model-based reflex agents
+▶Model-based reflex agents maintain an internal state
+(memory) that depends upon the percept history.
+▶The current percept is combined with the previous internal
+state to update the description of the current state.
+▶This is how they cope with partial observability: the state
+summarises what the agent cannot currently see.
+▶They need a model of ‘how the world works’:
+▶how the world changes independently of the agent (the car
+ahead keeps moving);
+▶how the world changes as a result of the agent’s actions (if I
+turn the wheel, I change lane).
+▶Still reflex: the rules say what to do now , not where the agent
+is trying to get to . A model-based agent at a junction knows
+exactly what the world looks like — and has no idea whether
+to turn left or right.
+--- PAGE 98 ---
+Model-Based Reflex Agent
+AgentEnvironmentSensors
+ActuatorsWhat the world
+is like now
+What action I
+should do nowCondition-action rulesHow the world evolvesState
+What my actions do
+--- PAGE 99 ---
+Goal-based agents
+▶Goal-based agents select actions in order to achieve desirable
+states of the environment: goals.▶Knowledge of the current state does not automatically tell the
+agent what to do: it must also know what it wants andwhat
+its actions will bring about .
+▶Decision making becomes complicated when long sequences of
+actions are needed: search and planning may be required (the
+next sections of this module).
+▶Big advantage: flexibility. If it starts raining, we update the
+model (“braking distances are longer”), and the behaviour
+changes automatically. A reflex agent would need all of its
+rules rewritten by hand.
+▶Limitation: a goal is a binary test — achieved or not. It
+cannot distinguish “arrived, safely, in 20 minutes” from
+“arrived, terrifyingly, in 19 minutes”.
+--- PAGE 100 ---
+Goal-based agents
+▶Goal-based agents select actions in order to achieve desirable
+states of the environment: goals.
+▶Knowledge of the current state does not automatically tell the
+agent what to do: it must also know what it wants andwhat
+its actions will bring about .▶Decision making becomes complicated when long sequences of
+actions are needed: search and planning may be required (the
+next sections of this module).
+▶Big advantage: flexibility. If it starts raining, we update the
+model (“braking distances are longer”), and the behaviour
+changes automatically. A reflex agent would need all of its
+rules rewritten by hand.
+▶Limitation: a goal is a binary test — achieved or not. It
+cannot distinguish “arrived, safely, in 20 minutes” from
+“arrived, terrifyingly, in 19 minutes”.
+--- PAGE 101 ---
+Goal-based agents
+▶Goal-based agents select actions in order to achieve desirable
+states of the environment: goals.
+▶Knowledge of the current state does not automatically tell the
+agent what to do: it must also know what it wants andwhat
+its actions will bring about .
+▶Decision making becomes complicated when long sequences of
+actions are needed: search and planning may be required (the
+next sections of this module).▶Big advantage: flexibility. If it starts raining, we update the
+model (“braking distances are longer”), and the behaviour
+changes automatically. A reflex agent would need all of its
+rules rewritten by hand.
+▶Limitation: a goal is a binary test — achieved or not. It
+cannot distinguish “arrived, safely, in 20 minutes” from
+“arrived, terrifyingly, in 19 minutes”.
+--- PAGE 102 ---
+Goal-based agents
+▶Goal-based agents select actions in order to achieve desirable
+states of the environment: goals.
+▶Knowledge of the current state does not automatically tell the
+agent what to do: it must also know what it wants andwhat
+its actions will bring about .
+▶Decision making becomes complicated when long sequences of
+actions are needed: search and planning may be required (the
+next sections of this module).
+▶Big advantage: flexibility. If it starts raining, we update the
+model (“braking distances are longer”), and the behaviour
+changes automatically. A reflex agent would need all of its
+rules rewritten by hand.▶Limitation: a goal is a binary test — achieved or not. It
+cannot distinguish “arrived, safely, in 20 minutes” from
+“arrived, terrifyingly, in 19 minutes”.
+--- PAGE 103 ---
+Goal-based agents
+▶Goal-based agents select actions in order to achieve desirable
+states of the environment: goals.
+▶Knowledge of the current state does not automatically tell the
+agent what to do: it must also know what it wants andwhat
+its actions will bring about .
+▶Decision making becomes complicated when long sequences of
+actions are needed: search and planning may be required (the
+next sections of this module).
+▶Big advantage: flexibility. If it starts raining, we update the
+model (“braking distances are longer”), and the behaviour
+changes automatically. A reflex agent would need all of its
+rules rewritten by hand.
+▶Limitation: a goal is a binary test — achieved or not. It
+cannot distinguish “arrived, safely, in 20 minutes” from
+“arrived, terrifyingly, in 19 minutes”.
+--- PAGE 104 ---
+Goal-Based Agent
+AgentEnvironmentSensors
+ActuatorsWhat the world
+is like now
+What action I
+should do nowGoalHow the world evolvesState
+What my actions do What it will be likeif I do action A
+--- PAGE 105 ---
+Utility-based agents
+▶Utility-based agents use a utility function to compare the
+desirability of the different states that result from actions.▶Many action sequences may satisfy a goal — but which is the
+most desirable? (Many routes reach the airport; they differ in
+time, cost, risk and comfort.)
+▶The utility function maps a state, or a sequence of states,
+onto a number giving its usefulness to the agent. The agent
+tries to maximise expected utility.
+▶This allows two things goals cannot express:
+▶trade-offs between conflicting goals (fast vs safe);
+▶rational behaviour under uncertainty: weigh the utility of each
+outcome by its probability.
+▶The performance measure (ours, external) and the utility
+function (the agent’s, internal) should agree — when they do
+not, you get specification gaming.
+--- PAGE 106 ---
+Utility-based agents
+▶Utility-based agents use a utility function to compare the
+desirability of the different states that result from actions.
+▶Many action sequences may satisfy a goal — but which is the
+most desirable? (Many routes reach the airport; they differ in
+time, cost, risk and comfort.)▶The utility function maps a state, or a sequence of states,
+onto a number giving its usefulness to the agent. The agent
+tries to maximise expected utility.
+▶This allows two things goals cannot express:
+▶trade-offs between conflicting goals (fast vs safe);
+▶rational behaviour under uncertainty: weigh the utility of each
+outcome by its probability.
+▶The performance measure (ours, external) and the utility
+function (the agent’s, internal) should agree — when they do
+not, you get specification gaming.
+--- PAGE 107 ---
+Utility-based agents
+▶Utility-based agents use a utility function to compare the
+desirability of the different states that result from actions.
+▶Many action sequences may satisfy a goal — but which is the
+most desirable? (Many routes reach the airport; they differ in
+time, cost, risk and comfort.)
+▶The utility function maps a state, or a sequence of states,
+onto a number giving its usefulness to the agent. The agent
+tries to maximise expected utility.▶This allows two things goals cannot express:
+▶trade-offs between conflicting goals (fast vs safe);
+▶rational behaviour under uncertainty: weigh the utility of each
+outcome by its probability.
+▶The performance measure (ours, external) and the utility
+function (the agent’s, internal) should agree — when they do
+not, you get specification gaming.
+--- PAGE 108 ---
+Utility-based agents
+▶Utility-based agents use a utility function to compare the
+desirability of the different states that result from actions.
+▶Many action sequences may satisfy a goal — but which is the
+most desirable? (Many routes reach the airport; they differ in
+time, cost, risk and comfort.)
+▶The utility function maps a state, or a sequence of states,
+onto a number giving its usefulness to the agent. The agent
+tries to maximise expected utility.
+▶This allows two things goals cannot express:
+▶trade-offs between conflicting goals (fast vs safe);
+▶rational behaviour under uncertainty: weigh the utility of each
+outcome by its probability.▶The performance measure (ours, external) and the utility
+function (the agent’s, internal) should agree — when they do
+not, you get specification gaming.
+--- PAGE 109 ---
+Utility-based agents
+▶Utility-based agents use a utility function to compare the
+desirability of the different states that result from actions.
+▶Many action sequences may satisfy a goal — but which is the
+most desirable? (Many routes reach the airport; they differ in
+time, cost, risk and comfort.)
+▶The utility function maps a state, or a sequence of states,
+onto a number giving its usefulness to the agent. The agent
+tries to maximise expected utility.
+▶This allows two things goals cannot express:
+▶trade-offs between conflicting goals (fast vs safe);
+▶rational behaviour under uncertainty: weigh the utility of each
+outcome by its probability.
+▶The performance measure (ours, external) and the utility
+function (the agent’s, internal) should agree — when they do
+not, you get specification gaming.
+--- PAGE 110 ---
+Utility-Based Agent
+AgentEnvironmentSensors
+ActuatorsWhat the world
+is like now
+What action I
+should do nowWhat it will be likeif I do action A
+How happy I will bein such a stateUtilityHow the world evolvesState
+What my actions do
+--- PAGE 111 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.
+▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).
+▶Learning element: uses the critic’s feedback to improve the
+performance element.
+▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.
+This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 112 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.
+Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).
+▶Learning element: uses the critic’s feedback to improve the
+performance element.
+▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.
+This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 113 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.
+Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.
+▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).▶Learning element: uses the critic’s feedback to improve the
+performance element.
+▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.
+This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 114 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.
+Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.
+▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).
+▶Learning element: uses the critic’s feedback to improve the
+performance element.▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.
+This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 115 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.
+Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.
+▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).
+▶Learning element: uses the critic’s feedback to improve the
+performance element.
+▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 116 ---
+Learning agents
+How does the agent achieve its goal, or maximise its utility, in an
+unknown environment? Which action to choose? Learning is the
+fundamental idea — and it turns anyof the previous architectures
+into a learning agent.
+Four components (Russell & Norvig):
+▶Performance element: what we have called “the agent” so far
+— it selects actions.
+▶Critic: judges how the agent is doing against a fixed
+performance standard (the agent cannot mark its own
+homework using its own utility function).
+▶Learning element: uses the critic’s feedback to improve the
+performance element.
+▶Problem generator: suggests exploratory actions that are
+suboptimal now but informative — the reason a learning taxi
+driver must occasionally try a new route.
+This is precisely the exploration vs exploitation dilemma, and the
+basis of reinforcement learning.
+--- PAGE 117 ---
+Learning Agent
+AgentEnvironmentSensors
+ActuatorsPerformance
+elementPerformance standard
+Critic
+Learning
+element
+Problem
+generatorfeedback
+learning goalsknowledgechanges
+--- PAGE 118 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.▶A robot vacuum building a map of your flat: model-based.
+▶A route planner, a chess engine: goal-based (with search).
+▶A self-driving car balancing speed, safety and comfort:
+utility-based.
+▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.
+The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 119 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.
+▶A robot vacuum building a map of your flat: model-based.▶A route planner, a chess engine: goal-based (with search).
+▶A self-driving car balancing speed, safety and comfort:
+utility-based.
+▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.
+The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 120 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.
+▶A robot vacuum building a map of your flat: model-based.
+▶A route planner, a chess engine: goal-based (with search).▶A self-driving car balancing speed, safety and comfort:
+utility-based.
+▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.
+The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 121 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.
+▶A robot vacuum building a map of your flat: model-based.
+▶A route planner, a chess engine: goal-based (with search).
+▶A self-driving car balancing speed, safety and comfort:
+utility-based.▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.
+The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 122 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.
+▶A robot vacuum building a map of your flat: model-based.
+▶A route planner, a chess engine: goal-based (with search).
+▶A self-driving car balancing speed, safety and comfort:
+utility-based.
+▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 123 ---
+Where do today’s systems sit?
+▶A thermostat, or a spam filter: simple reflex.
+▶A robot vacuum building a map of your flat: model-based.
+▶A route planner, a chess engine: goal-based (with search).
+▶A self-driving car balancing speed, safety and comfort:
+utility-based.
+▶An LLM assistant:
+▶Environment = the repository and the human;
+▶Percepts = the user’s instructions (unsolicited, arrive any time)
+andoutputs (solicited — file contents, test results);
+▶Actions = gaining knowledge (read, test) or world-changing
+(edit file andtext back to the user);
+▶Internal state = the context window — which is why it forgets;
+▶Performance measure - very hard to write down.
+The 1995 vocabulary describes 2026 systems exactly. That is why
+we teach it.
+--- PAGE 124 ---
+Summary
+▶An agent perceives an environment through sensors and acts
+through actuators; it is specified by an agent function and
+implemented by an agent program.▶A rational agent maximises the expected value of a
+performance measure — which we choose, and can easily
+choose badly.
+▶PEAS specifies a task; the seven dimensions classify its
+environment and thereby dictate the agent design.
+▶Five architectures, each fixing a limitation of the last: simple
+reflex→model-based →goal-based →utility-based →
+learning.
+Reading
+Russell & Norvig, Artificial Intelligence: A Modern Approach ,
+Chapter 2.
+Next: problem solving by search — how a goal-based agent
+actually finds its action sequence.
+--- PAGE 125 ---
+Summary
+▶An agent perceives an environment through sensors and acts
+through actuators; it is specified by an agent function and
+implemented by an agent program.
+▶A rational agent maximises the expected value of a
+performance measure — which we choose, and can easily
+choose badly.▶PEAS specifies a task; the seven dimensions classify its
+environment and thereby dictate the agent design.
+▶Five architectures, each fixing a limitation of the last: simple
+reflex→model-based →goal-based →utility-based →
+learning.
+Reading
+Russell & Norvig, Artificial Intelligence: A Modern Approach ,
+Chapter 2.
+Next: problem solving by search — how a goal-based agent
+actually finds its action sequence.
+--- PAGE 126 ---
+Summary
+▶An agent perceives an environment through sensors and acts
+through actuators; it is specified by an agent function and
+implemented by an agent program.
+▶A rational agent maximises the expected value of a
+performance measure — which we choose, and can easily
+choose badly.
+▶PEAS specifies a task; the seven dimensions classify its
+environment and thereby dictate the agent design.▶Five architectures, each fixing a limitation of the last: simple
+reflex→model-based →goal-based →utility-based →
+learning.
+Reading
+Russell & Norvig, Artificial Intelligence: A Modern Approach ,
+Chapter 2.
+Next: problem solving by search — how a goal-based agent
+actually finds its action sequence.
+--- PAGE 127 ---
+Summary
+▶An agent perceives an environment through sensors and acts
+through actuators; it is specified by an agent function and
+implemented by an agent program.
+▶A rational agent maximises the expected value of a
+performance measure — which we choose, and can easily
+choose badly.
+▶PEAS specifies a task; the seven dimensions classify its
+environment and thereby dictate the agent design.
+▶Five architectures, each fixing a limitation of the last: simple
+reflex→model-based →goal-based →utility-based →
+learning.Reading
+Russell & Norvig, Artificial Intelligence: A Modern Approach ,
+Chapter 2.
+Next: problem solving by search — how a goal-based agent
+actually finds its action sequence.
+--- PAGE 128 ---
+Summary
+▶An agent perceives an environment through sensors and acts
+through actuators; it is specified by an agent function and
+implemented by an agent program.
+▶A rational agent maximises the expected value of a
+performance measure — which we choose, and can easily
+choose badly.
+▶PEAS specifies a task; the seven dimensions classify its
+environment and thereby dictate the agent design.
+▶Five architectures, each fixing a limitation of the last: simple
+reflex→model-based →goal-based →utility-based →
+learning.
+Reading
+Russell & Norvig, Artificial Intelligence: A Modern Approach ,
+Chapter 2.
+Next: problem solving by search — how a goal-based agent
+actually finds its action sequence.
