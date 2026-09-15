@@ -258,6 +258,43 @@
       background-color: rgba(0,0,0,0.06) !important;
       border-color: #000000 !important;
     }
+
+    /* Keep light mode genuinely light, including dynamically rendered panels. */
+    body.light-mode * {
+      background-color: #ffffff !important;
+      background-image: none !important;
+      color: #111111 !important;
+      border-color: rgba(0,0,0,0.16) !important;
+      text-shadow: none !important;
+    }
+    body.light-mode body,
+    body.light-mode main,
+    body.light-mode header,
+    body.light-mode nav,
+    body.light-mode section,
+    body.light-mode article,
+    body.light-mode aside {
+      background-color: #f7f7f7 !important;
+    }
+    body.light-mode button:hover,
+    body.light-mode .tab-active,
+    body.light-mode .theme-toggle:hover,
+    body.light-mode .search-result-item:hover,
+    body.light-mode .search-result-item.selected {
+      background-color: #eeeeee !important;
+    }
+    body.light-mode .theme-toggle,
+    body.light-mode .search-filter-chip.active,
+    body.light-mode .speed-btn.active {
+      background-color: #111111 !important;
+      color: #ffffff !important;
+    }
+    body.light-mode .theme-toggle *,
+    body.light-mode .search-filter-chip.active *,
+    body.light-mode .speed-btn.active * {
+      background-color: transparent !important;
+      color: #ffffff !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
