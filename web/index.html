@@ -104,6 +104,38 @@
       color: #000000 !important;
       background: rgba(0,0,0,0.06);
     }
+    body.light-mode [class*="bg-slate-"],
+    body.light-mode [class*="bg-blue-"],
+    body.light-mode [class*="bg-indigo-"],
+    body.light-mode [class*="bg-emerald-"],
+    body.light-mode [class*="bg-purple-"],
+    body.light-mode [class*="bg-amber-"],
+    body.light-mode [class*="bg-gradient-to-"] {
+      background-color: #ffffff !important;
+      background-image: none !important;
+    }
+    body.light-mode .bg-slate-950\/80,
+    body.light-mode .bg-slate-900\/90,
+    body.light-mode .bg-slate-900\/60,
+    body.light-mode .bg-slate-950\/70,
+    body.light-mode .bg-slate-900\/80,
+    body.light-mode .bg-slate-950\/30,
+    body.light-mode .bg-slate-900\/30,
+    body.light-mode .bg-slate-800\/90,
+    body.light-mode .bg-slate-800\/80 {
+      background-color: rgba(255,255,255,0.96) !important;
+      backdrop-filter: blur(12px);
+    }
+    body.light-mode .bg-slate-950,
+    body.light-mode .bg-slate-900,
+    body.light-mode .bg-slate-800,
+    body.light-mode .bg-slate-700,
+    body.light-mode .bg-black {
+      background-color: #ffffff !important;
+    }
+    body.light-mode [class*="shadow-"] {
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    }
     .tile { transition: all 0.15s cubic-bezier(.4,0,.2,1); cursor: pointer; user-select: none; }
     .tile:hover:not(.empty) {
       transform: translateY(-1px);
@@ -225,6 +257,43 @@
     body.light-mode .search-result-item.selected {
       background-color: rgba(0,0,0,0.06) !important;
       border-color: #000000 !important;
+    }
+
+    /* Keep light mode genuinely light, including dynamically rendered panels. */
+    body.light-mode * {
+      background-color: #ffffff !important;
+      background-image: none !important;
+      color: #111111 !important;
+      border-color: rgba(0,0,0,0.16) !important;
+      text-shadow: none !important;
+    }
+    body.light-mode body,
+    body.light-mode main,
+    body.light-mode header,
+    body.light-mode nav,
+    body.light-mode section,
+    body.light-mode article,
+    body.light-mode aside {
+      background-color: #f7f7f7 !important;
+    }
+    body.light-mode button:hover,
+    body.light-mode .tab-active,
+    body.light-mode .theme-toggle:hover,
+    body.light-mode .search-result-item:hover,
+    body.light-mode .search-result-item.selected {
+      background-color: #eeeeee !important;
+    }
+    body.light-mode .theme-toggle,
+    body.light-mode .search-filter-chip.active,
+    body.light-mode .speed-btn.active {
+      background-color: #111111 !important;
+      color: #ffffff !important;
+    }
+    body.light-mode .theme-toggle *,
+    body.light-mode .search-filter-chip.active *,
+    body.light-mode .speed-btn.active * {
+      background-color: transparent !important;
+      color: #ffffff !important;
     }
   </style>
 </head>
