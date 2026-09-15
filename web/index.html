@@ -295,6 +295,15 @@
       background-color: transparent !important;
       color: #ffffff !important;
     }
+    .endpoint-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      flex: 0 0 auto;
+    }
+    .endpoint-from { background: #16a34a !important; border: 2px solid #86efac !important; }
+    .endpoint-to { background: #dc2626 !important; border: 2px solid #fca5a5 !important; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
@@ -687,6 +696,8 @@
             </div>
             <canvas id="romania-canvas" class="w-full rounded-lg" style="height:440px;"></canvas>
             <div class="flex items-center justify-between text-[10px] bg-slate-900/90 border border-slate-800 rounded-lg p-2 mt-2">
+              <div class="flex items-center gap-1.5 font-semibold"><span class="endpoint-dot endpoint-from"></span> From</div>
+              <div class="flex items-center gap-1.5 font-semibold"><span class="endpoint-dot endpoint-to"></span> To</div>
               <div class="flex items-center gap-1.5"><span class="legend-dot" style="background:#64748b;"></span> Unvisited</div>
               <div class="flex items-center gap-1.5"><span class="legend-dot" style="background:#f59e0b;"></span> In Frontier</div>
               <div class="flex items-center gap-1.5"><span class="legend-dot" style="background:#3b82f6;"></span> Expanding</div>
@@ -3171,7 +3182,7 @@ function searchRunToggle() {
   stepLoop();
 }
 
-// Romania Road Canvas with Clean Labels & Alternating Click Selection
+// Romania Road Canvas with color-coded endpoints & alternating click selection
 let mapSelectTarget = 'goal'; // Alternates to easily choose both start and goal
 function drawRomania() {
   const c = document.getElementById('romania-canvas'); if (!c) return;
@@ -3231,19 +3242,16 @@ function drawRomania() {
     ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fillStyle = fill; ctx.fill(); ctx.strokeStyle = border; ctx.lineWidth = 2; ctx.stroke();
 
-    // Node label in contrasting background pill so it never clashes with lines
-    const labelY = (y > 200 * sc) ? y + 16 * sc : y - 14 * sc;
-    const shortName = (name === 'RimnicuVilcea') ? 'R.Vilcea' : name;
-    ctx.font = `bold ${9 * sc}px system-ui`;
-    const tw = ctx.measureText(shortName).width;
-
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-    roundRect(ctx, x - tw / 2 - 3, labelY - 8 * sc, tw + 6, 12 * sc, 3);
-    ctx.fill();
-    ctx.strokeStyle = '#334155'; ctx.lineWidth = 0.5; ctx.stroke();
-
-    ctx.fillStyle = textCol; ctx.textAlign = 'center';
-    ctx.fillText(shortName, x, labelY + 1.5 * sc);
+    // Keep the map readable: endpoint colors replace the crowded city labels.
+    if (name === sVal || name === gVal) {
+      const isStart = name === sVal;
+      ctx.beginPath(); ctx.arc(x, y, r + 6 * sc, 0, Math.PI * 2);
+      ctx.strokeStyle = isStart ? '#16a34a' : '#dc2626';
+      ctx.lineWidth = 3 * sc; ctx.stroke();
+      ctx.fillStyle = '#ffffff'; ctx.textAlign = 'center';
+      ctx.font = `bold ${10 * sc}px system-ui`;
+      ctx.fillText(isStart ? 'FROM' : 'TO', x, y + 3.5 * sc);
+    }
   }
 }
 
