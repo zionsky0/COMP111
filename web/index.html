@@ -4053,6 +4053,8 @@ let queens = []; // array of {r, c}
 let queensBacktracks = 0;
 let queensSolutionCount = 0;
 let queensAutoTimer = null;
+let queensNextRows = Array(8).fill(0);
+let queensSolutionReady = false;
 
 function renderQueensBoard() {
   const b = document.getElementById('queens-board');
@@ -4121,6 +4123,9 @@ function toggleQueen(r, c) {
   } else if (queens.length < 8) {
     queens.push({ r, c });
   }
+  queensNextRows = Array(8).fill(0);
+  queens.forEach(q => { queensNextRows[q.c] = q.r + 1; });
+  queensSolutionReady = false;
   renderQueensBoard();
 }
 
@@ -4128,29 +4133,43 @@ function resetQueens() {
   if (queensAutoTimer) { clearInterval(queensAutoTimer); queensAutoTimer = null; }
   queens = [];
   queensBacktracks = 0;
+  queensNextRows = Array(8).fill(0);
+  queensSolutionReady = false;
   const banner = document.getElementById('queens-status-banner');
   if (banner) banner.innerText = 'Board cleared. Click squares or use Auto-Solve.';
   renderQueensBoard();
 }
 
 function stepQueensSolver() {
-  const col = queens.length;
   const banner = document.getElementById('queens-status-banner');
 
-  if (col >= 8) {
-    if (banner) banner.innerText = 'Goal Reached! All 8 queens placed without conflicts.';
-    return true; // Finished
+  // A completed solution is a pause point. The next step resumes by searching
+  // for the next solution instead of repeatedly reporting the same one.
+  if (queensSolutionReady) {
+    queensSolutionReady = false;
+    const last = queens.pop();
+    queensBacktracks++;
+    if (banner) banner.innerText = `Searching beyond Solution #${queensSolutionCount}: backtracking from Col ${last.c} (Row ${last.r}).`;
+    renderQueensBoard();
+    return false;
   }
 
-  // Find first safe row in column 'col'
-  for (let r = 0; r < 8; r++) {
+  const col = queens.length;
+  if (col >= 8) return true;
+
+  // Keep a cursor for every column. Without it, a dead end would pop a
+  // queen and then retry the same row forever.
+  const startRow = queensNextRows[col];
+  for (let r = startRow; r < 8; r++) {
     const safe = !queens.some(q => q.r === r || q.c === col || Math.abs(q.r - r) === Math.abs(q.c - col));
     if (safe) {
       queens.push({ r, c: col });
+      queensNextRows[col] = r + 1;
       if (banner) banner.innerText = `Placed queen at Column ${col}, Row ${r}. Advancing to next column.`;
       renderQueensBoard();
       if (queens.length === 8) {
         queensSolutionCount++;
+        queensSolutionReady = true;
         const solEl = document.getElementById('queens-solution-counter');
         if (solEl) solEl.innerText = `Found: ${queensSolutionCount} / 92`;
         if (banner) banner.innerText = `🎉 Solution #${queensSolutionCount} found!`;
@@ -4161,24 +4180,17 @@ function stepQueensSolver() {
   }
 
   // Dead end! Backtracking required
+  queensNextRows[col] = 0;
   queensBacktracks++;
   if (queens.length > 0) {
     const last = queens.pop();
     if (banner) banner.innerText = `⚠️ Dead end at Column ${col}! Backtracking from Col ${last.c} (Row ${last.r}).`;
     renderQueensBoard();
-
-    // Try subsequent rows in the popped queen's column
-    for (let r = last.r + 1; r < 8; r++) {
-      const safe = !queens.some(q => q.r === r || q.c === last.c || Math.abs(q.r - r) === Math.abs(q.c - last.c));
-      if (safe) {
-        queens.push({ r, c: last.c });
-        if (banner) banner.innerText = `Backtracked to Col ${last.c}, tried next safe Row ${r}.`;
-        renderQueensBoard();
-        return false;
-      }
-    }
+    return false;
   }
-  return false;
+
+  if (banner) banner.innerText = 'Search exhausted: no more 8-queens solutions.';
+  return true;
 }
 
 function toggleQueensAutoRun() {
