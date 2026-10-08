@@ -4053,8 +4053,9 @@ let queens = []; // array of {r, c}
 let queensBacktracks = 0;
 let queensSolutionCount = 0;
 let queensAutoTimer = null;
-let queensNextRows = Array(8).fill(0);
+let queensNextRows = Array(8).fill(0); // next row to try at each column
 let queensSolutionReady = false;
+let queensSearchExhausted = false;
 
 function renderQueensBoard() {
   const b = document.getElementById('queens-board');
@@ -4126,6 +4127,7 @@ function toggleQueen(r, c) {
   queensNextRows = Array(8).fill(0);
   queens.forEach(q => { queensNextRows[q.c] = q.r + 1; });
   queensSolutionReady = false;
+  queensSearchExhausted = false;
   renderQueensBoard();
 }
 
@@ -4135,6 +4137,7 @@ function resetQueens() {
   queensBacktracks = 0;
   queensNextRows = Array(8).fill(0);
   queensSolutionReady = false;
+  queensSearchExhausted = false;
   const banner = document.getElementById('queens-status-banner');
   if (banner) banner.innerText = 'Board cleared. Click squares or use Auto-Solve.';
   renderQueensBoard();
@@ -4143,54 +4146,63 @@ function resetQueens() {
 function stepQueensSolver() {
   const banner = document.getElementById('queens-status-banner');
 
+  if (queensSearchExhausted) {
+    if (banner) banner.innerText = 'Search exhausted: all 92 8-queens solutions have been found.';
+    return true;
+  }
+
   // A completed solution is a pause point. The next step resumes by searching
   // for the next solution instead of repeatedly reporting the same one.
   if (queensSolutionReady) {
     queensSolutionReady = false;
-    const last = queens.pop();
+    queensNextRows[7] = queens[7].r + 1;
+    queens.pop();
     queensBacktracks++;
-    if (banner) banner.innerText = `Searching beyond Solution #${queensSolutionCount}: backtracking from Col ${last.c} (Row ${last.r}).`;
-    renderQueensBoard();
-    return false;
   }
 
-  const col = queens.length;
-  if (col >= 8) return true;
-
-  // Keep a cursor for every column. Without it, a dead end would pop a
-  // queen and then retry the same row forever.
-  const startRow = queensNextRows[col];
-  for (let r = startRow; r < 8; r++) {
-    const safe = !queens.some(q => q.r === r || q.c === col || Math.abs(q.r - r) === Math.abs(q.c - col));
-    if (safe) {
-      queens.push({ r, c: col });
-      queensNextRows[col] = r + 1;
-      if (banner) banner.innerText = `Placed queen at Column ${col}, Row ${r}. Advancing to next column.`;
+  // Iterative depth-first search. Each column owns a cursor, so every row is
+  // tried once before the search unwinds to the previous column.
+  let col = queens.length;
+  while (col <= 8) {
+    if (col === 8) {
+      queensSolutionCount++;
+      queensSolutionReady = true;
+      const solEl = document.getElementById('queens-solution-counter');
+      if (solEl) solEl.innerText = `Found: ${queensSolutionCount} / 92`;
+      if (banner) banner.innerText = `🎉 Solution #${queensSolutionCount} found!`;
       renderQueensBoard();
-      if (queens.length === 8) {
-        queensSolutionCount++;
-        queensSolutionReady = true;
-        const solEl = document.getElementById('queens-solution-counter');
-        if (solEl) solEl.innerText = `Found: ${queensSolutionCount} / 92`;
-        if (banner) banner.innerText = `🎉 Solution #${queensSolutionCount} found!`;
-        return true;
-      }
-      return false;
+      return true;
     }
-  }
 
-  // Dead end! Backtracking required
-  queensNextRows[col] = 0;
-  queensBacktracks++;
-  if (queens.length > 0) {
-    const last = queens.pop();
-    if (banner) banner.innerText = `⚠️ Dead end at Column ${col}! Backtracking from Col ${last.c} (Row ${last.r}).`;
-    renderQueensBoard();
-    return false;
-  }
+    let placed = false;
+    for (let r = queensNextRows[col]; r < 8; r++) {
+      queensNextRows[col] = r + 1;
+      const safe = !queens.some(q => q.r === r || q.c === col || Math.abs(q.r - r) === Math.abs(q.c - col));
+      if (safe) {
+        queens.push({ r, c: col });
+        if (banner) banner.innerText = `Placed queen at Column ${col}, Row ${r}.`;
+        renderQueensBoard();
+        placed = true;
+        break;
+      }
+    }
+    if (placed) return false;
 
-  if (banner) banner.innerText = 'Search exhausted: no more 8-queens solutions.';
-  return true;
+    queensNextRows[col] = 0;
+    if (col === 0) {
+      queensSearchExhausted = true;
+      queens = [];
+      if (banner) banner.innerText = 'Search exhausted: all 92 8-queens solutions have been found.';
+      renderQueensBoard();
+      return true;
+    }
+
+    const removed = queens.pop();
+    queensBacktracks++;
+    col--;
+    if (banner) banner.innerText = `⚠️ Dead end at Column ${col + 1}; backtracking from Column ${removed.c}.`;
+  }
+  return false;
 }
 
 function toggleQueensAutoRun() {
